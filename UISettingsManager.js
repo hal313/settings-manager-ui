@@ -180,6 +180,5 @@ var UISettingsManager = function(templateManager) {
     return {
         getUserSpecifiedSettings: _getUserSpecifiedSettings,
         populateUserSpecifiedSettings: _populateUserSpecifiedSettings
-
     };
 };
