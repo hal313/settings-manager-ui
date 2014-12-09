@@ -5,6 +5,7 @@
 // TODO: Make singleton
 // TODO: Make a jquery plugin
 // TODO: Use logger instead of console
+// TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
 
 var UISettingsManager = function(templateManager) {
     'use strict';
