@@ -1,6 +1,6 @@
 {
     "name": "ui-settings-manager",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "A JavaScript library to manage persisting UI settings",
     "scripts": {
         "test": "grunt test"
