@@ -6,9 +6,11 @@
         "john-github@rmdashrf.org"
     ],
     "description": "A JavaScript library to manage persisting UI settings",
-    "main": "dist/UISettingsManager.min.js",
+    "main": "dist/UISettingsManager.js",
     "moduleType": [
-        "globals"
+        "amd",
+        "globals",
+        "node"
     ],
     "keywords": [
         "ui",
