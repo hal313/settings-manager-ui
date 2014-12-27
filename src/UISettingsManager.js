@@ -142,26 +142,6 @@
             });
         };
 
-        // For each setting, attempt to find a ui component that matches and populate it based on formatting rules
-        var _populateUserSpecifiedSettings = function(settings) {
-            jQuery.each(settings, function(name, value) {
-                if ('boolean' === typeof value) { //
-                    _populateBoolean$UIComponent(name, value);
-                } else if (jQuery.isArray(value)) {
-                    _populateObjectArray$UIComponent(name, value);
-                } else if (jQuery.isNumeric(value)) {
-                    _populateNumeric$UIComponent(name, value);
-                } else if ('string' === typeof value) {
-                    _populateString$UIComponent(name, value);
-                } else if ('object' === typeof value) {
-                    _populateObject$UIComponent(name, value);
-                } else {
-                    // This is an error, log it
-                    console.error('Unknown setting type', name, value, typeof value);
-                }
-            });
-        };
-
         var _extractObjectElement = function($objectDescriptorElement) {
             var item = {};
 
@@ -171,7 +151,6 @@
                 var validate = $memberContainer.data('setting-object-member-validate');
 
                 // TODO: Check for only one!
-                // var $valueElement = $memberContainer.find('[data-setting-object-member-value]');
                 var $valueElement = $memberContainer;
                 var value = $valueElement.val();
 
@@ -237,8 +216,9 @@
             return returnValue;
         };
 
+
         // This gets the settings FROM THE PAGE
-        var _getUserSpecifiedSettings = function() {
+        var _getSettingsFromUI = function() {
             var settings = {};
 
             jQuery('[data-setting-name]').each(function(index, item) {
@@ -256,16 +236,34 @@
             return settings;
         };
 
+        // For each setting, attempt to find a ui component that matches and populate it based on formatting rules
+        var _putSettingsIntoUI = function(settings) {
+            jQuery.each(settings, function(name, value) {
+                if ('boolean' === typeof value) { //
+                    _populateBoolean$UIComponent(name, value);
+                } else if (jQuery.isArray(value)) {
+                    _populateObjectArray$UIComponent(name, value);
+                } else if (jQuery.isNumeric(value)) {
+                    _populateNumeric$UIComponent(name, value);
+                } else if ('string' === typeof value) {
+                    _populateString$UIComponent(name, value);
+                } else if ('object' === typeof value) {
+                    _populateObject$UIComponent(name, value);
+                } else {
+                    // This is an error, log it
+                    console.error('Unknown setting type', name, value, typeof value);
+                }
+            });
+        };
+
         return {
-            // TODO: Rename this!
-            getUserSpecifiedSettings: _getUserSpecifiedSettings,
-            populateUserSpecifiedSettings: _populateUserSpecifiedSettings
+            getSettingsFromUI: _getSettingsFromUI,
+            putSettingsIntoUI: _putSettingsIntoUI
         };
     };
 
     // Place the version as a member in the function
-    // TODO: Uncomment once build resolvers are enabled
-    // UISettingsManager.version = '${build.version}';
+    UISettingsManager.version = '${build.version}';
 
     return UISettingsManager;
 
