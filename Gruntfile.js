@@ -166,6 +166,8 @@ module.exports = function(grunt) {
     grunt.registerTask('test-dist', ['build-dist', 'open:dist', 'watch']);
     // Test the minified dist file
     grunt.registerTask('test-dist-min', ['build-dist', 'open:distmin', 'watch']);
+    // Test all the files at once!
+    grunt.registerTask('test-all', ['build-dist', 'open:source', 'open:dist', 'open:distmin', 'watch']);
     //
     // Headless test tasks
     //
@@ -276,5 +278,5 @@ module.exports = function(grunt) {
 //    grunt.registerTask('test-dist-min', ['dist', 'open:distmin', 'watch']);
 //
 //    // Default task.
-//    grunt.registerTask('default', 'test');
+//   grunt.registerTask('default', 'test');
 //};
