@@ -2,8 +2,8 @@
 /*global console:false */
 
 // Build User: jghidiu
-// Version: 2.0.0
-// Build Date: Sat Dec 27 2014 09:19:12 GMT-0500 (Eastern Standard Time)
+// Version: 2.0.1
+// Build Date: Sat Dec 27 2014 09:38:35 GMT-0500 (Eastern Standard Time)
 
 // TODO: Make a jquery plugin
 // TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
@@ -263,7 +263,7 @@
     };
 
     // Place the version as a member in the function
-    UISettingsManager.version = '2.0.0';
+    UISettingsManager.version = '2.0.1';
 
     return UISettingsManager;
 

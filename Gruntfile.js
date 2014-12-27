@@ -8,16 +8,6 @@
 module.exports = function(grunt) {
     'use strict';
 
-    // The build version
-    var _buildVersion = grunt.file.readJSON('package.json').version;
-    // The build date
-    var _buildDate = new Date();
-    var _buildUser = '';
-    if ('win32' === process.platform) {
-        _buildUser = process.env.USERNAME;
-    } else if ('linux' === process.platform) {
-        _buildUser = process.env.USER;
-    }
 
 
     // The file which has replacements in JSON format
@@ -33,6 +23,16 @@ module.exports = function(grunt) {
     // Change any strings in the content that match ${string} to the value specified in replacements.json
     var _resolveFileContent = function(content) {
         var resolvedContent = content;
+        // The build version
+        var _buildVersion = grunt.file.readJSON('package.json').version;
+        // The build date
+        var _buildDate = new Date();
+        var _buildUser = '';
+        if ('win32' === process.platform) {
+            _buildUser = process.env.USERNAME;
+        } else if ('linux' === process.platform) {
+            _buildUser = process.env.USER;
+        }
 
         // The default resolvers (build user, version and date)
         resolvedContent = resolvedContent.replace(new RegExp('\\${build.user}', 'gi'), _buildUser);
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
     // Register tasks
     grunt.registerTask('build', ['jshint:source']);
     grunt.registerTask('build-dist', ['build', 'copy:dist', 'uglify:dist', 'jshint:dist']);
-    grunt.registerTask('dist', ['build-dist', 'mocha:all', 'bump:patch']);
+    grunt.registerTask('dist', ['bump:patch', 'build-dist', 'mocha:all']);
     grunt.registerTask('release-patch', ['dist'  /*TODO: check for non-added files, add package files, verify no other changes, commit, tag, push*/]);
     grunt.registerTask('release-minor', ['dist', /*TODO: check for non-added files, add package files, verify no other changes, commit, tag */ 'bump:minor' /*TODO: add package files, commit, push*/ ]);
     grunt.registerTask('release-major', ['dist', /*TODO: check for non-added files, add package files, verify no other changes, commit, tag */ 'bump:major' /*TODO: add package files, commit, push*/ ]);
