@@ -1,19 +1,9 @@
 /*global module:true */
 
-// TODO: Implement code coverage
-// TODO: release should run headless test (phantomJS?)
-// TODO: Get build/dist/release working with bump (build should not tag, dist should bump, tag and commit, release should bump:minor, tag and commit (and push?))
-
 /**
  * @author: jghidiu
  * Date: 2014-12-08
  */
-
-
-
-
-
-/*global module:true */
 
 module.exports = function(grunt) {
     'use strict';
@@ -28,7 +18,6 @@ module.exports = function(grunt) {
     } else if ('linux' === process.platform) {
         _buildUser = process.env.USER;
     }
-
 
 
     // The file which has replacements in JSON format
