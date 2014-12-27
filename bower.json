@@ -13,10 +13,9 @@
         "node"
     ],
     "keywords": [
-        "ui",
         "settings",
-        "javascript",
-        "jquery"
+        "declarative",
+        "javascript"
     ],
     "license": "MIT",
     "ignore": [
