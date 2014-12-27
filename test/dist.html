@@ -32,5 +32,52 @@
   <script src="../spec/UISettingsManager-spec.js"></script>
 
   <script>mocha.run()</script>
+
+  <div style="display: none;">
+
+      <div>
+          <input type="checkbox" data-setting-name="boolean-single" data-setting-type="boolean" checked/>
+      </div>
+
+      <div>
+          <input data-setting-name="number-single" data-setting-type="number" value="1"/>
+      </div>
+
+      <div>
+          <input data-setting-name="string-single" data-setting-type="string" value="someString"/>
+      </div>
+
+      <div data-setting-name="object-single" data-setting-type="object">
+          <div>
+              <input type="text" data-setting-object-member="os1_e1" data-setting-object-member-validate="empty(value):ignore"value="os1_e1-V"/>
+          </div>
+          <div>
+              <input type="text" data-setting-object-member="os1_e2" value="os1_e2-V"/>
+          </div>
+      </div>
+
+      <div data-setting-name="object-array" data-setting-type="objectarray">
+
+          <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
+              <div>
+                  <input type="text" data-setting-object-member="oa1_e1_m1"value="oa1_e1_m1-V" data-setting-object-member-validate="empty(value):ignore"/>
+              </div>
+              <div>
+                  <input type="text" data-setting-object-member="oa1_e1_m2"value="oa1_e1_m2-V" data-setting-object-member-validate="empty(value):ignore"/>
+              </div>
+          </div>
+
+          <div data-setting-object-element>
+              <div>
+                  <input type="text" data-setting-object-member="oa1_e2_m1"value="oa1_e2_m1-V"/>
+              </div>
+              <div>
+                  <input type="text" data-setting-object-member="oa1_e2_m2"value="oa1_e2_m2-V"/>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
 </body>
 </html>

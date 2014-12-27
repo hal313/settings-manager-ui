@@ -1,20 +1,21 @@
 {
     "name": "ui-settings-manager",
-    "version": "1.0.17",
+    "version": "2.0.1",
     "homepage": "https://github.com/hal313/ui-settings-manager",
     "authors": [
         "john-github@rmdashrf.org"
     ],
     "description": "A JavaScript library to manage persisting UI settings",
-    "main": "dist/UISettingsManager.min.js",
+    "main": "dist/UISettingsManager.js",
     "moduleType": [
-        "globals"
+        "amd",
+        "globals",
+        "node"
     ],
     "keywords": [
-        "ui",
         "settings",
-        "javascript",
-        "jquery"
+        "declarative",
+        "javascript"
     ],
     "license": "MIT",
     "ignore": [
