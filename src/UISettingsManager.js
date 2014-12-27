@@ -1,6 +1,5 @@
-/*global jQuery:false */
+/*global jQuery,$:false */
 /*global console:false */
-/*global TemplateManager:false */
 
 // Build User: ${build.user}
 // Version: ${build.version}
@@ -9,6 +8,10 @@
 // TODO: Make a jquery plugin
 // TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
 // TODO: In readme, talk about how this can be a declarative solution to options
+// TODO: Use an array of validators, not just one
+// TODO: Allow types to be specified for each array value
+// TODO: Get rid of data-setting-xxx
+// TODO: Rename member to property
 
 (function(root, factory) {
     'use strict';
@@ -51,15 +54,14 @@
             module.exports = factory();
         } else {
             // None
-            root.TemplateManager = factory();
+            root.UISettingsManager = factory();
         }
     }
 
 })(this, function() {
     'use strict';
 
-    var UISettingsManager = function(templateManager) {
-        var _templateManager = templateManager || new TemplateManager();
+    var UISettingsManager = function() {
 
         var _get$UIComponent = function(name) {
             var $uiComponent = jQuery('[data-setting-name=' + name + ']');
@@ -107,50 +109,52 @@
             _populateString$UIComponent(name, value);
         };
 
+        var _populateObject$UIComponent = function(name, value) {
+            // TODO: Take type as a parameter and shell out to the correct _populateXXX$UIComponent() function
+            var $objectContainer = _get$UIComponent(name);
+
+            $objectContainer.find('[data-setting-object-member]').each(function(index, member) {
+                var $member = $(member);
+                var name = $member.data('setting-object-member');
+
+                $member.val(value[name]);
+            });
+        };
+
+        var _populateObjectArray$UIComponent = function(name, value) {
+            // TODO: Take type as a parameter and shell out to the correct _populateXXX$UIComponent() function
+            // TODO: Fix the "ordering problem" (possible solutions)
+            //  1.) assume that the order is as desired
+            //  2.) match based on prop names
+            //  3.) have id/index in elements
+
+            var $objectArrayContainer = _get$UIComponent(name);
+
+            $objectArrayContainer.find('[data-setting-object-element]').each(function(index, element) {
+                var item = value[index];
+                var $element = $(element);
+
+                $element.find('[data-setting-object-member]').each(function(index, member) {
+                    var $member = $(member);
+                    var name = $member.data('setting-object-member');
+                    $member.val(item[name]);
+                });
+            });
+        };
+
         // For each setting, attempt to find a ui component that matches and populate it based on formatting rules
         var _populateUserSpecifiedSettings = function(settings) {
             jQuery.each(settings, function(name, value) {
                 if ('boolean' === typeof value) { //
                     _populateBoolean$UIComponent(name, value);
                 } else if (jQuery.isArray(value)) {
-                    var $root = _get$UIComponent(name);
-                    if (null !== $root) {
-                        jQuery.each(value, function(index, arrayValue) {
-                            // The template name is stored as a data attribute (template-name)
-                            // The element to append to is the root
-                            var $keyElement;
-                            var $valueElement;
-                            var keyName;
-                            var valueName;
-
-                            // Create the new element by getting the template and processing it
-                            var $newElement;
-
-                            $newElement = jQuery(_templateManager.get($root.data('template-name')).process());
-
-                            // Append the new element
-                            $root.append($newElement);
-
-                            // Set the key and value for the new element
-                            //
-                            // Get the key and value elements
-                            $keyElement = $newElement.find('[data-setting-array-key]');
-                            $valueElement = $newElement.find('[data-setting-array-value]');
-                            // Get the values from the elements (the array indices)
-                            keyName = $keyElement.data('setting-array-key');
-                            valueName = $valueElement.data('setting-array-value');
-                            //
-                            // Set the values
-                            $keyElement.val(arrayValue[keyName]);
-                            $valueElement.val(arrayValue[valueName]);
-                        });
-                    } else {
-                        _onNoMatching$UIComponent(name, value);
-                    }
+                    _populateObjectArray$UIComponent(name, value);
                 } else if (jQuery.isNumeric(value)) {
                     _populateNumeric$UIComponent(name, value);
                 } else if ('string' === typeof value) {
                     _populateString$UIComponent(name, value);
+                } else if ('object' === typeof value) {
+                    _populateObject$UIComponent(name, value);
                 } else {
                     // This is an error, log it
                     console.error('Unknown setting type', name, value, typeof value);
@@ -158,13 +162,41 @@
             });
         };
 
+        var _extractObjectElement = function($objectDescriptorElement) {
+            var item = {};
+
+            $objectDescriptorElement.find('[data-setting-object-member]').each(function(index, member) {
+                var $memberContainer = $(member);
+                var name = $memberContainer.data('setting-object-member');
+                var validate = $memberContainer.data('setting-object-member-validate');
+
+                // TODO: Check for only one!
+                // var $valueElement = $memberContainer.find('[data-setting-object-member-value]');
+                var $valueElement = $memberContainer;
+                var value = $valueElement.val();
+
+                // If no name is provided, do not add the member to the object
+                if (name && 0 !== name.trim().length) {
+                    if ('empty(value):ignore' === validate) {
+                        if (value && 0 !== value.trim().length) {
+                            item[name] = value;
+                        }
+                    } else {
+                        item[name] = value;
+                    }
+                }
+            });
+
+            return item;
+        };
 
         // Gets user specified settings from the UI and returns a settings object
         var _getFrom$UIComponent = function($uiComponent) {
+            // TODO: Break up all the getters as functions
             var name = $uiComponent.data('setting-name');
             var returnValue = $uiComponent.val();
 
-            if ('boolean' === $uiComponent.data('setting-type') || 'checkbox' === $uiComponent[0].type) {
+            if ('boolean' === $uiComponent.data('setting-type') || 'bool' === $uiComponent.data('setting-type') || 'checkbox' === $uiComponent[0].type) {
                 if ('checkbox' === $uiComponent[0].type) {
                     returnValue = $uiComponent.is(':checked');
                 } else {
@@ -174,31 +206,28 @@
                 returnValue = parseInt($uiComponent.val());
             } else if ('string' === $uiComponent.data('setting-type') || 'text' === $uiComponent[0].type) {
                 returnValue = $uiComponent.val();
-            } else if ('array' === $uiComponent.data('setting-type')) {
-                var $arrayElements = $uiComponent.find('[data-setting-array-id]');
+            } else if ('object' === $uiComponent.data('setting-type')) {
+                returnValue = _extractObjectElement($uiComponent);
+           } else if ('objectarray' === $uiComponent.data('setting-type')) {
                 var array = [];
+                var $objectContainers = $uiComponent.find('[data-setting-object-element]');
 
-                // For each element in the ui array elements, get the key and value and put into an array
-                $arrayElements.each(function(index, arrayElement) {
-                    var $arrayElement = jQuery(arrayElement);
-                    //var id = $arrayElement.data('setting-array-id');
-                    // TODO: Check for only one!
-                    var $keyElement = $arrayElement.find('[data-setting-array-key]');
-                    var $valueElement = $arrayElement.find('[data-setting-array-value]');
-                    var keyName = $keyElement.data('setting-array-key');
-                    var key = $keyElement.val();
-                    var valueName = $valueElement.data('setting-array-value');
-                    var value = $valueElement.val();
-                    var keyValidate = $keyElement.data('setting-array-key-validate');
-                    var item = {};
-                    item[keyName] = key;
-                    item[valueName] = value;
+                $objectContainers.each(function(index, objectContainer) {
+                    var $objectContainer = jQuery(objectContainer);
+                    var validate = $objectContainer.data('setting-object-member-validate');
 
-                    // Skip if the key is empty and empty:ignore is specified
-                    if (0 !== key.trim().length || 'empty:ignore' !== keyValidate) {
+                    var item = _extractObjectElement($objectContainer);
+
+                    // Add the item to the array (check to see if empty objects are allowed)
+                    if ('empty(object):ignore' === validate) {
+                        if (0 !== Object.getOwnPropertyNames(item).length) {
+                            array.push(item);
+                        }
+                    } else {
                         array.push(item);
                     }
                 });
+
                 returnValue = array;
             } else {
                 console.warn('Unknown data type for setting', name, returnValue);
@@ -228,6 +257,7 @@
         };
 
         return {
+            // TODO: Rename this!
             getUserSpecifiedSettings: _getUserSpecifiedSettings,
             populateUserSpecifiedSettings: _populateUserSpecifiedSettings
         };
