@@ -1,6 +1,6 @@
 {
   "name": "ui-settings-manager",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "homepage": "https://github.com/hal313/ui-settings-manager",
   "authors": [
     "john-github@rmdashrf.org"
@@ -26,7 +26,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "template-manager": "~1.1.6"
   },
   "devDependencies": {
     "chai": "~1.8.0",
