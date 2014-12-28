@@ -8,21 +8,20 @@
 module.exports = function(grunt) {
     'use strict';
 
-
-
-    // The file which has replacements in JSON format
-    var _replacementFilePath = 'replacements.json';
-    // The replacements read in from the file
-    var _replacements = null;
-    // If the file is not present, _replacements will be null
-    if (grunt.file.exists(_replacementFilePath) && grunt.file.isFile(_replacementFilePath)) {
-        _replacements = grunt.file.readJSON(_replacementFilePath);
-    }
-
-
     // Change any strings in the content that match ${string} to the value specified in replacements.json
     var _resolveFileContent = function(content) {
         var resolvedContent = content;
+
+        // The file which has replacements in JSON format
+        var _replacementFilePath = 'replacements.json';
+
+        // The replacements read in from the file
+        var _replacements = null;
+        // If the file is not present, _replacements will be null
+        if (grunt.file.exists(_replacementFilePath) && grunt.file.isFile(_replacementFilePath)) {
+            _replacements = grunt.file.readJSON(_replacementFilePath);
+        }
+
         // The build version
         var _buildVersion = grunt.file.readJSON('package.json').version;
         // The build date
@@ -120,6 +119,8 @@ module.exports = function(grunt) {
         },
         mocha: {
             options: {
+                // Uncomment to see console logging
+                // log: true,
                 run: true,
                 reporter: 'Spec'
             },
