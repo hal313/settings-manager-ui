@@ -4,7 +4,7 @@
 
 // Build User: jghidiu
 // Version: 2.0.2
-// Build Date: Sat Dec 27 2014 22:04:05 GMT-0500 (Eastern Standard Time)
+// Build Date: Sun Dec 28 2014 14:42:37 GMT-0500 (Eastern Standard Time)
 
 // TODO: Make a jquery plugin
 // TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
@@ -68,7 +68,6 @@
             return new UISettingsManager(templateManager);
         }
 
-
         var _templateManager = templateManager || new TemplateManager();
 
         var _get$UIComponent = function(name) {
@@ -86,58 +85,74 @@
 
             return returnValue;
         };
-        var _onNoMatching$UIComponent = function(name, value) {
-            console.warn('Could not manipulate setting', name, value, 'because no matching UI element is present in the DOM');
+
+//        var _onNoMatchingByName = function(name, value) {
+//            _onNoMatchingBy$UIComponent(_get$UIComponent(name), value);
+//        };
+
+        // TODO: Make sure that we can get the name of the component from the $uiComponent
+        var _onNoMatchingBy$UIComponent = function($uiComponent, value) {
+//            console.warn('Could not manipulate setting', name, value, 'because no matching UI element is present in the DOM');
+//            console.warn('Could not manipulate setting', $uiComponent.data('setting-name'), value, 'because no matching UI element is present in the DOM');
+//            console.log($uiComponent);
+            console.warn('Could not manipulate setting with value', value, 'because no matching UI element is present in the DOM');
         };
 
-        var _populateString$UIComponent = function(name, value) {
-            var $uiComponent = _get$UIComponent(name);
+
+        var _populateString$UIComponent = function($uiComponent, value) {
             if (null !== $uiComponent) {
                 $uiComponent.val(value);
             } else {
-                _onNoMatching$UIComponent(name, value);
+                _onNoMatchingBy$UIComponent($uiComponent, value);
             }
         };
 
-        var _populateBoolean$UIComponent = function(name, value) {
+        var _populateBoolean$UIComponent = function($uiComponent, value) {
             // See if the setting is a checkbox
-            var $item = _get$UIComponent(name);
-            if (null !== $item) {
-                if ('checkbox' === $item[0].type) {
-                    $item.prop('checked', value);
+            if (null !== $uiComponent) {
+                if ('checkbox' === $uiComponent[0].type) {
+                    $uiComponent.prop('checked', value);
                 } else {
-                    _populateString$UIComponent(name, value);
+                    _populateString$UIComponent($uiComponent, value);
                 }
             } else {
-                _onNoMatching$UIComponent(name, value);
+                _onNoMatchingBy$UIComponent($uiComponent, value);
             }
         };
 
-        var _populateNumeric$UIComponent = function(name, value) {
-            _populateString$UIComponent(name, value);
+        var _populateNumber$UIComponent = function($uiComponent, value) {
+            _populateString$UIComponent($uiComponent, value);
         };
 
-        var _populateObject$UIComponent = function(name, value) {
-            // TODO: Take type as a parameter and shell out to the correct _populateXXX$UIComponent() function
-            var $objectContainer = _get$UIComponent(name);
-
-            $objectContainer.find('[data-setting-object-member]').each(function(index, member) {
+        var _populateObject$UIComponent = function($uiComponent, value) {
+            $uiComponent.find('[data-setting-object-member]').each(function(index, member) {
                 var $member = $(member);
                 var name = $member.data('setting-object-member');
+                var type = $member.data('setting-type') || 'string'; // Default to 'string'
+                if ('string' === type) {
+                    _populateString$UIComponent($member, value[name]);
+                } else if ('number' === type) {
+                    _populateNumber$UIComponent($member, value[name]);
+                } else if ('boolean' === type || 'bool' === type) {
+                    _populateBoolean$UIComponent($member, value[name]);
+                } else {
+                    // TODO: Try to figure it out (is it a checkbox?)
 
-                $member.val(value[name]);
+                    // If we can't figure it out, log an error
+                    console.log('Unable to establish type for', name, 'falling back to \'string\'');
+                    // If we can't figure it out, take a crack at it
+                    _populateString$UIComponent($member, value[name]);
+                }
             });
         };
 
-        var _populateObjectArray$UIComponent = function(name, value) {
-            // TODO: Take type as a parameter and shell out to the correct _populateXXX$UIComponent() function
+        var _populateObjectArray$UIComponent = function($uiComponent, value) {
             // TODO: Fix the "ordering problem" (possible solutions)
             //  1.) assume that the order is as desired
             //  2.) match based on prop names
             //  3.) have id/index in elements
 
-            var $objectArrayContainer = _get$UIComponent(name);
-            var templateName = $objectArrayContainer.data('template-name');
+            var templateName = $uiComponent.data('template-name');
             var template = _templateManager.get(templateName);
 
             var resolvedContent;
@@ -162,30 +177,70 @@
                 $newElement = $(resolvedContent);
 
                 // Add the new content into the DOM
-                $objectArrayContainer.append($newElement);
+                $uiComponent.append($newElement);
 
                 // Set the values of the new element
-                $newElement.find('[data-setting-object-member]').each(function(index, member) {
-                    var $member = $(member);
-                    var name = $member.data('setting-object-member');
-                    $member.val(item[name]);
-                });
-
+                _populateObject$UIComponent($newElement, item);
             });
 
         };
 
-        var _extractObjectElement = function($objectDescriptorElement) {
+
+        var _populateStringValueByName = function(name, value) {
+            _populateString$UIComponent(_get$UIComponent(name), value);
+        };
+
+        var _populateBooleanValueByName = function(name, value) {
+            _populateBoolean$UIComponent(_get$UIComponent(name), value);
+        };
+
+        var _populateNumberValueByName = function(name, value) {
+            _populateNumber$UIComponent(_get$UIComponent(name), value);
+        };
+
+        var _populateObjectValueByName = function(name, value) {
+            _populateObject$UIComponent(_get$UIComponent(name), value);
+        };
+
+        var _populateObjectArrayValueByName = function(name, value) {
+            _populateObjectArray$UIComponent(_get$UIComponent(name), value);
+        };
+
+
+        var _getString$UIComponent = function($uiComponent) {
+            return $uiComponent.val();
+        };
+
+        var _getBoolean$UIComponent = function($uiComponent) {
+            if ('checkbox' === $uiComponent[0].type) {
+                return $uiComponent.is(':checked');
+            } else {
+                return 'true' === $uiComponent.val().toLowerCase();
+            }
+        };
+
+        var _getNumber$UIComponent = function($uiComponnt) {
+            return parseInt(_getString$UIComponent($uiComponnt));
+        };
+
+        var _getObject$UIComponent = function($uiComponent) {
             var item = {};
 
-            $objectDescriptorElement.find('[data-setting-object-member]').each(function(index, member) {
+            $uiComponent.find('[data-setting-object-member]').each(function(index, member) {
                 var $memberContainer = $(member);
+                // TODO: Be sure there is only one element (or log a warning message)!
                 var name = $memberContainer.data('setting-object-member');
                 var validate = $memberContainer.data('setting-object-member-validate');
+                var type = $memberContainer.data('setting-type') || 'string';
+                var value;
 
-                // TODO: Check for only one!
-                var $valueElement = $memberContainer;
-                var value = $valueElement.val();
+                if ('string' === type) {
+                    value = _getString$UIComponent($memberContainer);
+                } else if ('number' === type) {
+                    value = _getNumber$UIComponent($memberContainer);
+                } else if ('boolean' === type || 'bool' === type) {
+                    value = _getBoolean$UIComponent($memberContainer);
+                }
 
                 // If no name is provided, do not add the member to the object
                 if (name && 0 !== name.trim().length) {
@@ -202,45 +257,46 @@
             return item;
         };
 
+        var _getObjectArray$UIComponent = function($uiComponent) {
+            var array = [];
+            var $objectContainers = $uiComponent.find('[data-setting-object-element]');
+
+            $objectContainers.each(function(index, objectContainer) {
+                var $objectContainer = jQuery(objectContainer);
+                var validate = $objectContainer.data('setting-object-member-validate');
+
+                var item = _getObject$UIComponent($objectContainer);
+
+                // Add the item to the array (check to see if empty objects are allowed)
+                if ('empty(object):ignore' === validate) {
+                    if (0 !== Object.getOwnPropertyNames(item).length) {
+                        array.push(item);
+                    }
+                } else {
+                    array.push(item);
+                }
+            });
+
+            return array;
+        };
+
+
+
         // Gets user specified settings from the UI and returns a settings object
-        var _getFrom$UIComponent = function($uiComponent) {
-            // TODO: Break up all the getters as functions
+        var _getValueFrom$UIComponent = function($uiComponent) {
             var name = $uiComponent.data('setting-name');
             var returnValue = $uiComponent.val();
 
             if ('boolean' === $uiComponent.data('setting-type') || 'bool' === $uiComponent.data('setting-type') || 'checkbox' === $uiComponent[0].type) {
-                if ('checkbox' === $uiComponent[0].type) {
-                    returnValue = $uiComponent.is(':checked');
-                } else {
-                    returnValue = 'true' === $uiComponent.val().toLowerCase();
-                }
+                returnValue = _getBoolean$UIComponent($uiComponent);
             } else if ('number' === $uiComponent.data('setting-type') || 'number' === $uiComponent[0].type) {
-                returnValue = parseInt($uiComponent.val());
+                returnValue = _getNumber$UIComponent($uiComponent);
             } else if ('string' === $uiComponent.data('setting-type') || 'text' === $uiComponent[0].type) {
-                returnValue = $uiComponent.val();
+                returnValue = _getString$UIComponent($uiComponent);
             } else if ('object' === $uiComponent.data('setting-type')) {
-                returnValue = _extractObjectElement($uiComponent);
+                returnValue = _getObject$UIComponent($uiComponent);
            } else if ('objectarray' === $uiComponent.data('setting-type')) {
-                var array = [];
-                var $objectContainers = $uiComponent.find('[data-setting-object-element]');
-
-                $objectContainers.each(function(index, objectContainer) {
-                    var $objectContainer = jQuery(objectContainer);
-                    var validate = $objectContainer.data('setting-object-member-validate');
-
-                    var item = _extractObjectElement($objectContainer);
-
-                    // Add the item to the array (check to see if empty objects are allowed)
-                    if ('empty(object):ignore' === validate) {
-                        if (0 !== Object.getOwnPropertyNames(item).length) {
-                            array.push(item);
-                        }
-                    } else {
-                        array.push(item);
-                    }
-                });
-
-                returnValue = array;
+                returnValue = _getObjectArray$UIComponent($uiComponent);
             } else {
                 console.warn('Unknown data type for setting', name, returnValue);
                 returnValue = $uiComponent.val();
@@ -249,6 +305,22 @@
             return returnValue;
         };
 
+        var _putValueByName = function(name, value) {
+            if ('boolean' === typeof value) { //
+                _populateBooleanValueByName(name, value);
+            } else if (jQuery.isArray(value)) {
+                _populateObjectArrayValueByName(name, value);
+            } else if (jQuery.isNumeric(value)) {
+                _populateNumberValueByName(name, value);
+            } else if ('string' === typeof value) {
+                _populateStringValueByName(name, value);
+            } else if ('object' === typeof value) {
+                _populateObjectValueByName(name, value);
+            } else {
+                // This is an error, log it
+                console.error('Unknown setting type', name, value, typeof value);
+            }
+        };
 
         // This gets the settings FROM THE PAGE
         var _getSettingsFromUI = function() {
@@ -262,8 +334,7 @@
                 var name = $item.data('setting-name');
 
                 // Extract the value from the UI component
-                var value = _getFrom$UIComponent($item);
-                settings[name] = value;
+                settings[name] = _getValueFrom$UIComponent($item);
             });
 
             return settings;
@@ -272,20 +343,7 @@
         // For each setting, attempt to find a ui component that matches and populate it based on formatting rules
         var _putSettingsIntoUI = function(settings) {
             jQuery.each(settings, function(name, value) {
-                if ('boolean' === typeof value) { //
-                    _populateBoolean$UIComponent(name, value);
-                } else if (jQuery.isArray(value)) {
-                    _populateObjectArray$UIComponent(name, value);
-                } else if (jQuery.isNumeric(value)) {
-                    _populateNumeric$UIComponent(name, value);
-                } else if ('string' === typeof value) {
-                    _populateString$UIComponent(name, value);
-                } else if ('object' === typeof value) {
-                    _populateObject$UIComponent(name, value);
-                } else {
-                    // This is an error, log it
-                    console.error('Unknown setting type', name, value, typeof value);
-                }
+                _putValueByName(name, value);
             });
         };
 
