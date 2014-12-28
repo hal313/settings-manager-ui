@@ -47,32 +47,47 @@
           <input data-setting-name="string-single" data-setting-type="string" value="someString"/>
       </div>
 
+      <!-- TODO: Have object-single-read and object-single-write -->
       <div data-setting-name="object-single" data-setting-type="object">
           <div>
-              <input type="text" data-setting-object-member="os1_e1" data-setting-object-member-validate="empty(value):ignore"value="os1_e1-V"/>
+              <!-- TODO: Modify dist/dist-min with data-setting-type changes -->
+              <input type="text" data-setting-type="string" data-setting-object-member="os1_e1" data-setting-object-member-validate="empty(value):ignore" value="os1_e1-V"/>
           </div>
           <div>
-              <input type="text" data-setting-object-member="os1_e2" value="os1_e2-V"/>
+              <input type="text" data-setting-type="string" data-setting-object-member="os1_e2" value="os1_e2-V"/>
           </div>
+
+          <div>
+              <input type="text" data-setting-type="number" data-setting-object-member="os_n1" value="2"/>
+          </div>
+
+          <div>
+              <input type="checkbox" data-setting-type="boolean" data-setting-object-member="os_b1" checked/>
+          </div>
+
+          <div>
+              <input type="checkbox" data-setting-type="boolean" data-setting-object-member="os_b2"/>
+          </div>
+
       </div>
 
       <div data-setting-name="object-array-read" data-setting-type="objectarray">
 
           <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
               <div>
-                  <input type="text" data-setting-object-member="oa1_e1_m1"value="oa1_e1_m1-V" data-setting-object-member-validate="empty(value):ignore"/>
+                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e1_m1" value="oa1_e1_m1-V" data-setting-object-member-validate="empty(value):ignore"/>
               </div>
               <div>
-                  <input type="text" data-setting-object-member="oa1_e1_m2"value="oa1_e1_m2-V" data-setting-object-member-validate="empty(value):ignore"/>
+                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e1_m2" value="oa1_e1_m2-V" data-setting-object-member-validate="empty(value):ignore"/>
               </div>
           </div>
 
           <div data-setting-object-element>
               <div>
-                  <input type="text" data-setting-object-member="oa1_e2_m1"value="oa1_e2_m1-V"/>
+                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e2_m1" value="oa1_e2_m1-V"/>
               </div>
               <div>
-                  <input type="text" data-setting-object-member="oa1_e2_m2"value="oa1_e2_m2-V"/>
+                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e2_m2" value="oa1_e2_m2-V"/>
               </div>
           </div>
 
