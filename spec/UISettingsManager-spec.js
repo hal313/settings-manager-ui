@@ -48,7 +48,6 @@
         it('should get settings from the UI', function() {
             var settings = this.uiSettingsManager.getSettingsFromUI();
             expect(settings).to.be.a('object');
-//            console.log('settings', settings);
         });
 
         // TODO: Check null, empty, etc.
@@ -77,7 +76,7 @@
 
             it('should get the correct settings for an object array', function() {
                 var settings = this.uiSettingsManager.getSettingsFromUI();
-                expect(settings['object-array']).to.deep.equal(objectArray);
+                expect(settings['object-array-read']).to.deep.equal(objectArray);
             });
 
         });
@@ -85,7 +84,7 @@
     });
 
 
-    // TODO: Put values in!
+
     describe('Put Values in the UI', function() {
 
         var objectSingle = {
@@ -95,27 +94,32 @@
 
         var objectArray = [
             {
-                oa1_e1_m1: 'oa1_e1_m1-V',
-                oa1_e1_m2: 'oa1_e1_m2-V'
+                oa1_ex_m1: 'oa1_e1_m1-V',
+                oa1_ex_m2: 'oa1_e1_m2-V'
             },
             {
-                oa1_e2_m1: 'oa1_e2_m1-V',
-                oa1_e2_m2: 'oa1_e2_m2-V'
+                oa1_ex_m1: 'oa1_e2_m1-V',
+                oa1_ex_m2: 'oa1_e2_m2-V'
             }
         ];
 
-        beforeEach(function(done) {
-            // Unclear why this does not work!
-            // $(done);
-            // $(document).ready(done);
-            $(function() {
-                $('input').val('');
-                done();
-            });
-
-        });
-
         describe('Data Types', function() {
+
+            beforeEach(function(done) {
+                // Unclear why this does not work!
+                // $(done);
+                // $(document).ready(done);
+                $(function() {
+                    // Clear the inputs
+                    $('input').val('');
+
+                    // Empty the template additions
+                    $('[object-array-write]').empty();
+
+                    // Done!
+                    done();
+                });
+            });
 
             it('should set a boolean value for a boolean setting', function() {
                 this.uiSettingsManager.putSettingsIntoUI({'boolean-single': true});
@@ -141,10 +145,36 @@
                 expect(settings['object-single']).to.deep.equal(objectSingle);
             });
 
+// TODO: This test fails on PhantomJS only - not sure why, but it appears to be linked to jQuery modifying the DOM
+//            it('should create the correct number of \'element\' DOM elements for object arrays', function() {
+//                var uiSettingsManager = this.uiSettingsManager;
+//                var $root = $('[data-setting-name=\'object-array-write\']');
+//
+//                // Be sure that only one root element exists
+//                expect($root.length).to.equal(1);
+//
+//                // Be sure that no 'element' elements are present on the DOM
+//                expect($root.find('[data-setting-object-element]').length).to.equal(0);
+//
+//                // Load the settings into the DOM
+//                uiSettingsManager.putSettingsIntoUI({'object-array-write': objectArray});
+//
+//                // Be sure that there are now two 'element' DOM elements
+//                expect($root.find('[data-setting-object-element]').length).to.equal(2);
+//            });
+
             it('should set the correct settings for an object array', function() {
-                this.uiSettingsManager.putSettingsIntoUI({'object-array': objectArray});
-                var settings = this.uiSettingsManager.getSettingsFromUI();
-                expect(settings['object-array']).to.deep.equal(objectArray);
+                var uiSettingsManager = this.uiSettingsManager;
+                var settings;
+
+                // Load the settings into the DOM
+                uiSettingsManager.putSettingsIntoUI({'object-array-write': objectArray});
+
+                // Get the settings from the DOM
+                settings = uiSettingsManager.getSettingsFromUI();
+
+                // Expect that the loaded settings are the same as the set settings
+                expect(settings['object-array-write']).to.deep.equal(objectArray);
             });
 
         });
