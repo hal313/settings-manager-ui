@@ -1,36 +1,37 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mocha Spec Runner</title>
-    <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
 </head>
 <body>
-<div id="mocha"></div>
-<script src="../bower_components/mocha/mocha.js"></script>
-<script>mocha.setup('')</script>
-<script src="../bower_components/chai/chai.js"></script>
-<script>
+  <div id="mocha"></div>
+  <script src="../bower_components/mocha/mocha.js"></script>
+  <script>mocha.setup('')</script>
+  <script src="../bower_components/chai/chai.js"></script>
+  <script>
     var assert = chai.assert;
     var expect = chai.expect;
     var should = chai.should();
-</script>
+  </script>
 
-<!-- The reload script -->
-<script src="http://localhost:35729/livereload.js"></script>
+  <!-- The reload script -->
+  <script src="http://localhost:35729/livereload.js"></script>
 
-<!-- pre-reqs -->
-<script src="../bower_components/jquery/dist/jquery.js"></script>
+  <!-- pre-reqs -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/template-manager/dist/TemplateManager.min.js"></script>
 
-<!-- Source files -->
-<script src="../src/UISettingsManager.js"></script>
+  <!-- Source files -->
+  <script src="../src/UISettingsManager.js"></script>
 
-<!-- Spec files -->
-<script src="../spec/UISettingsManager-global-spec.js"></script>
-<script src="../spec/UISettingsManager-spec.js"></script>
+  <!-- Spec files -->
+  <script src="../spec/UISettingsManager-global-spec.js"></script>
+  <script src="../spec/UISettingsManager-spec.js"></script>
 
-<script>mocha.run()</script>
+  <script>mocha.run()</script>
 
 <div style="display: none;">
 
@@ -55,7 +56,7 @@
         </div>
     </div>
 
-    <div data-setting-name="object-array" data-setting-type="objectarray">
+    <div data-setting-name="object-array-read" data-setting-type="objectarray">
 
         <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
             <div>
@@ -74,10 +75,23 @@
                 <input type="text" data-setting-object-member="oa1_e2_m2"value="oa1_e2_m2-V"/>
             </div>
         </div>
+
     </div>
+
+    <div data-setting-name="object-array-write" data-setting-type="objectarray" data-template-name="template"></div>
 
 </div>
 
+<script type="text/x-template-manager" data-name="template">
+    <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
+        <div>
+            <input type="text" data-setting-object-member="oa1_ex_m1" data-setting-object-member-validate="empty(value):ignore"/>
+        </div>
+        <div>
+            <input type="text" data-setting-object-member="oa1_ex_m2" data-setting-object-member-validate="empty(value):ignore"/>
+        </div>
+    </div>
+</script>
 
 </body>
 </html>

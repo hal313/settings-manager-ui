@@ -22,6 +22,7 @@
 
   <!-- pre-reqs -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/template-manager/dist/TemplateManager.min.js"></script>
 
   <!-- Source files -->
   <script src="../dist/UISettingsManager.js"></script>
@@ -55,7 +56,7 @@
           </div>
       </div>
 
-      <div data-setting-name="object-array" data-setting-type="objectarray">
+      <div data-setting-name="object-array-read" data-setting-type="objectarray">
 
           <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
               <div>
@@ -74,9 +75,23 @@
                   <input type="text" data-setting-object-member="oa1_e2_m2"value="oa1_e2_m2-V"/>
               </div>
           </div>
+
       </div>
 
+      <div data-setting-name="object-array-write" data-setting-type="objectarray" data-template-name="template"></div>
+
   </div>
+
+  <script type="text/x-template-manager" data-name="template">
+      <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
+          <div>
+              <input type="text" data-setting-object-member="oa1_ex_m1" data-setting-object-member-validate="empty(value):ignore"/>
+          </div>
+          <div>
+              <input type="text" data-setting-object-member="oa1_ex_m2" data-setting-object-member-validate="empty(value):ignore"/>
+          </div>
+      </div>
+  </script>
 
 </body>
 </html>
