@@ -1,5 +1,6 @@
 /*global jQuery,$:false */
 /*global console:false */
+/*global TemplateManager:false */
 
 // Build User: ${build.user}
 // Version: ${build.version}
@@ -61,7 +62,14 @@
 })(this, function() {
     'use strict';
 
-    var UISettingsManager = function() {
+    var UISettingsManager = function(templateManager) {
+
+        if (!(this instanceof UISettingsManager)) {
+            return new UISettingsManager(templateManager);
+        }
+
+
+        var _templateManager = templateManager || new TemplateManager();
 
         var _get$UIComponent = function(name) {
             var $uiComponent = jQuery('[data-setting-name=' + name + ']');
@@ -129,17 +137,42 @@
             //  3.) have id/index in elements
 
             var $objectArrayContainer = _get$UIComponent(name);
+            var templateName = $objectArrayContainer.data('template-name');
+            var template = _templateManager.get(templateName);
 
-            $objectArrayContainer.find('[data-setting-object-element]').each(function(index, element) {
-                var item = value[index];
-                var $element = $(element);
+            var resolvedContent;
+            var $newElement;
 
-                $element.find('[data-setting-object-member]').each(function(index, member) {
+            // Populate the DOM
+            $.each(value, function(index, item) {
+                var resolverMap = [];
+
+                // Build the resolver map
+                $.each(item, function(index, property) {
+                    resolverMap.push({
+                        regex: index,
+                        replacement: property
+                    });
+                });
+
+                // Resolve the content, using the resolver map
+                resolvedContent = template.process(resolverMap);
+
+                // Create a new HTML element from the resolved content
+                $newElement = $(resolvedContent);
+
+                // Add the new content into the DOM
+                $objectArrayContainer.append($newElement);
+
+                // Set the values of the new element
+                $newElement.find('[data-setting-object-member]').each(function(index, member) {
                     var $member = $(member);
                     var name = $member.data('setting-object-member');
                     $member.val(item[name]);
                 });
+
             });
+
         };
 
         var _extractObjectElement = function($objectDescriptorElement) {
