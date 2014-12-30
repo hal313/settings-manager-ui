@@ -176,7 +176,7 @@
         // TODO: Test 'data-setting-object-member-validate="empty(value):ignore"'
         // TODO: Test 'data-setting-object-member-validate="empty(object):ignore"'
         // TODO: Test numeric/string/boolean/undefined on object/objectarray
-
+        // TODO: Test validators
 
     });
 
