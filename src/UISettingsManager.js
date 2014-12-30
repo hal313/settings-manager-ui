@@ -265,7 +265,7 @@
                 _getObjectArray$UIComponent.regexes = {};
             }
 
-            if (!_getObjectArray$UIComponent.regexes['emptyField']) {
+            if (!_getObjectArray$UIComponent.regexes.emptyField) {
                 _getObjectArray$UIComponent.regexes[['emptyField']] = new RegExp('empty\\(field\\[.*\\]\\):ignore');
             }
 

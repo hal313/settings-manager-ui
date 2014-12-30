@@ -3,16 +3,16 @@
 /*global TemplateManager:false */
 
 // Build User: jghidiu
-// Version: 2.0.2
-// Build Date: Sun Dec 28 2014 14:42:37 GMT-0500 (Eastern Standard Time)
+// Version: 2.0.3
+// Build Date: Tue Dec 30 2014 02:29:03 GMT-0500 (Eastern Standard Time)
 
 // TODO: Make a jquery plugin
 // TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
 // TODO: In readme, talk about how this can be a declarative solution to options
 // TODO: Use an array of validators, not just one
 // TODO: Allow types to be specified for each array value
-// TODO: Get rid of data-setting-xxx
-// TODO: Rename member to property
+// TODO: Get rid of data-setting-xxx and move to attributes (setting-xxx)
+// TODO: Rename member to property (data-setting-object-member and setting-object-member-validate)
 
 (function(root, factory) {
     'use strict';
@@ -86,15 +86,9 @@
             return returnValue;
         };
 
-//        var _onNoMatchingByName = function(name, value) {
-//            _onNoMatchingBy$UIComponent(_get$UIComponent(name), value);
-//        };
-
         // TODO: Make sure that we can get the name of the component from the $uiComponent
         var _onNoMatchingBy$UIComponent = function($uiComponent, value) {
-//            console.warn('Could not manipulate setting', name, value, 'because no matching UI element is present in the DOM');
-//            console.warn('Could not manipulate setting', $uiComponent.data('setting-name'), value, 'because no matching UI element is present in the DOM');
-//            console.log($uiComponent);
+            // console.warn('Could not manipulate setting', $uiComponent.data('setting-name'), value, 'because no matching UI element is present in the DOM');
             console.warn('Could not manipulate setting with value', value, 'because no matching UI element is present in the DOM');
         };
 
@@ -121,7 +115,7 @@
         };
 
         var _populateNumber$UIComponent = function($uiComponent, value) {
-            _populateString$UIComponent($uiComponent, value);
+            _populateString$UIComponent($uiComponent, parseInt(value));
         };
 
         var _populateObject$UIComponent = function($uiComponent, value) {
@@ -230,9 +224,13 @@
                 var $memberContainer = $(member);
                 // TODO: Be sure there is only one element (or log a warning message)!
                 var name = $memberContainer.data('setting-object-member');
-                var validate = $memberContainer.data('setting-object-member-validate');
+                var validator = $memberContainer.data('setting-object-member-validate');
                 var type = $memberContainer.data('setting-type') || 'string';
                 var value;
+
+                if (validator) {
+                    validator = validator.trim();
+                }
 
                 if ('string' === type) {
                     value = _getString$UIComponent($memberContainer);
@@ -244,7 +242,7 @@
 
                 // If no name is provided, do not add the member to the object
                 if (name && 0 !== name.trim().length) {
-                    if ('empty(value):ignore' === validate) {
+                    if ('empty(value):ignore' === validator) {
                         if (value && 0 !== value.trim().length) {
                             item[name] = value;
                         }
@@ -260,16 +258,37 @@
         var _getObjectArray$UIComponent = function($uiComponent) {
             var array = [];
             var $objectContainers = $uiComponent.find('[data-setting-object-element]');
+            var emptyFieldRegex;
+            var emptyFieldName;
+
+            if (!_getObjectArray$UIComponent.regexes) {
+                _getObjectArray$UIComponent.regexes = {};
+            }
+
+            if (!_getObjectArray$UIComponent.regexes.emptyField) {
+                _getObjectArray$UIComponent.regexes[['emptyField']] = new RegExp('empty\\(field\\[.*\\]\\):ignore');
+            }
+
+            emptyFieldRegex = _getObjectArray$UIComponent.regexes[['emptyField']];
 
             $objectContainers.each(function(index, objectContainer) {
                 var $objectContainer = jQuery(objectContainer);
-                var validate = $objectContainer.data('setting-object-member-validate');
-
+                var validator = $objectContainer.data('setting-object-member-validate');
                 var item = _getObject$UIComponent($objectContainer);
 
-                // Add the item to the array (check to see if empty objects are allowed)
-                if ('empty(object):ignore' === validate) {
+                if (validator) {
+                    validator = validator.trim();
+                }
+
+                if ('empty(object):ignore' === validator) {
+                    // Add the item to the array (check to see if empty objects are allowed)
                     if (0 !== Object.getOwnPropertyNames(item).length) {
+                        array.push(item);
+                    }
+                } else if(emptyFieldRegex.test(validator)) {
+                    // Check to see if the field exists; if so, add the object to the array
+                    emptyFieldName = validator.replace('empty(field[', '').replace(']):ignore', '');
+                    if (item[emptyFieldName]) {
                         array.push(item);
                     }
                 } else {
@@ -354,7 +373,7 @@
     };
 
     // Place the version as a member in the function
-    UISettingsManager.version = '2.0.2';
+    UISettingsManager.version = '2.0.3';
 
     return UISettingsManager;
 
