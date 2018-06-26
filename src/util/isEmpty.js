@@ -1,4 +1,4 @@
-import { isString } from 'util';
+import { isString } from './isString.js';
 
 let isEmpty = (value) => {
     return isString(value) && '' === value.trim();

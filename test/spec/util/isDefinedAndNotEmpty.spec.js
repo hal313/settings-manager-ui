@@ -1,4 +1,4 @@
-import { isDefinedAndNotEmpty } from '../../../src/util/isDefinedAndNotEmpty';
+import { isDefinedAndNotEmpty } from '../../../src/util/isDefinedAndNotEmpty.js';
 
 describe('isDefinedAndNotEmpty', () => {
 

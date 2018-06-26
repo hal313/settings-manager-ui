@@ -1,7 +1,7 @@
-import { isDefinedOrNotEmpty } from './isDefinedOrNotEmpty';
+import { isDefinedAndNotEmpty } from './isDefinedAndNotEmpty.js';
 
 let createError = (message) => {
-    return new Error(isDefinedOrNotEmpty(message) ? message : 'Unknown error');
+    return new Error(isDefinedAndNotEmpty(message) ? message : 'Unknown error');
 };
 
 export {createError};

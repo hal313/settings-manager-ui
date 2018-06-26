@@ -1,4 +1,4 @@
-import {isDefinedOrNotEmpty} from '../util/isDefinedOrNotEmpty.js';
+import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
 import { Constants } from '../Constants.js';
 
@@ -24,7 +24,7 @@ export class StringTextTypeHandler {
     }
 
     createElement(name, value) {
-        if (!isDefinedOrNotEmpty(name)) {
+        if (!isDefinedAndNotEmpty(name)) {
             throw createError('The "name" parameter must be specified');
         }
 
