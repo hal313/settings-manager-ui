@@ -1,57 +1,91 @@
 {
-    "name": "ui-settings-manager",
+    "name": "settings-manager-ui",
     "version": "2.0.3",
     "description": "A JavaScript library to manage persisting UI settings",
-    "homepage": "https://github.com/hal313/ui-settings-manager",
+    "homepage": "https://github.com/hal313/settings-manager-ui",
     "bugs": {
-        "url": "https://github.com/hal313/ui-settings-manager/issues",
-        "email": "john-github@rmdashrf.org"
+        "url": "https://github.com/hal313/settings-manager-ui/issues"
     },
     "license": "MIT",
-    "main": "dist/UISettingsManager.js",
+    "main": "dist/SettingsManagerUI.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hal313/ui-settings-manager.git"
-    },
-    "author": {
-        "name": "John Ghidiu",
-        "email": "john-github@rmdashrf.org",
-        "url": "https://github.com/hal313"
+        "url": "https://github.com/hal313/settings-manager-ui.git"
     },
     "engines": {
         "node": ">=0.10.0"
     },
+    "authors": [
+        "john-github@rmdashrf.org"
+    ],
     "scripts": {
-        "test": "grunt test-headless-all"
+        "test": "jest"
     },
+    "jest": {
+        "collectCoverage": true,
+        "coverageDirectory": "build/reports",
+        "coverageThreshold": {
+            "global": {
+                "branches": 60,
+                "functions": 90,
+                "lines": 80,
+                "statements": 80
+            }
+        },
+        "collectCoverageFrom": [
+            "src/**/*.js",
+            "dist/**/*.js",
+            "!**/node_modules/**",
+            "!**/test/**"
+        ],
+        "roots": [
+            "src",
+            "test"
+        ],
+        "resetModules": true,
+        "snapshotSerializers": [
+            "jest-serializer-html"
+        ]
+    },
+    "keywords": [
+        "settings",
+        "declarative",
+        "javascript"
+    ],
     "files": [
         "dist",
         "spec",
         "src",
         "test",
-        ".bowerrc",
         ".jshintrc",
         ".travis.yml",
-        ".yo-rc.json",
         "Gruntfile.js",
         "LICENSE",
         "package.json",
         "README.md",
         "replacements.json"
     ],
-    "keywords": [
-        "settings",
-        "declarative",
-        "javascript"
-    ],
     "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-bump": "0.0.16",
-        "grunt-open": "^0.2.3",
-        "grunt-contrib-uglify": "^0.6.0",
-        "grunt-contrib-jshint": "^0.10.0",
-        "grunt-contrib-copy": "^0.7.0",
-        "grunt-mocha": "^0.4.11"
+        "babel-core": "^6.26.3",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-preset-env": "^1.7.0",
+        "grunt": "^1.0.3",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-jshint": "^1.1.0",
+        "grunt-contrib-uglify": "^3.3.0",
+        "grunt-contrib-watch": "^1.1.0",
+        "jest": "^23.2.0",
+        "jest-serializer-html": "^5.0.0",
+        "jshint-stylish": "^2.2.1",
+        "regenerator-runtime": "^0.11.1",
+        "rollup": "^0.60.2",
+        "rollup-plugin-babel": "^3.0.4",
+        "rollup-plugin-commonjs": "^9.1.3",
+        "rollup-plugin-node-resolve": "^3.3.0"
+    },
+    "dependencies": {
+        "settings-manager": "^1.0.0",
+        "template-manager": "^2.1.5"
     }
 }

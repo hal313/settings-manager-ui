@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox element with a "false" value 1`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+>
+
+`;
+
+exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox element with a "true" value 1`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       checked
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+>
+
+`;
+
+exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false" for a self-created element 1`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+>
+
+`;
+
+exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false" for a self-created element 2`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+       checked
+>
+
+`;
+
+exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" for a self-created element 1`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       checked
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+>
+
+`;
+
+exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" for a self-created element 2`] = `
+
+<input type="checkbox"
+       name="fieldName"
+       data-setting-name="fieldName"
+       data-setting-type="boolean:checkbox"
+>
+
+`;

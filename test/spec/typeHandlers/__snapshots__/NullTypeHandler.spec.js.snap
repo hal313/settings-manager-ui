@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NullTypeHandler API createElement should create a null value element 1`] = `
+
+<div name="fieldName"
+     value="null"
+     data-setting-name="fieldName"
+     data-setting-type="null"
+>
+</div>
+
+`;
+
+exports[`NullTypeHandler API setValue should set the value for a self-created element 1`] = `
+
+<div name="fieldName"
+     value="null"
+     data-setting-name="fieldName"
+     data-setting-type="null"
+>
+</div>
+
+`;
+
+exports[`NullTypeHandler API setValue should set the value for a self-created element 2`] = `
+
+<div name="fieldName"
+     value="null"
+     data-setting-name="fieldName"
+     data-setting-type="null"
+>
+</div>
+
+`;

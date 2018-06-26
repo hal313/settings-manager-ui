@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObjectDefaultTypeHandler API createElement should create an element with child elements representing the members as input elements 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API createElement should create an element with deeply nested child elements representing the members as input elements 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+>
+  <div name="name"
+       data-setting-name="name"
+       data-setting-type="object:default"
+       data-setting-container
+  >
+    <input name="first"
+           type="text"
+           value="firstname"
+           data-setting-name="first"
+           data-setting-type="string:text"
+    >
+    <input name="last"
+           type="text"
+           value="lastname"
+           data-setting-name="last"
+           data-setting-type="string:text"
+    >
+    <div name="optional"
+         data-setting-name="optional"
+         data-setting-type="object:default"
+         data-setting-container
+    >
+      <input name="middle"
+             type="text"
+             value="middlename"
+             data-setting-name="middle"
+             data-setting-type="string:text"
+      >
+    </div>
+  </div>
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object 2`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+  <input name="eyeColor"
+         type="text"
+         value="brown"
+         data-setting-name="eyeColor"
+         data-setting-type="string:text"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update 2`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+  <div name="height"
+       data-setting-name="height"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+  >
+    <input name="feet"
+           type="number"
+           value="5"
+           data-setting-name="feet"
+           data-setting-type="number:number"
+    >
+    <input name="inches"
+           type="number"
+           value="10"
+           data-setting-name="inches"
+           data-setting-type="number:number"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should remove a child element from the DOM when the value no longer exists 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should remove a child element from the DOM when the value no longer exists 2`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-created simple element 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-created simple element 2`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should update a child element value when the value exists in the DOM and in the value object 1`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`ObjectDefaultTypeHandler API setValue should update a child element value when the value exists in the DOM and in the value object 2`] = `
+
+<div name="person"
+     data-setting-name="person"
+     data-setting-type="object:default"
+     data-setting-container
+     class
+>
+  <input name="name"
+         type="text"
+         value="person name"
+         data-setting-name="name"
+         data-setting-type="string:text"
+  >
+  <input name="age"
+         type="number"
+         value="21"
+         data-setting-name="age"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="registeredVoter"
+         checked
+         data-setting-name="registeredVoter"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;

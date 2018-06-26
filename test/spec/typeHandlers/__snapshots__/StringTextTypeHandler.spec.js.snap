@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StringTextTypeHandler API createElement should create a text string input element 1`] = `
+
+<input name="fieldName"
+       type="text"
+       value="some string value;"
+       data-setting-name="fieldName"
+       data-setting-type="string:text"
+>
+
+`;
+
+exports[`StringTextTypeHandler API setValue should set the value for a self-created element 1`] = `
+
+<input name="fieldName"
+       type="text"
+       value="some string value"
+       data-setting-name="fieldName"
+       data-setting-type="string:text"
+>
+
+`;
+
+exports[`StringTextTypeHandler API setValue should set the value for a self-created element 2`] = `
+
+<input name="fieldName"
+       type="text"
+       value="some string value"
+       data-setting-name="fieldName"
+       data-setting-type="string:text"
+>
+
+`;

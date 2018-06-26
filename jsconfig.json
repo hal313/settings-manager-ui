@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "umd"
+	},
+	"exclude": [
+		"build",
+		"dist",
+		"node_modules"
+	]
+}

@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Mocha Spec Runner</title>
-  <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
 </head>
 <body>
   <div id="mocha"></div>
-  <script src="../bower_components/mocha/mocha.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
   <script>mocha.setup('')</script>
-  <script src="../bower_components/chai/chai.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
   <script>
     var assert = chai.assert;
     var expect = chai.expect;
@@ -21,15 +21,15 @@
   <script src="http://localhost:35729/livereload.js"></script>
 
   <!-- pre-reqs -->
-  <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/template-manager/dist/TemplateManager.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/template-manager/dist/TemplateManager.min.js"></script>
 
   <!-- Source files -->
-  <script src="../src/UISettingsManager.js"></script>
+  <script src="../src/SettingsManagerUI.js"></script>
 
   <!-- Spec files -->
-  <script src="../spec/UISettingsManager-global-spec.js"></script>
-  <script src="../spec/UISettingsManager-spec.js"></script>
+  <script src="../spec/SettingsManagerUI-global-spec.js"></script>
+  <script src="../spec/SettingsManagerUI-spec.js"></script>
 
   <script>mocha.run()</script>
 
@@ -51,43 +51,43 @@
       <div data-setting-name="object-single" data-setting-type="object">
           <div>
               <!-- TODO: Modify dist/dist-min with data-setting-type changes -->
-              <input type="text" data-setting-type="string" data-setting-object-member="os1_e1" data-setting-object-member-validate="empty(value):ignore" value="os1_e1-V"/>
+              <input type="text" data-setting-type="string" data-setting-container-member="os1_e1" data-setting-container-member-validate="empty(value):ignore" value="os1_e1-V"/>
           </div>
           <div>
-              <input type="text" data-setting-type="string" data-setting-object-member="os1_e2" value="os1_e2-V"/>
-          </div>
-
-          <div>
-              <input type="text" data-setting-type="number" data-setting-object-member="os_n1" value="2"/>
+              <input type="text" data-setting-type="string" data-setting-container-member="os1_e2" value="os1_e2-V"/>
           </div>
 
           <div>
-              <input type="checkbox" data-setting-type="boolean" data-setting-object-member="os_b1" checked/>
+              <input type="text" data-setting-type="number" data-setting-container-member="os_n1" value="2"/>
           </div>
 
           <div>
-              <input type="checkbox" data-setting-type="boolean" data-setting-object-member="os_b2"/>
+              <input type="checkbox" data-setting-type="boolean" data-setting-container-member="os_b1" checked/>
+          </div>
+
+          <div>
+              <input type="checkbox" data-setting-type="boolean" data-setting-container-member="os_b2"/>
           </div>
 
       </div>
 
       <div data-setting-name="object-array-read" data-setting-type="objectarray">
 
-          <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
+          <div data-setting-container-element data-setting-container-member-validate="empty(object):ignore">
               <div>
-                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e1_m1" value="oa1_e1_m1-V" data-setting-object-member-validate="empty(value):ignore"/>
+                  <input type="text" data-setting-type="string" data-setting-container-member="oa1_e1_m1" value="oa1_e1_m1-V" data-setting-container-member-validate="empty(value):ignore"/>
               </div>
               <div>
-                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e1_m2" value="oa1_e1_m2-V" data-setting-object-member-validate="empty(value):ignore"/>
+                  <input type="text" data-setting-type="string" data-setting-container-member="oa1_e1_m2" value="oa1_e1_m2-V" data-setting-container-member-validate="empty(value):ignore"/>
               </div>
           </div>
 
-          <div data-setting-object-element>
+          <div data-setting-container-element>
               <div>
-                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e2_m1" value="oa1_e2_m1-V"/>
+                  <input type="text" data-setting-type="string" data-setting-container-member="oa1_e2_m1" value="oa1_e2_m1-V"/>
               </div>
               <div>
-                  <input type="text" data-setting-type="string" data-setting-object-member="oa1_e2_m2" value="oa1_e2_m2-V"/>
+                  <input type="text" data-setting-type="string" data-setting-container-member="oa1_e2_m2" value="oa1_e2_m2-V"/>
               </div>
           </div>
 
@@ -98,12 +98,12 @@
   </div>
 
   <script type="text/x-template-manager" data-name="template">
-      <div data-setting-object-element data-setting-object-member-validate="empty(object):ignore">
+      <div data-setting-container-element data-setting-container-member-validate="empty(object):ignore">
           <div>
-              <input type="text" data-setting-object-member="oa1_ex_m1" data-setting-object-member-validate="empty(value):ignore"/>
+              <input type="text" data-setting-container-member="oa1_ex_m1" data-setting-container-member-validate="empty(value):ignore"/>
           </div>
           <div>
-              <input type="text" data-setting-object-member="oa1_ex_m2" data-setting-object-member-validate="empty(value):ignore"/>
+              <input type="text" data-setting-container-member="oa1_ex_m2" data-setting-container-member-validate="empty(value):ignore"/>
           </div>
       </div>
   </script>

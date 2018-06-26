@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
+
+<div id="root"
+     data-setting-container
+     data-setting-type="object"
+     class
+>
+  <input name="stringValue"
+         type="text"
+         value="hello world!"
+         data-setting-name="stringValue"
+         data-setting-type="string:text"
+  >
+  <input name="numberValue"
+         type="number"
+         value="101"
+         data-setting-name="numberValue"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="booleanValue"
+         checked
+         data-setting-name="booleanValue"
+         data-setting-type="boolean:checkbox"
+  >
+</div>
+
+`;
+
+exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`] = `
+
+<div id="root"
+     data-setting-container
+     data-setting-type="object"
+     class
+>
+  <input name="stringValue"
+         type="text"
+         value="hello world!"
+         data-setting-name="stringValue"
+         data-setting-type="string:text"
+  >
+  <input name="numberValue"
+         type="number"
+         value="101"
+         data-setting-name="numberValue"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="booleanValue"
+         checked
+         data-setting-name="booleanValue"
+         data-setting-type="boolean:checkbox"
+  >
+  <div name="objectValue"
+       data-setting-name="objectValue"
+       data-setting-type="object:default"
+       data-setting-container
+  >
+    <input name="nestedStringValue"
+           type="text"
+           value="another string value"
+           data-setting-name="nestedStringValue"
+           data-setting-type="string:text"
+    >
+    <div name="nestedObjectValue"
+         data-setting-name="nestedObjectValue"
+         data-setting-type="object:default"
+         data-setting-container
+    >
+      <input name="nestedNestedStringValue"
+             type="text"
+             value="yet another string value"
+             data-setting-name="nestedNestedStringValue"
+             data-setting-type="string:text"
+      >
+    </div>
+  </div>
+</div>
+
+`;
+
+exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
+
+<div id="root"
+     data-setting-container
+     data-setting-type="object"
+     class
+>
+  <input name="stringValue"
+         type="text"
+         value="hello world!"
+         data-setting-name="stringValue"
+         data-setting-type="string:text"
+  >
+  <input name="numberValue"
+         type="number"
+         value="101"
+         data-setting-name="numberValue"
+         data-setting-type="number:number"
+  >
+  <input type="checkbox"
+         name="booleanValue"
+         checked
+         data-setting-name="booleanValue"
+         data-setting-type="boolean:checkbox"
+  >
+  <div name="objectValue"
+       data-setting-name="objectValue"
+       data-setting-type="object:default"
+       data-setting-container
+  >
+    <input name="nestedStringValue"
+           type="text"
+           value="another string value"
+           data-setting-name="nestedStringValue"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;

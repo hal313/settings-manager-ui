@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sample</title>
+
+
+  <style>
+      .value-container {
+          border: 1px solid black;
+          margin: 5px;
+          padding: 5px;
+      }
+      #existing input:not([type=checkbox]) {
+          width: 100%;
+      }
+      /* #rendered input */
+  </style>
+</head>
+<body>
+  <!-- pre-reqs -->
+  <!-- // TODO: Remove jquery dep (exists for TemplateManager only) -->
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/template-manager/dist/TemplateManager.min.js"></script>
+
+  <!-- Source files -->
+  <script src="../src/SettingsManagerUI.js"></script>
+
+  <div id="existing">
+      <!-- TODO: Have object-single-read and object-single-write -->
+
+    <div class="value-container">
+        <input type="checkbox" data-setting-name="boolean-single" data-setting-type="boolean" checked/>boolean-single
+    </div>
+
+    <div class="value-container">
+        <input data-setting-name="number-single" data-setting-type="number" value="1"/>
+    </div>
+
+    <div class="value-container">
+        <input data-setting-name="string-single" data-setting-type="string" value="someString" data-setting-processors="uppercase"/>
+    </div>
+
+    <div data-setting-name="object-simple" data-setting-type="object" class="value-container">
+    <div>
+        <input type="text" data-setting-type="string" data-setting-name="string-value-one" data-setting-processors="uppercase" value="string-value-one-value"/>
+    </div>
+    <div>
+        <input type="text" data-setting-type="string" data-setting-name="string-value-two" value="string-value-two-value"/>
+    </div>
+    <div>
+        <input type="number" data-setting-type="number" data-setting-name="number-value-one" value="2"/>
+    </div>
+    <div>
+        <input type="checkbox" data-setting-type="boolean" data-setting-name="boolean-value-one" checked/>boolean-value-one
+    </div>
+    <div>
+        <input type="checkbox" data-setting-type="boolean" data-setting-name="boolean-value-two"/>boolean-value-two
+    </div>
+    </div>
+
+    <div data-setting-name="object-complex" data-setting-type="object" class="value-container">
+
+        <input type="text" data-setting-type="string" data-setting-name="object-complex-string-one" value="sub-object-string-one-value"/>
+        <input type="text" data-setting-type="string" data-setting-name="object-complex-string-two" value="sub-object-string-two-value"/>
+
+        <div data-setting-name="object-complex-sub-object-one" data-setting-type="object" class="value-container">
+            <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-one-one" value="object-complex-sub-object-one-one-value"/>
+            <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-one-two" value="object-complex-sub-object-one-two-value"/>
+
+            <div data-setting-name="object-complex-sub-object-one-sub-object-one" data-setting-type="object" class="value-container">
+                <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-one-sub-object-one-one" value="object-complex-sub-object-one-sub-object-one-value"/>
+            </div>
+        </div>
+        <div data-setting-name="object-complex-sub-object-two" data-setting-type="object" class="value-container">
+            <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-one" value="object-complex-sub-object-two-one-value"/>
+            <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-two" value="object-complex-sub-object-two-two-value"/>
+            <div data-setting-name="object-complex-sub-object-two-sub-object-one" data-setting-type="object" class="value-container">
+                <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-sub-object-one-one" value="object-complex-sub-object-two-sub-object-one-value"/>
+            </div>
+        </div>
+
+        <div>
+            <input type="text" data-setting-type="string" data-setting-name="os1_s2" value="os1_s2_v"/>
+        </div>
+        <div>
+            <input type="number" data-setting-type="number" data-setting-name="os_n1" value="2"/>
+        </div>
+        <div>
+            <input type="checkbox" data-setting-type="boolean" data-setting-name="os_b1" checked/>os_b1
+        </div>
+        <div>
+            <input type="checkbox" data-setting-type="boolean" data-setting-name="os_b2"/>os_b2
+        </div>
+    </div>
+
+    <div data-setting-name="object-array" data-setting-type="objectarray" class="value-container">
+
+        <div data-setting-container>
+            <div data-setting-name="object-array-sub" data-setting-type="objectarray" class="value-container">
+                <div data-setting-container>
+                    <input type="text" data-setting-type="string" data-setting-name="sub-one-one" value="sub-one"/>
+                    <input type="text" data-setting-type="string" data-setting-name="sub-one-two" value="sub-two"/>
+                </div>
+                <div data-setting-container>
+                        <input type="text" data-setting-type="string" data-setting-name="sub-two" value="sub-two"/>
+                </div>
+            </div>
+        </div>
+
+        <div data-setting-container>
+            <div>
+                <input type="text" data-setting-type="string" data-setting-name="oa1_e1_p1" value="oa1_e1_v1" data-setting-processors="uppercase"/>
+            </div>
+            <div>
+                <input type="text" data-setting-type="string" data-setting-name="oa1_e1_p2" value="oa1_e1_v2" data-setting-processors="uppercase"/>
+            </div>
+        </div>
+
+        <div data-setting-container>
+            <div>
+                <input type="text" data-setting-type="string" data-setting-name="oa1_e2_p1" value="oa1_e2_v1"/>
+            </div>
+            <div>
+                <input type="text" data-setting-type="string" data-setting-name="oa1_e2_p2" value="oa1_e2_v2"/>
+            </div>
+        </div>
+
+        <div data-setting-container>
+            <div data-setting-name="object-complex-sub-object-two" data-setting-type="object" class="value-container">
+                <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-one" value="object-complex-sub-object-two-one-value"/>
+                <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-two" value="object-complex-sub-object-two-two-value"/>
+                <div data-setting-name="object-complex-sub-object-two-sub-object-one" data-setting-type="object" class="value-container">
+                    <input type="text" data-setting-type="string" data-setting-name="object-complex-sub-object-two-sub-object-one-one" value="object-complex-sub-object-two-sub-object-one-value"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-setting-name="object-array-template" data-setting-type="objectarray" data-template-name="someTemplateName" class="value-container"></div>
+
+  </div>
+
+  <div id="rendered"></div>
+  <div id="renderedWithStyle"></div>
+  <div id="simple-settings-rendered"></div>
+
+
+
+
+    <script type="text/x-template-manager" data-name="someTemplateName">
+        <div class="value-container">
+            <div>Settings for ${name}</div>
+            <div data-setting-container-element>
+                <div>
+                    <input type="text" data-setting-type="string" data-setting-name="template-property-one" data-setting-processors="uppercase"/>
+                </div>
+                <div>
+                    <input type="text" data-setting-name="template-property-two" data-setting-processors="uppercase"/>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+
+  <script type="text/javascript">
+    var settings,
+        settingsManagerUI = new SettingsManagerUI();
+
+
+    settings = settingsManagerUI.getSettingsFromElement('#existing');
+    // TODO: Test array push
+    // settings["object-array-notemplate"][0].oa1_e1_p1 = new Date().getTime();
+    // settings["object-array-write"].push({oa2_ex_p1: 'test1'});
+    // settings["object-array-write"].push({oa2_ex_p2: 'test2'});
+
+    // Update a single boolean value
+    settings['boolean-single'] = false;
+    // Update a value in a simple object
+    settings['object-simple']['string-value-one']=new Date().getTime();
+    // Update a value in a complex object
+    settings['object-complex']['object-complex-sub-object-one']['object-complex-sub-object-one-one'] = 'BLARG2';
+    // Add a value to a complex object
+    // This won't render with an update(); try a put() instead
+    settings['object-complex']['object-complex-sub-object-one']['object-complex-sub-object-one-ADDED'] = 'BLARG3';
+
+    // Update the value in an array
+    settings['object-array'][1]['sub-one-one']='TTEESSTT';
+    settings['object-array'][1]['sub-one-one-ADDED']='ADDED';
+    // TODO: Cannot add an array, but can
+    // Add a value in an array
+    settings['object-array'].push({name: 'some value'});
+
+    // settings['object-complex']['object-complex-string-one']='BLARG';
+    // settingsManagerUI.putSettingsIntoUI(settings);
+    // settings = settingsManagerUI.getSettingsFromUI();
+
+
+    // Adding values for a template:
+    //   1.) Optionally add a resolver map (the name of the resolver map must match the template name)
+    //   2.) Create an element in the markup of with "data-setting-type" equal to "objectarray" and
+    //       "data-template-name" equal to the name of the template
+    //         <div data-setting-name="object-array-template" data-setting-type="objectarray" data-template-name="someTemplateName"></div>
+    //   3.) Make sure that a template exists within the HTML; it must be of type "text/x-template-manager"
+    //       and have a "data-name" attribute which matches the template name from step 2
+    //         <script type="text/x-template-manager" data-name="someTemplateName">
+    settingsManagerUI.addTemplateResolver('someTemplateName', [{regex: 'name', replacement: '"dynamically resolved content"'}])
+    settings['object-array-template'] = [{'template-property-one': 'new value!'}];
+    // settingsManagerUI.putSettingsIntoElement(settings, '#rendered');
+    // settingsManagerUI.putSettingsIntoElement(settings, '#existing');
+    // settingsManagerUI.updateSettingsIntoElement(settings, '#existing');
+
+
+
+    settingsManagerUI.addRenderTemplate('string',      '<div style="border: 1px solid black; margin: 5px 0;">${name}: <input data-setting-name="${name}" data-setting-type="string" data-setting-processors="uppercase"    type="text"     value="${value}" /></div>');
+    settingsManagerUI.addRenderTemplate('boolean',     '<div style="border: 1px solid black; margin: 5px 0;"><input data-setting-name="${name}" data-setting-type="string"     type="checkbox" ${checked}/> ${name}</div>');
+    settingsManagerUI.addRenderTemplate('number',      '<div style="border: 1px solid black; margin: 5px 0;">${name}: <input data-setting-name="${name}" data-setting-type="number"     type="number"   value="${value}"/></div>');
+    settingsManagerUI.addRenderTemplate('object',      '<div   data-setting-name="${name}" data-setting-type="object" style="border: 1px solid red; margin-left: 15px;"    >${value}</div>');
+    settingsManagerUI.addRenderTemplate('objectarray', '<div style="border: 1px solid blue; margin-left: 15px;"  data-setting-name="${name}" data-setting-type="objectarray">${value}</div>');
+    settingsManagerUI.addRenderTemplate('objectarray.objectelement', '<div data-setting-container>${value}</div>');
+    // settings = {
+    //     someString: 'someString',
+    //     someBoolean: true,
+    //     someNumber: 12.2,
+    //     someObject: {
+    //         a: 'a',
+    //         two: 2
+    //     }
+    // };
+    settingsManagerUI.putSettingsIntoElement(settings, '#renderedWithStyle');
+
+    // settingsManagerUI.putSettingsIntoElement({name: 'john'}, '#simple-settings-rendered');
+    // console.log(settingsManagerUI.getSettingsFromElement('#simple-settings-rendered'));
+
+    console.log('settings', settings);
+
+
+  </script>
+
+</body>
+</html>
