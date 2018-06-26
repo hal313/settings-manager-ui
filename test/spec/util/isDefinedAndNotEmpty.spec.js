@@ -1,11 +1,11 @@
-import { isDefinedOrNotEmpty } from '../../../src/util/isDefinedOrNotEmpty';
+import { isDefinedAndNotEmpty } from '../../../src/util/isDefinedAndNotEmpty';
 
-describe('isDefinedOrNotEmpty', () => {
+describe('isDefinedAndNotEmpty', () => {
 
     describe('Lifecycle', () => {
 
         test('exists as a function', () => {
-            expect(isDefinedOrNotEmpty).toEqual(expect.any(Function));
+            expect(isDefinedAndNotEmpty).toEqual(expect.any(Function));
         });
 
     });
@@ -13,52 +13,52 @@ describe('isDefinedOrNotEmpty', () => {
     describe('API', function () {
 
         test('returns false when the value is undefined', () => {
-            expect(isDefinedOrNotEmpty(undefined)).toBe(false);
+            expect(isDefinedAndNotEmpty(undefined)).toBe(false);
         });
 
         test('returns false when the value is null', () => {
-            expect(isDefinedOrNotEmpty(null)).toBe(false);
+            expect(isDefinedAndNotEmpty(null)).toBe(false);
         });
 
         test('returns true when the value is a string', () => {
-            expect(isDefinedOrNotEmpty('some string')).toBe(true);
+            expect(isDefinedAndNotEmpty('some string')).toBe(true);
         });
 
         test('returns false when the value is the empty string', () => {
-            expect(isDefinedOrNotEmpty('')).toBe(false);
+            expect(isDefinedAndNotEmpty('')).toBe(false);
         });
 
         test('returns true when the value is true', () => {
-            expect(isDefinedOrNotEmpty(true)).toBe(true);
+            expect(isDefinedAndNotEmpty(true)).toBe(true);
         });
 
         test('returns true when the value is false', () => {
-            expect(isDefinedOrNotEmpty(false)).toBe(true);
+            expect(isDefinedAndNotEmpty(false)).toBe(true);
         });
 
         test('returns true when the value is true', () => {
-            expect(isDefinedOrNotEmpty(true)).toBe(true);
+            expect(isDefinedAndNotEmpty(true)).toBe(true);
         });
 
         test('returns true when the value is a number', () => {
-            expect(isDefinedOrNotEmpty(0)).toBe(true);
-            expect(isDefinedOrNotEmpty(101)).toBe(true);
+            expect(isDefinedAndNotEmpty(0)).toBe(true);
+            expect(isDefinedAndNotEmpty(101)).toBe(true);
         });
 
         test('returns true when the value is NaN', () => {
-            expect(isDefinedOrNotEmpty(NaN)).toBe(true);
+            expect(isDefinedAndNotEmpty(NaN)).toBe(true);
         });
 
         test('returns true when the value is an object', () => {
-            expect(isDefinedOrNotEmpty({})).toBe(true);
+            expect(isDefinedAndNotEmpty({})).toBe(true);
         });
 
         test('returns true when the value is a Function', () => {
-            expect(isDefinedOrNotEmpty(() => {})).toBe(true);
+            expect(isDefinedAndNotEmpty(() => {})).toBe(true);
         });
 
         test('returns true when the value is an array', () => {
-            expect(isDefinedOrNotEmpty([])).toBe(true);
+            expect(isDefinedAndNotEmpty([])).toBe(true);
         });
 
     });
