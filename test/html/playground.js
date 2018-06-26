@@ -4,23 +4,13 @@ import { getNameFromElement } from '../../src/util/getNameFromElement.js';
 
 $(() => {
     // Create the JSON editor
-    let editor = new JSONEditor(document.getElementById('settings-editor'), {mode: 'code'});
-    // Set the JSON
-    editor.set({
-        'Name': {
-            'First': 'Joe',
-            'Last': 'Smith'
-        },
-        'Human': true,
-        // 'Array': [1, 2, 3],
-        'Age': 23,
-
-        'Nickname': 'the sideshow'
+    let jsonEditor = ace.edit('settings-editor', {
+        theme: 'ace/theme/monokai',
+        mode: 'ace/mode/javascript'
     });
 
-
     // Create and configure the JavaScript editor
-    let jsEditor = ace.edit('code-editor', {
+    let javascriptEditor = ace.edit('code-editor', {
         theme: 'ace/theme/monokai',
         mode: 'ace/mode/javascript'
     });
@@ -32,7 +22,7 @@ $(() => {
     // When the "set" button is clicked
     $('#set-settings-button').click(() => {
         // Get the settings from the editor
-        let jsonSettings = editor.get();
+        let jsonSettings = JSON.parse(jsonEditor.getSession().getValue());
 
         // Set the settings in the UI
         //
@@ -41,7 +31,7 @@ $(() => {
         // would need to be reset
         settingsManagerUI = new SettingsManagerUI();
         // First, run the client code in order to load in any decorators
-        eval(`((settingsManagerUI, getSettingsName) => {\n${jsEditor.getSession().getValue()}})(settingsManagerUI, ${getNameFromElement})`);
+        eval(`((settingsManagerUI, getSettingsName) => {\n${javascriptEditor.getSession().getValue()}})(settingsManagerUI, ${getNameFromElement})`);
         //
         // Clear out existing elements
         // Empty the settings root; again, this is not strictly necessary, but it precludes
@@ -65,7 +55,7 @@ $(() => {
     // When the "update" button is clicked
     $('#update-settings-button').click(() => {
         let newSettings = settingsManagerUI.getSettings('#settings-root');
-        editor.set(newSettings);
+        jsonEditor.set(newSettings);
     });
 
 });
