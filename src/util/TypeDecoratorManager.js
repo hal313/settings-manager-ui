@@ -38,6 +38,7 @@ export class TypeDecoratorManager {
         this.applyTypeDecorators = (type, element) => {
             let decoratedElement = element;
             this.getTypeDecorators(type).forEach((decorate) => {
+                // If the decorator does not return an element, return the element which was decorated
                 decoratedElement = decorate(decoratedElement) || element;
             });
             return decoratedElement;
