@@ -11,12 +11,12 @@ export class BooleanCheckboxTypeHandler {
     }
 
     getValue(element) {
-        return !!element.hasAttribute('checked');
+        return !!element.checked;
     }
 
     setValue(element, value) {
         element.value = !!value;
-        !!value ? element.setAttribute('checked', '') : element.removeAttribute('checked');
+        element.checked = !!value;
     }
 
     createElement(name, value) {

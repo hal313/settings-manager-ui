@@ -98,7 +98,7 @@ describe('BooleanCheckboxTypeHandler', () => {
                     expect(booleanCheckboxTypeHandler.getValue(element)).toEqual(newValue);
 
                     // Check the value
-                    expect(element.hasAttribute('checked')).toEqual(newValue);
+                    expect(element.checked).toEqual(newValue);
 
                     // Match the HTML
                     expect(element.outerHTML).toMatchSnapshot();

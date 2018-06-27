@@ -36,7 +36,6 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
            value="true"
-           checked
     >
   </div>
   <div name="name_2"
