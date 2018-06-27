@@ -49,6 +49,7 @@
  */
 (function(settingsManagerUI, getSettingsName) {
 
+    // Decorate string and number fields
     settingsManagerUI.addTypeDecorator('^(string|number).*', (element) => {
         // Render something that looks like:
         //
@@ -87,6 +88,8 @@
         return containingElement;
     });
 
+
+    // Decorate boolean fields
     settingsManagerUI.addTypeDecorator('^boolean.*', (element) => {
         // Render something that looks like:
         //
