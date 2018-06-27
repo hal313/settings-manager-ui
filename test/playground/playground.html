@@ -16,17 +16,15 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h2>Settings Manager UI Playground<br><small>Test your code</small></h2>
-                    <!-- <h2>Settings Manager UI Playground</h2> -->
-                    <!-- <h2><small>Test your code</small></h2> -->
                 </div>
             </div>
 
             <!-- // Top row -->
             <div class="row">
                 <!-- // Settings input -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h5>Settings</h5>
-                    <div id="settings-editor" class="grid-item">{
+                    <div id="settings-editor" class="grid-item editor">{
     "Name": {
         "First": "Joe",
         "Last": "Smith"
@@ -38,14 +36,15 @@
                     <button id="set-settings-button" class="btn btn-primary">Set Settings</button>
                 </div>
                 <!-- // The JavaScript editor -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h5>JavaScript</h5>
                     <form>
                         <div class="form-group">
-                            <div id="code-editor" class="grid-item">/**
+                            <div id="javascript-editor" class="grid-item editor">/**
  * Put code in here to modify the SettingsManagerUI instance before settings are rendered in the DOM.
  *
- * @param {SettingsManagerUI} settingsManagerUI the instance of the settingsManagerUI to be used, use for decorating
+ * @param {SettingsManagerUI} settingsManagerUI the instance of the settingsManagerUI to be used,
+ *                                               use for decorating
  * @param {Function} getNameFromElement a helper that can be used to get the setting name from an element
  */
 (function(settingsManagerUI, getSettingsName) {
@@ -125,6 +124,27 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- // The HTML editor -->
+                <div class="col-md-4">
+                    <h5>HTML</h5>
+                    <form>
+                        <div class="form-group">
+                            <div id="html-editor" class="grid-item editor">&lt;!-- Your settings content will be injected into the HTML element
+     with the id "settings-root" --&gt;
+
+&lt;!-- Try adding the class "form-inline" to the form element --&gt;
+
+&lt;!-- &lt;form class=&quot;form-inline&quot;&gt; --&gt;
+&lt;form&gt;
+
+    &lt;div id="settings-root"
+            data-setting-container=""
+            data-setting-type="object"&gt;&lt;/div&gt;
+&lt;/form&gt;</div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <!-- // The second row -->
@@ -132,9 +152,10 @@
                 <!-- // Settings render area -->
                 <div class="col-md-12">
                     <div class="grid-item grid-item-settings-canvas">
-                        <form>
+                        <div id="html-root"></div>
+                        <!-- <form>
                             <div id="settings-root" data-setting-container="" data-setting-type="object"></div>
-                        </form>
+                        </form> -->
                         <button class="btn btn-primary" id="update-settings-button">Update</button>
                     </div>
                 </div>

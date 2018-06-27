@@ -3,16 +3,28 @@ import { SettingsManagerUI } from '../../src/SettingsManagerUI.js';
 import { getNameFromElement } from '../../src/util/getNameFromElement.js';
 
 $(() => {
+    const EDITOR_THEME = 'ace/theme/monokai';
+    const JSON_INDENT = 4;
+
     // Create the JSON editor
     let jsonEditor = ace.edit('settings-editor', {
-        theme: 'ace/theme/monokai',
+        theme: EDITOR_THEME,
+        mode: 'ace/mode/javascript'
+    });
+    ((session) => {
+        session.setValue(JSON.stringify(JSON.parse(session.getValue()), null, JSON_INDENT));
+    })(jsonEditor.getSession());
+
+    // Create and configure the JavaScript editor
+    let javascriptEditor = ace.edit('javascript-editor', {
+        theme: EDITOR_THEME,
         mode: 'ace/mode/javascript'
     });
 
-    // Create and configure the JavaScript editor
-    let javascriptEditor = ace.edit('code-editor', {
-        theme: 'ace/theme/monokai',
-        mode: 'ace/mode/javascript'
+    // Create and configure the HTML editor
+    let htmlEditor = ace.edit('html-editor', {
+        theme: EDITOR_THEME,
+        mode: 'ace/mode/html'
     });
 
 
@@ -38,7 +50,8 @@ $(() => {
         // cleanup (for example, the SettingsManagerUI will modify existing elements instead)
         // of creating new ones... which is a problem if the client JavaScript changes
         // decorator implementations
-        $('#settings-root').empty();
+        // $('#settings-root').empty();
+        $('#html-root').html(htmlEditor.getSession().getValue());
         //
         // Set the settings
         // Be sure to catch any errors
@@ -55,7 +68,9 @@ $(() => {
     // When the "update" button is clicked
     $('#update-settings-button').click(() => {
         let newSettings = settingsManagerUI.getSettings('#settings-root');
-        jsonEditor.set(newSettings);
+        jsonEditor.getSession().setValue(JSON.stringify(newSettings, null, JSON_INDENT));
     });
 
+    // Show the editors
+    $('.editor').show();
 });
