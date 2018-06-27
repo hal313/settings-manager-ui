@@ -112,9 +112,6 @@ export class CollectionObjectTypeHandler {
     }
 
     setValue(element, settings, settingModifier) {
-        // TODO: Is this necessary?
-        element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
-
         // Get the container elements?
         let arrayItemContainerElements = getArrayItemContainerElements(element);
 

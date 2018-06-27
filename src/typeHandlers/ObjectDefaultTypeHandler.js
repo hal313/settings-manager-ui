@@ -32,10 +32,6 @@ export class ObjectDefaultTypeHandler {
     }
 
     setValue(element, settings, settingModifier) {
-        // TODO: Might be possible to optimize (less iteration? combine both childElements.forEach loops?)
-        // TODO: Is this necessary?
-        element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
-
         let childElements = getChildSettingElements(element);
         let childElementNames = childElements.map(getNameFromElement);
 
