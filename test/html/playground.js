@@ -13,6 +13,7 @@ $(() => {
         },
         'Human': true,
         // 'Array': [1, 2, 3],
+        // 'Null': null,
         'Age': 23,
 
         'Nickname': 'the sideshow'
@@ -51,15 +52,9 @@ $(() => {
         $('#settings-root').empty();
         //
         // Set the settings
-        // Be sure to catch any errors
-        try {
-            settingsManagerUI.setSettings(jsonSettings, '#settings-root');
-            // Show the "update" button if it is not already visible
-            $('#update-settings-button, #results-row').show();
-        } catch (error) {
-            window.alert('An error occurred while setting the settings. Look in the JavaScript console for more information.');
-            throw error;
-        }
+        settingsManagerUI.setSettings(jsonSettings, '#settings-root');
+        // Show the "update" button if it is not already visible
+        $('#update-settings-button, #results-row').show();
     });
 
     // When the "update" button is clicked
