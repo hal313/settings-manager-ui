@@ -78,7 +78,7 @@ export class TypeHandlerManager {
          * @param {*} value the value
          * @returns {Object} a handler for the setting
          */
-        this.derriveTypeHandler = (name, value) => {
+        this.inferTypeHandler = (name, value) => {
             if (!!overridesMap[name]) {
                 this.getTypeHandler(overridesMap[name]);
             }

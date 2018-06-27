@@ -24,7 +24,7 @@ export class SettingModifier {
 
     createElement(name, value) {
         // Get the handler
-        let handler = this.typeHandlerManager.derriveTypeHandler(name, value);
+        let handler = this.typeHandlerManager.inferTypeHandler(name, value);
 
         // Create the element
         let element = handler.createElement(name, value, this);
