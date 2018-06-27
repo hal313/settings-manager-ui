@@ -7,67 +7,75 @@
 
 // NOTE: Run specific test:               npx jest --color --testRegex '.*ObjectDefaultTypeHandler.spec.*' --watch --collectCoverage false
 // NOTE: Run specific test with coverage: npx jest --color --testRegex '.*ObjectDefaultTypeHandler.spec.*' --collectCoverageFrom='**/*ObjectDefaultTypeHandler*' --watch --coverage true
+
+
 // npx rollup src/SettingsManagerUI.js --file dist/test.js --format iife --name "Bund" --globals 'template-manager:TemplateManager'
 // npx rollup src/SettingsManagerUI.js --file dist/test.js --format iife --name "Bund" --globals 'template-manager:TemplateManager' ## watch?
 // npx rollup src/SettingsManagerUI.js --file dist/test.js --format umd --name "SettingsManagerUI" --globals 'template-manager:TemplateManager'
 // tsc -p jsconfig.json --outDir build
 
 // NEXT:
-// string:password, objectarrays, [string|boolean|number|object]arrays
+// [string|boolean|number|object]arrays
 // rollup
 
+// TODO: getTypeFromValue should have configuration for collection type detection
+// collection:object
 // TODO: If the type changes (collection:object), the settingModifer will use the existing type handler instead of the new type handler. how to handle this?
 // TODO: collection:object is not nestable because of the searches; figure out how to leverage the object:default lookups
-// Consider adding [data-setting-value] to values?
+// TODO: Consider adding [data-setting-value] to values?
+// TODO: Test complex types (objects with object[array] children)
+// TODO: Enable skipped tests
 
-// TODO: Should typeHandler.setElement() should set attributes? not type if it exists, maybe even if it doesnt. But certainly name and possibly container?
+
 // TODO: Does applying decorators make getValue break if the decorated element is embedded? Can we disallow decorators to return other elements? CollectionObjectTypeHandler uses 'const valueElement = getChildSettingElements(childElement)[0];' to work around this; should we check for only 1 element? getOnlyChildSettingElement()?
-// TODO: getTypeFromValue should have configuration for collection type detection
-// TODO: Create TypeHandlerManagerConfigurator -> use in tests and for settingsuiconfigurator
-
-// TODO: Replace all toThrow => toThrowError()
-
 // TODO: Apply flat-object-name during population
 // TODO: Pass type, name, value, flatName through to decorators
 
-// TODO: Add remove button for elements in test/html
-// TODO: Add hotkeys for set/update buttons in test/html
-// TODO: Why does the test/html page keep flashing?
 
 // TODO: Add fallback handler (.*, default to string)? may require matching on type lookup?
 // TODO: Handlers should type-check value parameter
+
+
+// TODO: Support object/collection sorters
+// TODO: Support value decorators
+// TODO: Support sorter/value decorator/element decorator assignment delcaratively
+
+
+// TODO: Create TypeHandlerManagerConfigurator -> use in tests and for settingsuiconfigurator
+// TODO: Should typeHandler.setElement() should set attributes? NO! fix in object/collection classes not type if it exists, maybe even if it doesnt. But certainly name and possibly container?
+
+
+// TODO: Add "remove" button for elements in playgound (can use a decorator!)
+// TODO: Add hotkeys for set/update buttons in playground
+// TODO: Why does the playground page keep flashing? Is it because of imports?
+
+
+// TODO: Use template manager
+// TODO: Flat mode / Hierarchical mode / add data-setting-manager-flat-name="some.nested.value" to all elements
+// TODO: Callbacks for type overrides (pass name/value or element)
+
+
 // TODO: Get jest plugin working
 // TODO: Debug jest in ide
 
-// TODO: npm script for running specific test: npx jest --color --testRegex '.*ObjectDefaultTypeHandler.spec.*' --collectCoverageFrom='**/*ObjectDefaultTypeHandler*'  --watch --coverage true
 
 // TODO: Fix gruntfile/move to gulp/add clean target?
 
-// TODO: Callbacks for type overrides (pass name/value or element)
-// Kit lookup should be wildcard
 
 // TODO: Build CLI - use JSDOM(htmlstring) to help?
 // TODO: Code examples for grunt/gulp tasks
 
 
-// TODO: Use template manager
-// TODO: Flat mode / Hierarchical mode / add data-setting-manager-flat-name="some.nested.value" to all elements
-
-// TODO: Support object key sorters
-// TODO: Support value processors
-
 // TODO: Support ng style conversions (someName === some-name)
 
-// TODO: Check common error throwing
-// TODO: Can the xxxTypeHandler objects be singletons?
 
-// TODO: Test complex types (objects with object[array] children)
+// TODO: Can the xxxTypeHandler objects be singletons?
+// TODO: Might be possible to optimize (less iteration? combine both childElements.forEach loops?) (object/collection handlers)
 // TODO: debug flag
 // TODO: jsdoc
 // TODO: README
 // TODO: How to handle when putSettingsIntoUI() is called and some settings dont exist in the DOM? We should track this, right? Keep a copy of settings and merge with UI on getSettingsFromUI?
 // TODO: Add updateSettingsIntoElement(settings, element) => Update existing settings only by changing value/checked/etc
-
 // TODO: Support renderer running the processChain on values at render time
 // TODO: Support renderer template resolver maps
 // TODO: Should populateObjectElement() use own properties? or all? or a selector to decide which properties to use?
