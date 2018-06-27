@@ -1,5 +1,6 @@
 import { BooleanCheckboxTypeHandler } from '../../../src/typeHandlers/BooleanCheckboxTypeHandler';
 import { Constants } from '../../../src/Constants';
+import { asBoolean } from '../../../src/util/asBoolean';
 
 // TODO: Test types (or cast to boolean)
 // TODO: Handle bad cases (null element, etc)
@@ -52,6 +53,7 @@ describe('BooleanCheckboxTypeHandler', () => {
                     expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(booleanCheckboxTypeHandler.getType());
                     // Check the value
                     expect(element.checked).toEqual(value);
+                    expect(asBoolean(element.value)).toEqual(value);
 
                     // Match the HTML
                     expect(element.outerHTML).toMatchSnapshot();
