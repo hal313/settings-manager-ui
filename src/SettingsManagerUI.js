@@ -20,10 +20,10 @@
 
 
 // TODO: getTypeFromValue should have configuration for collection type detection
-// collection:object
-// TODO: If the type changes (collection:object), the settingModifer will use the existing type handler instead of the new type handler. how to handle this?
-// TODO: collection:object is not nestable because of the searches; figure out how to leverage the object:default lookups
 // TODO: Consider adding [data-setting-value] to values?
+// TODO: collection:object is not nestable because of the searches; figure out how to leverage the object:default lookups
+// TODO: If the type changes (collection:object), the settingModifer will use the existing type handler instead of the new type handler. how to handle this?
+// collection:object
 // TODO: Test complex types (objects with object[array] children)
 // TODO: Enable skipped tests
 
@@ -47,8 +47,11 @@
 
 
 // TODO: Add "remove" button for elements in playgound (can use a decorator!)
+// TODO: Integration test for playground
 // TODO: Add hotkeys for set/update buttons in playground
 // TODO: Why does the playground page keep flashing? Is it because of imports?
+// TODO: Insert string content (html/js/json/css) from files
+// TODO: Add CSS editor to playground
 
 
 // TODO: Use template manager
