@@ -67,19 +67,19 @@ describe('CollectionObjectTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => collectionObjectTypeHandler.createElement(undefined, 'someValue')).toThrow();
+                expect(() => collectionObjectTypeHandler.createElement(undefined, 'someValue')).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => collectionObjectTypeHandler.createElement(null, 'someValue')).toThrow();
+                expect(() => collectionObjectTypeHandler.createElement(null, 'someValue')).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => collectionObjectTypeHandler.createElement('', 'someValue')).toThrow();
+                expect(() => collectionObjectTypeHandler.createElement('', 'someValue')).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => collectionObjectTypeHandler.createElement('   ', 'someValue')).toThrow();
+                expect(() => collectionObjectTypeHandler.createElement('   ', 'someValue')).toThrowError();
             });
 
             test('should create an element which holds array values', () => {

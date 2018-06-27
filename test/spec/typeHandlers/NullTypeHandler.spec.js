@@ -23,19 +23,19 @@ describe('NullTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => nullTypeHandler.createElement(undefined, 'someValue')).toThrow();
+                expect(() => nullTypeHandler.createElement(undefined, 'someValue')).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => nullTypeHandler.createElement(null, 'someValue')).toThrow();
+                expect(() => nullTypeHandler.createElement(null, 'someValue')).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => nullTypeHandler.createElement('', 'someValue')).toThrow();
+                expect(() => nullTypeHandler.createElement('', 'someValue')).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => nullTypeHandler.createElement('   ', 'someValue')).toThrow();
+                expect(() => nullTypeHandler.createElement('   ', 'someValue')).toThrowError();
             });
 
             test('should create a null value element', () => {

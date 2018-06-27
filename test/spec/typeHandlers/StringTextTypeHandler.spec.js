@@ -23,19 +23,19 @@ describe('StringTextTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => stringTextTypeHandler.createElement(undefined, 'someValue')).toThrow();
+                expect(() => stringTextTypeHandler.createElement(undefined, 'someValue')).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => stringTextTypeHandler.createElement(null, 'someValue')).toThrow();
+                expect(() => stringTextTypeHandler.createElement(null, 'someValue')).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => stringTextTypeHandler.createElement('', 'someValue')).toThrow();
+                expect(() => stringTextTypeHandler.createElement('', 'someValue')).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => stringTextTypeHandler.createElement('   ', 'someValue')).toThrow();
+                expect(() => stringTextTypeHandler.createElement('   ', 'someValue')).toThrowError();
             });
 
             test('should create a text string input element', () => {

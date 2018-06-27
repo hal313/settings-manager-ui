@@ -23,19 +23,19 @@ describe('NumberNumberTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => numberNumberTypeHandler.createElement(undefined, 101)).toThrow();
+                expect(() => numberNumberTypeHandler.createElement(undefined, 101)).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => numberNumberTypeHandler.createElement(null, 101)).toThrow();
+                expect(() => numberNumberTypeHandler.createElement(null, 101)).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => numberNumberTypeHandler.createElement('', 101)).toThrow();
+                expect(() => numberNumberTypeHandler.createElement('', 101)).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => numberNumberTypeHandler.createElement('   ', 101)).toThrow();
+                expect(() => numberNumberTypeHandler.createElement('   ', 101)).toThrowError();
             });
 
             test('should create a number string input element', () => {

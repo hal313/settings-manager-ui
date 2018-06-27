@@ -23,19 +23,19 @@ describe('BooleanCheckboxTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => booleanCheckboxTypeHandler.createElement(undefined, true)).toThrow();
+                expect(() => booleanCheckboxTypeHandler.createElement(undefined, true)).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => booleanCheckboxTypeHandler.createElement(null, true)).toThrow();
+                expect(() => booleanCheckboxTypeHandler.createElement(null, true)).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => booleanCheckboxTypeHandler.createElement('', true)).toThrow();
+                expect(() => booleanCheckboxTypeHandler.createElement('', true)).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => booleanCheckboxTypeHandler.createElement('   ', true)).toThrow();
+                expect(() => booleanCheckboxTypeHandler.createElement('   ', true)).toThrowError();
             });
 
             [true, false].forEach((value) => {

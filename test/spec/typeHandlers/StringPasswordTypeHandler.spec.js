@@ -23,19 +23,19 @@ describe('StringPasswordTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => stringPasswordTypeHandler.createElement(undefined, 'someValue')).toThrow();
+                expect(() => stringPasswordTypeHandler.createElement(undefined, 'someValue')).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => stringPasswordTypeHandler.createElement(null, 'someValue')).toThrow();
+                expect(() => stringPasswordTypeHandler.createElement(null, 'someValue')).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => stringPasswordTypeHandler.createElement('', 'someValue')).toThrow();
+                expect(() => stringPasswordTypeHandler.createElement('', 'someValue')).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => stringPasswordTypeHandler.createElement('   ', 'someValue')).toThrow();
+                expect(() => stringPasswordTypeHandler.createElement('   ', 'someValue')).toThrowError();
             });
 
             test('should create a text string input element', () => {

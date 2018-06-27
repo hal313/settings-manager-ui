@@ -70,19 +70,19 @@ describe('ObjectDefaultTypeHandler', () => {
         describe('createElement', () => {
 
             test('should throw when name is undefined', () => {
-                expect(() => objectDefaultTypeHandler.createElement(undefined, 'someValue')).toThrow();
+                expect(() => objectDefaultTypeHandler.createElement(undefined, 'someValue')).toThrowError();
             });
 
             test('should throw when name is null', () => {
-                expect(() => objectDefaultTypeHandler.createElement(null, 'someValue')).toThrow();
+                expect(() => objectDefaultTypeHandler.createElement(null, 'someValue')).toThrowError();
             });
 
             test('should throw when name is the empty string', () => {
-                expect(() => objectDefaultTypeHandler.createElement('', 'someValue')).toThrow();
+                expect(() => objectDefaultTypeHandler.createElement('', 'someValue')).toThrowError();
             });
 
             test('should throw when name is whitespace', () => {
-                expect(() => objectDefaultTypeHandler.createElement('   ', 'someValue')).toThrow();
+                expect(() => objectDefaultTypeHandler.createElement('   ', 'someValue')).toThrowError();
             });
 
             test('should create an element with child elements representing the members as input elements', () => {
