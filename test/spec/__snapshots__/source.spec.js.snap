@@ -21,9 +21,10 @@ exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
   >
   <input type="checkbox"
          name="booleanValue"
-         checked
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         value="true"
+         checked
   >
 </div>
 
@@ -50,14 +51,16 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
   >
   <input type="checkbox"
          name="booleanValue"
-         checked
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         value="true"
+         checked
   >
   <div name="objectValue"
        data-setting-name="objectValue"
        data-setting-type="object:default"
        data-setting-container
+       class
   >
     <input name="nestedStringValue"
            type="text"
@@ -69,6 +72,7 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
          data-setting-name="nestedObjectValue"
          data-setting-type="object:default"
          data-setting-container
+         class
     >
       <input name="nestedNestedStringValue"
              type="text"
@@ -103,14 +107,16 @@ exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
   >
   <input type="checkbox"
          name="booleanValue"
-         checked
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         value="true"
+         checked
   >
   <div name="objectValue"
        data-setting-name="objectValue"
        data-setting-type="object:default"
        data-setting-container
+       class
   >
     <input name="nestedStringValue"
            type="text"
