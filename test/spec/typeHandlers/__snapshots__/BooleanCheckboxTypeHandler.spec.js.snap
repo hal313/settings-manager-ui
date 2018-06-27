@@ -6,6 +6,7 @@ exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox e
        name="fieldName"
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="false"
 >
 
 `;
@@ -14,9 +15,10 @@ exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox e
 
 <input type="checkbox"
        name="fieldName"
-       checked
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="true"
+       checked
 >
 
 `;
@@ -27,6 +29,7 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false"
        name="fieldName"
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="false"
 >
 
 `;
@@ -37,6 +40,7 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false"
        name="fieldName"
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="true"
        checked
 >
 
@@ -46,9 +50,10 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" 
 
 <input type="checkbox"
        name="fieldName"
-       checked
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="true"
+       checked
 >
 
 `;
@@ -59,6 +64,7 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" 
        name="fieldName"
        data-setting-name="fieldName"
        data-setting-type="boolean:checkbox"
+       value="false"
 >
 
 `;

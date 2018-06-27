@@ -82,18 +82,13 @@ export class ObjectDefaultTypeHandler {
 
         // TODO: Use a template, if present, for all? (${name}, ${type}, [${value}])
         // TODO: Have a function (templateName, values, attributes) to generate (use template if possible, otherwise generate)
-        // let element = asElement(`<div name=${name} ${Constants.ATTRIBUTE_NAME}="${name}" ${Constants.ATTRIBUTE_TYPE}="${this.getType()}" ${Constants.ATTRIBUTE_CONTAINER_ELEMENT}=""></div>`);
         let element = document.createElement('div');
         element.setAttribute('name', name);
         element.setAttribute(Constants.ATTRIBUTE_NAME, name);
         element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
         element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
 
-        // For each key in the value object, append a child element
-        Object.keys(value).forEach((name) => {
-            element.append(settingModifier.createElement(name, value[name]));
-
-        });
+        this.setValue(element, value, settingModifier);
 
         return element;
     }

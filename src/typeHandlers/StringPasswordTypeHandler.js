@@ -2,12 +2,12 @@ import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
 import { Constants } from '../Constants.js';
 
-export class StringTextTypeHandler {
+export class StringPasswordTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'string:text';
+        return 'string:password';
     }
 
     getValue(element) {
@@ -16,11 +16,6 @@ export class StringTextTypeHandler {
 
     setValue(element, value) {
         element.value = value;
-        // Is it not necessary to set the attribute, like so:
-        //   element.setAttribute('value', value);
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute:
-        // To access or modify the current values, you should use the properties. For example,
-        // use Element.value instead of Element.setAttribute().
     }
 
     createElement(name, value) {
@@ -30,8 +25,7 @@ export class StringTextTypeHandler {
 
         let element = document.createElement('input');
         element.setAttribute('name', name);
-        element.setAttribute('type', 'text');
-        element.setAttribute('value', value);
+        element.setAttribute('type', 'password');
         element.setAttribute(Constants.ATTRIBUTE_NAME, name);
         element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
 

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is added 1`] = `
+
+<div name="fieldName"
+     data-setting-name="fieldName"
+     data-setting-container
+     data-setting-type="collection:object"
+     class
+>
+  <div name="name_0"
+       data-setting-name="name_0"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="name_1"
+       data-setting-name="name_1"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+           value="true"
+           checked
+    >
+  </div>
+  <div name="name_2"
+       data-setting-name="name_2"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is added 2`] = `
+
+<div name="fieldName"
+     data-setting-name="fieldName"
+     data-setting-container
+     data-setting-type="collection:object"
+     class
+>
+  <div name="name_0"
+       data-setting-name="name_0"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="name_1"
+       data-setting-name="name_1"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+           value="false"
+    >
+  </div>
+  <div name="name_2"
+       data-setting-name="name_2"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+  <div name="name_3"
+       data-setting-name="name_3"
+       data-setting-type="object:default"
+       data-setting-container
+       class
+       data-setting-index="3"
+       data-setting-value-container
+  >
+    <input name="fourth"
+           type="text"
+           value="four"
+           data-setting-name="fourth"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;

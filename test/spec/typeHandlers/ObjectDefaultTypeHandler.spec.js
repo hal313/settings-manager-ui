@@ -6,6 +6,8 @@ import { NumberNumberTypeHandler } from '../../../src/typeHandlers/NumberNumberT
 import { TypeDecoratorManager } from '../../../src/util/TypeDecoratorManager';
 import { SettingModifier } from '../../../src/util/SettingModifier';
 import { Constants } from '../../../src/Constants';
+import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/CollectionObjectTypeHandler';
+import { StringPasswordTypeHandler } from '../../../src/typeHandlers/StringPasswordTypeHandler';
 
 // TODO: Test types (or cast to boolean)
 // TODO: Handle bad cases (null element, etc)
@@ -33,16 +35,23 @@ describe('ObjectDefaultTypeHandler', () => {
             const stringTextTypeHandler = new StringTextTypeHandler();
             const booleanCheckboxTypeHandler = new BooleanCheckboxTypeHandler();
             const numberNumberTypeHandler = new NumberNumberTypeHandler();
+            const collectionObjectTypeHandler = new CollectionObjectTypeHandler();
+            const stringPasswordTypeHandler = new StringPasswordTypeHandler();
 
             typeHandlerManager.addTypeHandler(stringTextTypeHandler);
             typeHandlerManager.addTypeHandler(booleanCheckboxTypeHandler);
             typeHandlerManager.addTypeHandler(numberNumberTypeHandler);
             typeHandlerManager.addTypeHandler(objectDefaultTypeHandler);
+            typeHandlerManager.addTypeHandler(collectionObjectTypeHandler);
+            typeHandlerManager.addTypeHandler(stringPasswordTypeHandler);
+
 
             typeHandlerManager.setDefaultHandler('string', stringTextTypeHandler.getType());
             typeHandlerManager.setDefaultHandler('boolean', booleanCheckboxTypeHandler.getType());
             typeHandlerManager.setDefaultHandler('number', numberNumberTypeHandler.getType());
             typeHandlerManager.setDefaultHandler('object', objectDefaultTypeHandler.getType());
+            typeHandlerManager.setDefaultHandler('collection', collectionObjectTypeHandler.getType());
+
 
             typeDecoratorManager = new TypeDecoratorManager();
 

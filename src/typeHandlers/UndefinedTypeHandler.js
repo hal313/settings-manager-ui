@@ -23,13 +23,14 @@ export class UndefinedTypeHandler {
             throw createError('The "name" parameter must be specified');
         }
 
-        // return asElement(`<div name="${name}" ${Constants.ATTRIBUTE_NAME}="${name}" ${Constants.ATTRIBUTE_TYPE}="${this.getType()}" value="${value}" />`);
         let element = document.createElement('div');
         element.setAttribute('name', name);
         element.setAttribute('value', undefined);
-        element.value = undefined;
         element.setAttribute(Constants.ATTRIBUTE_NAME, name);
         element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
+
+        this.setValue(element, undefined);
+
         return element;
     }
 

@@ -23,13 +23,15 @@ export class NumberNumberTypeHandler {
             throw createError('The "name" parameter must be specified');
         }
 
-        // return asElement(`<input name="${name}" ${Constants.ATTRIBUTE_NAME}="${name}" ${Constants.ATTRIBUTE_TYPE}="${this.getType()}" type="number" value="${value}"/>`);
         let element = document.createElement('input');
         element.setAttribute('name', name);
         element.setAttribute('type', 'number');
         element.setAttribute('value', value);
         element.setAttribute(Constants.ATTRIBUTE_NAME, name);
         element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
+
+        this.setValue(element, value);
+
         return element;
     }
 
