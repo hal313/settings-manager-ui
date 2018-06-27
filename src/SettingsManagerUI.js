@@ -16,7 +16,8 @@
 
 // NEXT:
 // [string|boolean|number|object]arrays
-// rollup
+// rollup: do we need this? can we use tsc instead?
+
 
 // TODO: getTypeFromValue should have configuration for collection type detection
 // collection:object
