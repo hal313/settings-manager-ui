@@ -14,7 +14,7 @@ describe('asElement', () => {
     describe('API', function () {
 
 
-        [true, false, -1, 0, 1, NaN, {}, [], true, false, () => {}, '', '   '].forEach((value) => {
+        [true, false, -1, 0, 1, NaN, {}, [], () => {}, '', '   '].forEach((value) => {
             test(`should throw when the element parameter is "${value}"`, () => {
                 expect(() => asElement(value)).toThrowError();
             });
