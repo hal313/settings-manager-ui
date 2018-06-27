@@ -1,5 +1,5 @@
 import { isElement } from './isElement.js';
-import { isString } from './util/isString.js';
+import { isString } from './isString.js';
 import { createError } from './createError.js';
 import { isDefinedAndNotEmpty } from './isDefinedAndNotEmpty.js';
 

@@ -12,49 +12,16 @@ describe('isArray', () => {
 
     describe('API', function () {
 
-        test('returns false when the value is undefined', () => {
-            expect(isArray(undefined)).toBe(false);
+        [true, false, -1, 0, 1, NaN, '', 'some string', null, undefined, {}, () => {}].forEach((value) => {
+            test(`returns false for "${value}"`, () => {
+                expect(isArray(value)).toEqual(false);
+            });
         });
 
-        test('returns false when the value is null', () => {
-            expect(isArray(null)).toBe(false);
-        });
-
-        test('returns false when the value is a string', () => {
-            expect(isArray('some string')).toBe(false);
-        });
-
-        test('returns false when the value is the empty string', () => {
-            expect(isArray('')).toBe(false);
-        });
-
-        test('returns false when the value is true', () => {
-            expect(isArray(true)).toBe(false);
-        });
-
-        test('returns false when the value is false', () => {
-            expect(isArray(undefined)).toBe(false);
-        });
-
-        test('returns false when the value is a number', () => {
-            expect(isArray(0)).toBe(false);
-            expect(isArray(101)).toBe(false);
-        });
-
-        test('returns false when the value is NaN', () => {
-            expect(isArray(NaN)).toBe(false);
-        });
-
-        test('returns false when the value is an object', () => {
-            expect(isArray({})).toBe(false);
-        });
-
-        test('returns false when the value is a Function', () => {
-            expect(isArray(() => {})).toBe(false);
-        });
-
-        test('returns true when the value is an array', () => {
-            expect(isArray([])).toBe(true);
+        [[]].forEach((value) => {
+            test(`returns true for "${value}"`, () => {
+                expect(isArray(value)).toEqual(true);
+            });
         });
 
     });

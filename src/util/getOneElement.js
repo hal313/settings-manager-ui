@@ -1,13 +1,9 @@
 // TODO: Test
-import { isElement } from './isElement.js';
 import { createError } from './createError.js';
+import { getAllElements } from './getAllElements.js';
 
 let getOneElement = (target, rootElement) => {
-    if (isElement(target)) {
-        return target;
-    }
-
-    let elements = (rootElement||document.body).querySelectorAll(target);
+    let elements = getAllElements(target, rootElement);
     let elementCount = elements.length;
     let returnValue = elements[0];
 
