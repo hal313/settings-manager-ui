@@ -1,4 +1,5 @@
 import { getTypeFromElement } from './getTypeFromElement.js';
+import { getTypeFromValue } from './getTypeFromValue.js';
 
 // TODO: Tests
 
