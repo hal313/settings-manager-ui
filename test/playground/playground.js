@@ -9,7 +9,7 @@ $(() => {
     // Create the JSON editor
     let jsonEditor = ace.edit('settings-editor', {
         theme: EDITOR_THEME,
-        mode: 'ace/mode/javascript'
+        mode: 'ace/mode/json'
     });
     ((session) => {
         session.setValue(JSON.stringify(JSON.parse(session.getValue()), null, JSON_INDENT));
