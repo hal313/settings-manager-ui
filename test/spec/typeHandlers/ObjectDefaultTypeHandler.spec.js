@@ -128,6 +128,8 @@ describe('ObjectDefaultTypeHandler', () => {
                 // Check the required attributes
                 expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
                 expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(objectDefaultTypeHandler.getType());
+                // Check the value
+                expect(element.value).toBe(value);
 
                 // Match the HTML
                 expect(element.outerHTML).toMatchSnapshot();
@@ -222,6 +224,9 @@ describe('ObjectDefaultTypeHandler', () => {
 
                 // Check the new value
                 expect(objectDefaultTypeHandler.getValue(element, settingModifier)).toEqual(newValue);
+                // Check the value
+                expect(element.value).toBe(newValue);
+
                 // Match the HTML
                 expect(element.outerHTML).toMatchSnapshot();
             });

@@ -69,6 +69,8 @@ export class ObjectDefaultTypeHandler {
                 element.append(childElement);
             }
         });
+
+        element.value = settings;
     }
 
     createElement(name, value, settingModifier) {
