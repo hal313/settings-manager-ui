@@ -26,6 +26,17 @@
 // collection:object
 // TODO: Test complex types (objects with object[array] children)
 // TODO: Enable skipped tests
+// manipulator: setValue() - (getHandler().supportsType() || getHandler().supportsElement()) ? getHandler.setValue(...) : getTypeHandler(getType(element)).setValue(...)
+// manipulator: should allow for a context object
+// manipulator: keep track of fully qualified names in context object
+// manipulator: decorate fully qualified names in get/create/set (set for new values)
+// manipulator: add type if not present
+// manipulator: use template instead of creator (if specified)
+// typeresolver: fully-qualified-name attribute => declared type attribute => inferred type
+// typeresolver: [supportsType(type)], [supportsElement(element)]
+// templateresolver: template-name attribute => fully-qualified-name attribute => declared type attribute => inferred type
+// typeDecoratorManager: getDecoratorFor(Element [not type]), type-decorator attribute => type registry => inferred type
+
 
 
 // TODO: Does applying decorators make getValue break if the decorated element is embedded? Can we disallow decorators to return other elements? CollectionObjectTypeHandler uses 'const valueElement = getChildSettingElements(childElement)[0];' to work around this; should we check for only 1 element? getOnlyChildSettingElement()?
@@ -52,6 +63,7 @@
 // TODO: Why does the playground page keep flashing? Is it because of imports?
 // TODO: Insert string content (html/js/json/css) from files
 // TODO: Add CSS editor to playground
+// TODO: Tabbed editor for javascript
 
 
 // TODO: Use template manager
@@ -61,6 +73,7 @@
 
 // TODO: Get jest plugin working
 // TODO: Debug jest in ide
+// TODO: Create npm script to run each file for coverage
 
 
 // TODO: Fix gruntfile/move to gulp/add clean target?
