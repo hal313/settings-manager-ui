@@ -35,13 +35,11 @@ export class TypeDecoratorManager {
             return decorators;
         };
 
-        this.applyTypeDecorators = (type, element) => {
-            let decoratedElement = element;
+        this.applyTypeDecorators = (type, element, context, name, value) => {
             this.getTypeDecorators(type).forEach((decorate) => {
-                // If the decorator does not return an element, return the element which was decorated
-                decoratedElement = decorate(decoratedElement) || element;
+                decorate(element, context, type, name, value);
             });
-            return decoratedElement;
+            return element;
         }
 
     }
