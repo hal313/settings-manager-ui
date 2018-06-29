@@ -4,4 +4,5 @@ const Constants = {
     ATTRIBUTE_FLATNAME: 'data-setting-flatname',
     ATTRIBUTE_CONTAINER_ELEMENT: 'data-setting-container'
 };
+
 export {Constants};
