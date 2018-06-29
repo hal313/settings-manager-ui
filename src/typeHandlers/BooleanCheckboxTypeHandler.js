@@ -27,8 +27,6 @@ export class BooleanCheckboxTypeHandler {
         let element = document.createElement('input');
         element.setAttribute('type', 'checkbox');
         element.setAttribute('name', name);
-        element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-        element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
 
         this.setValue(element, value);
 

@@ -4,8 +4,6 @@ exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox e
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="false"
 >
 
@@ -15,8 +13,6 @@ exports[`BooleanCheckboxTypeHandler API createElement should create a checkbox e
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="true"
 >
 
@@ -26,8 +22,6 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false"
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="false"
 >
 
@@ -37,8 +31,6 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "false"
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="true"
 >
 
@@ -48,8 +40,6 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" 
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="true"
 >
 
@@ -59,8 +49,6 @@ exports[`BooleanCheckboxTypeHandler API setValue should set the value to "true" 
 
 <input type="checkbox"
        name="fieldName"
-       data-setting-name="fieldName"
-       data-setting-type="boolean:checkbox"
        value="false"
 >
 
