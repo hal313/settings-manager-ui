@@ -26,8 +26,6 @@ export class StringPasswordTypeHandler {
         let element = document.createElement('input');
         element.setAttribute('name', name);
         element.setAttribute('type', 'password');
-        element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-        element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
 
         this.setValue(element, value);
 
