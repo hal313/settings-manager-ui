@@ -4,8 +4,6 @@ exports[`NullTypeHandler API createElement should create a null value element 1`
 
 <div name="fieldName"
      value="null"
-     data-setting-name="fieldName"
-     data-setting-type="null"
 >
 </div>
 
@@ -15,8 +13,6 @@ exports[`NullTypeHandler API setValue should set the value for a self-created el
 
 <div name="fieldName"
      value="null"
-     data-setting-name="fieldName"
-     data-setting-type="null"
 >
 </div>
 
@@ -26,8 +22,6 @@ exports[`NullTypeHandler API setValue should set the value for a self-created el
 
 <div name="fieldName"
      value="null"
-     data-setting-name="fieldName"
-     data-setting-type="null"
 >
 </div>
 

@@ -26,8 +26,6 @@ export class NullTypeHandler {
         let element = document.createElement('div');
         element.setAttribute('name', name);
         element.setAttribute('value', null);
-        element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-        element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
 
         this.setValue(element, null);
 
