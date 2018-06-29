@@ -1,5 +1,5 @@
 import { SettingsManagerUI } from '../../src/SettingsManagerUI.js';
-// Required for the decorators (used in the page context)
+// Required for the decorators (used in the page execution context)
 import { getNameFromElement } from '../../src/util/getNameFromElement.js';
 
 $(() => {
