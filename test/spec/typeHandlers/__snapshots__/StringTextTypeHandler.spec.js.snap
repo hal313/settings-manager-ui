@@ -5,8 +5,6 @@ exports[`StringTextTypeHandler API createElement should create a text string inp
 <input name="fieldName"
        type="text"
        value="some string value;"
-       data-setting-name="fieldName"
-       data-setting-type="string:text"
 >
 
 `;
@@ -16,8 +14,6 @@ exports[`StringTextTypeHandler API setValue should set the value for a self-crea
 <input name="fieldName"
        type="text"
        value="some string value"
-       data-setting-name="fieldName"
-       data-setting-type="string:text"
 >
 
 `;
@@ -27,8 +23,6 @@ exports[`StringTextTypeHandler API setValue should set the value for a self-crea
 <input name="fieldName"
        type="text"
        value="some string value"
-       data-setting-name="fieldName"
-       data-setting-type="string:text"
 >
 
 `;
