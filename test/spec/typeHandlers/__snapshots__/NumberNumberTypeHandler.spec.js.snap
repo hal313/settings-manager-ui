@@ -5,8 +5,6 @@ exports[`NumberNumberTypeHandler API createElement should create a number string
 <input name="fieldName"
        type="number"
        value="101"
-       data-setting-name="fieldName"
-       data-setting-type="number:number"
 >
 
 `;
@@ -16,8 +14,6 @@ exports[`NumberNumberTypeHandler API setValue should set the value for a self-cr
 <input name="fieldName"
        type="number"
        value="101"
-       data-setting-name="fieldName"
-       data-setting-type="number:number"
 >
 
 `;
@@ -27,8 +23,6 @@ exports[`NumberNumberTypeHandler API setValue should set the value for a self-cr
 <input name="fieldName"
        type="number"
        value="101"
-       data-setting-name="fieldName"
-       data-setting-type="number:number"
 >
 
 `;

@@ -27,8 +27,6 @@ export class NumberNumberTypeHandler {
         element.setAttribute('name', name);
         element.setAttribute('type', 'number');
         element.setAttribute('value', value);
-        element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-        element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
 
         this.setValue(element, value);
 

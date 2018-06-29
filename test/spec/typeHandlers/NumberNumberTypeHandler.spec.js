@@ -48,8 +48,9 @@ describe('NumberNumberTypeHandler', () => {
                 // Check the type
                 expect(element instanceof Element).toBeTruthy();
                 // Check the required attributes
-                expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
-                expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(numberNumberTypeHandler.getType());
+                expect(element.getAttribute('name')).toEqual(name);
+                expect(element.getAttribute('type')).toEqual('number');
+                expect(element.getAttribute('value')).toEqual(''+value);
                 // Check the value
                 expect(+element.value).toEqual(value);
 
