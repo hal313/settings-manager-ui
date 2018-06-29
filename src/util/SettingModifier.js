@@ -8,13 +8,15 @@ import { UndefinedTypeHandler } from '../typeHandlers/UndefinedTypeHandler.js';
 import { NullTypeHandler } from '../typeHandlers/NullTypeHandler.js';
 import { CollectionObjectTypeHandler } from '../typeHandlers/CollectionObjectTypeHandler.js';
 import { StringPasswordTypeHandler } from '../typeHandlers/StringPasswordTypeHandler.js';
+import { TypeHandlerManager } from './TypeHandlerManager.js';
+import { TypeDecoratorManager } from './TypeDecoratorManager.js';
 
 // TODO: Tests
 export class SettingModifier {
 
-    constructor(typeHandlerManager, typeDecoratorManager) {
-        this.typeHandlerManager = typeHandlerManager;
-        this.typeDecoratorManager = typeDecoratorManager;
+    constructor() {
+        this.typeHandlerManager = new TypeHandlerManager();
+        this.typeDecoratorManager = new TypeDecoratorManager();
 
 
         const stringTextTypeHandler = new StringTextTypeHandler();
@@ -83,5 +85,30 @@ export class SettingModifier {
 
         return element;
     };
+
+
+
+
+    addTypeHandler(typeHandler) {
+        this.typeHandlerManager.addTypeHandler(typeHandler);
+    };
+
+    addTypeDecorator(type, decoratorFn) {
+        this.typeDecoratorManager.addTypeDecorators(type, decoratorFn);
+    };
+
+    addTypeDecorators(type, decoratorFns) {
+        this.addTypeDecorator(type, decoratorFns);
+    };
+
+    setDefaultHandler(type, typeHandler) {
+        this.typeHandlerManager.setDefaultHandler(type, typeHandler);
+    }
+
+    decorateAsRoot(element) {
+        if (!element.hasAttribute(Constants.ATTRIBUTE_TYPE)) {
+            element.setAttribute(Constants.ATTRIBUTE_TYPE, this.typeHandlerManager.getTypeHandler('object').getType());
+        }
+    }
 
 };

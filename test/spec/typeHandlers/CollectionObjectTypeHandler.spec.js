@@ -1,15 +1,6 @@
 import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/CollectionObjectTypeHandler';
 import { SettingModifier } from '../../../src/util/SettingModifier';
-import { ObjectDefaultTypeHandler } from '../../../src/typeHandlers/ObjectDefaultTypeHandler';
-import { TypeHandlerManager } from '../../../src/util/TypeHandlerManager';
-import { StringTextTypeHandler } from '../../../src/typeHandlers/StringTextTypeHandler';
-import { BooleanCheckboxTypeHandler } from '../../../src/typeHandlers/BooleanCheckboxTypeHandler';
-import { NumberNumberTypeHandler } from '../../../src/typeHandlers/NumberNumberTypeHandler';
-import { TypeDecoratorManager } from '../../../src/util/TypeDecoratorManager';
 import { Constants } from '../../../src/Constants';
-import { StringPasswordTypeHandler } from '../../../src/typeHandlers/StringPasswordTypeHandler';
-import { UndefinedTypeHandler } from '../../../src/typeHandlers/UndefinedTypeHandler';
-import { NullTypeHandler } from '../../../src/typeHandlers/NullTypeHandler';
 
 // TODO: Test types (or cast to boolean)
 // TODO: Handle bad cases (null element, etc)
@@ -25,43 +16,11 @@ describe('CollectionObjectTypeHandler', () => {
 
     describe('API', () => {
         let collectionObjectTypeHandler;
-        let typeHandlerManager;
-        let typeDecoratorManager;
         let settingModifier;
 
         beforeEach(() => {
-            collectionObjectTypeHandler = new CollectionObjectTypeHandler();
-
-            typeHandlerManager = new TypeHandlerManager();
-
-            const stringTextTypeHandler = new StringTextTypeHandler();
-            const booleanCheckboxTypeHandler = new BooleanCheckboxTypeHandler();
-            const numberNumberTypeHandler = new NumberNumberTypeHandler();
-            const objectDefaultTypeHandler = new ObjectDefaultTypeHandler();
-            const undefinedTypeHandler = new UndefinedTypeHandler();
-            const nullTypeHandler = new NullTypeHandler();
-            const stringPasswordTypeHandler = new StringPasswordTypeHandler();
-
-
-            typeHandlerManager.addTypeHandler(stringTextTypeHandler);
-            typeHandlerManager.addTypeHandler(booleanCheckboxTypeHandler);
-            typeHandlerManager.addTypeHandler(numberNumberTypeHandler);
-            typeHandlerManager.addTypeHandler(objectDefaultTypeHandler);
-            typeHandlerManager.addTypeHandler(undefinedTypeHandler);
-            typeHandlerManager.addTypeHandler(nullTypeHandler);
-            typeHandlerManager.addTypeHandler(collectionObjectTypeHandler);
-            typeHandlerManager.addTypeHandler(stringPasswordTypeHandler);
-
-
-            typeHandlerManager.setDefaultHandler('string', stringTextTypeHandler.getType());
-            typeHandlerManager.setDefaultHandler('boolean', booleanCheckboxTypeHandler.getType());
-            typeHandlerManager.setDefaultHandler('number', numberNumberTypeHandler.getType());
-            typeHandlerManager.setDefaultHandler('object', objectDefaultTypeHandler.getType());
-            typeHandlerManager.setDefaultHandler('collection', collectionObjectTypeHandler.getType());
-
-            typeDecoratorManager = new TypeDecoratorManager();
-
-            settingModifier = new SettingModifier(typeHandlerManager, typeDecoratorManager);
+            settingModifier = new SettingModifier();
+            collectionObjectTypeHandler = settingModifier.typeHandlerManager.getTypeHandler('collection:object');
         });
 
         describe('createElement', () => {

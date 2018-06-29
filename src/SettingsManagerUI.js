@@ -18,21 +18,22 @@
 // [string|boolean|number|object]arrays
 // rollup: do we need this? can we use tsc instead?
 
-// TODO: Put configurator code into settingModifier
-// TODO: Rename settingModifier
+// TODO: Rename SettingModifier
+// TODO: eslint
 
-// TODO: Flatname: not on containers - only actual values and array values
-// TODO: getTypeFromValue should have configuration for collection type detection
+// TODO: Handlers (object/collection) should not have to rely on attributes being decorated; consider adding something like child-of=<parent-id> and having parent-id be a hash (maybe of flatname)?
+
+// TODO: TypeHandlerManager should allow for regex lookup on type
+// TODO: TypeHandlerManger.getTypeFromValue should have configuration for collection type detection
 // TODO: ValueDecorator (can be used to set element.value = value on set()/create())
-// TODO: Consider adding [data-setting-value] to values?
 // TODO: collection:object is not nestable because of the searches; figure out how to leverage the object:default lookups
 // TODO: If the type changes (collection:object), the settingModifer will use the existing type handler instead of the new type handler. how to handle this?
 // collection:object
 // TODO: Test complex types (objects with object[array] children)
 // TODO: Enable skipped tests
-// manipulator: setValue() - (getHandler().supportsType() || getHandler().supportsElement()) ? getHandler.setValue(...) : getTypeHandler(getType(element)).setValue(...)
-// manipulator: add type if not present?
-// manipulator: use template instead of creator (if specified)
+// SettingModifier: setValue() - (getHandler().supportsType() || getHandler().supportsElement()) ? getHandler.setValue(...) : getTypeHandler(getType(element)).setValue(...)
+// SettingModifier: add type if not present?
+// SettingModifier: use template instead of creator (if specified)
 // typeresolver: fully-qualified-name attribute => declared type attribute => inferred type
 // typeresolver: [supportsType(type)], [supportsElement(element)]
 // templateresolver: template-name attribute => fully-qualified-name attribute => declared type attribute => inferred type
@@ -40,16 +41,13 @@
 
 // TODO: Decorator returns same element; cannot create structure. NFS
 
-// TODO: Refactor classes to use proper public members
-
+// TODO: Decorator/handler functions should be try/catch
 
 // TODO: Does applying decorators make getValue break if the decorated element is embedded? Can we disallow decorators to return other elements? CollectionObjectTypeHandler uses 'const valueElement = getChildSettingElements(childElement)[0];' to work around this; should we check for only 1 element? getOnlyChildSettingElement()?
-// TODO: Apply flat-object-name during population
-// TODO: Pass type, name, value, flatName through to decorators
 
 
 // TODO: Add fallback handler (.*, default to string)? may require matching on type lookup?
-// TODO: Handlers should type-check value parameter
+// TODO: Handler implementations should type-check value parameter
 
 
 // TODO: Support object/collection sorters
@@ -57,7 +55,7 @@
 // TODO: Support sorter/value decorator/element decorator assignment delcaratively
 
 
-// TODO: Create TypeHandlerManagerConfigurator -> use in tests and for settingsuiconfigurator
+// TODO: Create TypeHandlerManagerConfigurator -> use in tests and for settingsuiconfigurator OR use SettingModifier
 // TODO: Should typeHandler.setElement() should set attributes? NO! fix in object/collection classes not type if it exists, maybe even if it doesnt. But certainly name and possibly container?
 
 
@@ -119,72 +117,48 @@
 // TODO: Consider having the configurator pull in descriptors from JSON and load them (note: this might be challenging because of the need to dynamically import paths and import statements can be top level only)
 
 import { getOneElement } from './util/getOneElement.js';
-import { TypeDecoratorManager } from './util/TypeDecoratorManager.js';
-import { TypeHandlerManager } from './util/TypeHandlerManager.js';
 import { SettingModifier } from './util/SettingModifier.js';
-import { Constants } from './Constants.js';
 
-
-// OK, so this will suck with a lot of instances because they wont be garbage collected :(
-const privates = {};
-const getPrivate = (instance, name) => {
-    if (!privates[instance]) {
-        privates[instance] = {};
-    }
-    return privates[instance][name];
-};
-const setPrivate = (instance, name, value) => {
-    if (!privates[instance]) {
-        privates[instance] = {};
-    }
-    privates[instance][name] = value;
-};
-
+// Test
 export class SettingsManagerUI {
 
     constructor() {
-
-        let typeHandlerManager = new TypeHandlerManager();
-        let typeDecoratorManager = new TypeDecoratorManager();
-        let settingModifier = new SettingModifier(typeHandlerManager, typeDecoratorManager);
-
-        setPrivate(this, 'typeHandlerManager', typeHandlerManager);
-        setPrivate(this, 'typeDecoratorManager', typeDecoratorManager);
-        setPrivate(this, 'settingModifier', settingModifier);
+        this.settingModifier = new SettingModifier();
     };
 
     addTypeHandler(typeHandler) {
-        getPrivate(this, 'typeHandlerManager').addTypeHandler(typeHandler);
+        this.settingModifier.addTypeHandler(typeHandler);
     };
 
     addTypeDecorator(type, decoratorFn) {
-        getPrivate(this, 'typeDecoratorManager').addTypeDecorators(type, decoratorFn);
+        this.settingModifier.addTypeDecorators(type, decoratorFn);
     };
 
     addTypeDecorators(type, decoratorFns) {
-        this.addTypeDecorator(type, decoratorFns);
+        this.settingModifier(type, decoratorFns);
     };
 
     setDefaultHandler(type, typeHandler) {
-        getPrivate(this, 'typeHandlerManager').setDefaultHandler(type, typeHandler);
+        this.settingModifier.setDefaultHandler(type, typeHandler);
     }
 
+
     setValueTo(value, target) {
-        getPrivate(this, 'settingModifier').setValue(getOneElement(target), value);
+        this.settingModifier.setValue(getOneElement(target), value);
     };
 
     getValueFrom(target) {
-        return getPrivate(this, 'settingModifier').getValue(getOneElement(target));
+        return this.settingModifier.getValue(getOneElement(target));
     };
 
+
     setSettings(settings, target) {
+        const element = getOneElement(target);
+
         // Set the type on the root element if it is not set
-        let element = getOneElement(target);
-        if (!element.hasAttribute(Constants.ATTRIBUTE_TYPE)) {
-            let type = getPrivate(this, 'typeHandlerManager').getTypeHandler('object').getType();
-            element.setAttribute(Constants.ATTRIBUTE_TYPE, type);
-        }
-        return this.setValueTo(settings, target);
+        this.settingModifier.decorateAsRoot(element);
+
+        return this.setValueTo(settings, element);
     };
 
     getSettings(target) {

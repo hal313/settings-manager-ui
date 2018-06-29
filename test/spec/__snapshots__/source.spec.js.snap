@@ -98,11 +98,10 @@ exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
          data-setting-type="boolean:checkbox"
   >
   <div name="nullValue"
-       data-setting-container
-       class
+       value="null"
        data-setting-flatname="nullValue"
        data-setting-name="nullValue"
-       data-setting-type="object:default"
+       data-setting-type="null"
   >
   </div>
   <div name="undefinedValue"
