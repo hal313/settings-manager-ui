@@ -9,6 +9,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -17,6 +18,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -24,6 +26,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -32,6 +35,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
     <input type="checkbox"
            name="second"
            value="true"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -39,6 +43,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -47,6 +52,7 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -65,6 +71,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -73,6 +80,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -80,6 +88,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -88,6 +97,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="true"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -95,6 +105,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -103,6 +114,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -121,6 +133,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -129,6 +142,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -136,6 +150,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -144,6 +159,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="false"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -151,6 +167,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -159,6 +176,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -177,6 +195,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -185,6 +204,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -192,6 +212,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -200,6 +221,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="true"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -207,6 +229,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -215,6 +238,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -233,6 +257,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -241,6 +266,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -248,6 +274,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -256,6 +283,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="false"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -263,6 +291,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -271,6 +300,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -278,6 +308,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[3]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[3]"
        data-setting-name="fieldName[3]"
        data-setting-type="object:default"
        data-setting-index="3"
@@ -286,6 +317,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="fourth"
            type="text"
            value="four"
+           data-setting-flatname="fieldName[3].fourth"
            data-setting-name="fourth"
            data-setting-type="string:text"
     >
@@ -304,6 +336,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[0]"
        data-setting-container
        class
+       data-setting-flatname="people[0]"
        data-setting-name="people[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -312,12 +345,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 1"
+           data-setting-flatname="people[0].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 1"
+           data-setting-flatname="people[0].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -325,6 +360,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[1]"
        data-setting-container
        class
+       data-setting-flatname="people[1]"
        data-setting-name="people[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -333,12 +369,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 2"
+           data-setting-flatname="people[1].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 2"
+           data-setting-flatname="people[1].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -346,6 +384,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[2]"
        data-setting-container
        class
+       data-setting-flatname="people[2]"
        data-setting-name="people[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -354,12 +393,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 3"
+           data-setting-flatname="people[2].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 3"
+           data-setting-flatname="people[2].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -378,6 +419,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[0]"
        data-setting-container
        class
+       data-setting-flatname="people[0]"
        data-setting-name="people[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -386,12 +428,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 1"
+           data-setting-flatname="people[0].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 1"
+           data-setting-flatname="people[0].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -399,6 +443,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[1]"
        data-setting-container
        class
+       data-setting-flatname="people[1]"
        data-setting-name="people[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -407,12 +452,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 2"
+           data-setting-flatname="people[1].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 2"
+           data-setting-flatname="people[1].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -420,6 +467,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="people[2]"
        data-setting-container
        class
+       data-setting-flatname="people[2]"
        data-setting-name="people[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -428,12 +476,14 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="firstName"
            type="text"
            value="first name 3"
+           data-setting-flatname="people[2].firstName"
            data-setting-name="firstName"
            data-setting-type="string:text"
     >
     <input name="lastName"
            type="text"
            value="last name 3"
+           data-setting-flatname="people[2].lastName"
            data-setting-name="lastName"
            data-setting-type="string:text"
     >
@@ -452,6 +502,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -460,6 +511,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -467,6 +519,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -475,6 +528,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="true"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >
@@ -482,6 +536,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[2]"
        data-setting-name="fieldName[2]"
        data-setting-type="object:default"
        data-setting-index="2"
@@ -490,6 +545,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="third"
            type="text"
            value="3"
+           data-setting-flatname="fieldName[2].third"
            data-setting-name="third"
            data-setting-type="string:text"
     >
@@ -508,6 +564,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[0]"
        data-setting-name="fieldName[0]"
        data-setting-type="object:default"
        data-setting-index="0"
@@ -516,6 +573,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input name="first"
            type="number"
            value="1"
+           data-setting-flatname="fieldName[0].first"
            data-setting-name="first"
            data-setting-type="number:number"
     >
@@ -523,6 +581,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
   <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-flatname="fieldName[1]"
        data-setting-name="fieldName[1]"
        data-setting-type="object:default"
        data-setting-index="1"
@@ -531,6 +590,7 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
     <input type="checkbox"
            name="second"
            value="false"
+           data-setting-flatname="fieldName[1].second"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
     >

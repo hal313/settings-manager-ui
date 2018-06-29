@@ -68,14 +68,13 @@ const getArrayItemContainerElements = (rootElement) => {
  * @param {*} value the value to create an element for
  * @param {Number} index the index of the item
  * @param {SettingModifier} settingModifier the SettingModifer to assist
- * @param {*} context the context within this objects hierarchy
  * @returns {Element} the created element
  */
-const createArrayItemContainerElement = (name, value, index, settingModifier, context) => {
+const createArrayItemContainerElement = (name, value, index, settingModifier) => {
     // Create the name ('value[index]')
     const indexedName = `${name}[${index}]`;
 
-    const element = settingModifier.createElement(indexedName, value, context);
+    const element = settingModifier.createElement(indexedName, value);
     element.setAttribute(ATTRIBUTE_INDEX, index);
     element.setAttribute(ATTRIBUTE_COLLECTION_VALUE_CONTAINER, '');
 
@@ -90,7 +89,7 @@ export class CollectionObjectTypeHandler {
         return 'collection:object';
     }
 
-    getValue(element, settingModifier, context) {
+    getValue(element, settingModifier) {
         let childElements = getChildSettingElements(element);
         let valueArray = [];
 
@@ -104,7 +103,7 @@ export class CollectionObjectTypeHandler {
                     // Get the name from the element
                     const name = getNameFromElement(valueElement);
                     // Get the value (which may be a recursive call)
-                    const value = settingModifier.getValue(valueElement, context);
+                    const value = settingModifier.getValue(valueElement);
 
                     // Add the name and value to the value object
                     valueObject[name] = value;
@@ -118,7 +117,7 @@ export class CollectionObjectTypeHandler {
         return valueArray;
     }
 
-    setValue(element, values, settingModifier, context) {
+    setValue(element, values, settingModifier) {
         // Get the container elements?
         // TODO: Will this break with nested items?
         let arrayItemContainerElements = getArrayItemContainerElements(element);
@@ -143,12 +142,12 @@ export class CollectionObjectTypeHandler {
             switch (arrayItemContainerElements.length) {
                 case 0:
                     // Add a new DOM element
-                    element.appendChild(createArrayItemContainerElement(getNameFromElement(element), value, index, settingModifier, context));
+                    element.appendChild(createArrayItemContainerElement(getNameFromElement(element), value, index, settingModifier));
                     break;
                 case 1:
                     // Update an existing DOM element
                     let arrayItemContainerElement = getArrayItemContainerElementByIndex(element, index);
-                    settingModifier.setValue(arrayItemContainerElement, value, context);
+                    settingModifier.setValue(arrayItemContainerElement, value);
                     break;
                 default:
                     throw createError(`Duplicate elements in setting "${getNameFromElement(element)}"`);
@@ -158,7 +157,7 @@ export class CollectionObjectTypeHandler {
         element.value = values;
     }
 
-    createElement(name, value, settingModifier, context) {
+    createElement(name, value, settingModifier) {
         if (!isDefinedAndNotEmpty(name)) {
             throw createError('The "name" parameter must be specified');
         }
@@ -180,7 +179,7 @@ export class CollectionObjectTypeHandler {
         rootElement.setAttribute(Constants.ATTRIBUTE_NAME, name);
 
         // Set the value
-        this.setValue(rootElement, value, settingModifier, context);
+        this.setValue(rootElement, value, settingModifier);
 
         return rootElement;
     }

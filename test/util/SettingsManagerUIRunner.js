@@ -198,10 +198,6 @@ module.exports = function() {
                         const selector = `#${id}`;
 
                         beforeEach(() => {
-                            // data-setting-container=""
-                            // data-setting-type="object"
-                            // data-setting-name="settings"
-                            // TODO: data-setting-type="object:default" must be set for some reason?!?
                             document.body.innerHTML = `<div id="${id}"></div>`
                         });
 
@@ -223,12 +219,13 @@ module.exports = function() {
 
                         test('should set a nested object', () => {
                             const settings = {
-                                stringValue: 'hello world!',
+                                stringValue: 'top level string value',
                                 numberValue: 101,
                                 booleanValue: true,
                                 objectValue: {
-                                    nestedStringValue: 'another string value'
-                                }
+                                    nestedStringValue: 'nested string value'
+                                },
+                                anotherStringValue: 'another top level string value'
                             };
 
                             // Set the settings
@@ -246,9 +243,15 @@ module.exports = function() {
                                 objectValue: {
                                     nestedStringValue: 'another string value',
                                     nestedObjectValue: {
-                                        nestedNestedStringValue: 'yet another string value'
-                                    }
-                                }
+                                        nestedNestedStringValue: 'yet another string value',
+                                        nestedNestedObjectValue: {
+                                            nestedNestedStringValue: 'still another string value'
+                                        },
+                                        name: false
+                                    },
+                                    onelevelname: {}
+                                },
+                                toplevel: 'toplevel'
                             };
 
                             // Set the settings

@@ -35,9 +35,9 @@ export class TypeDecoratorManager {
             return decorators;
         };
 
-        this.applyTypeDecorators = (type, element, context, name, value) => {
+        this.applyTypeDecorators = (type, element, name, value) => {
             this.getTypeDecorators(type).forEach((decorate) => {
-                decorate(element, context, type, name, value);
+                decorate(element, type, name, value);
             });
             return element;
         }

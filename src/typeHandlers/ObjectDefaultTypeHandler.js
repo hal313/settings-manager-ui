@@ -13,7 +13,7 @@ export class ObjectDefaultTypeHandler {
         return 'object:default';
     }
 
-    getValue(element, settingModifier, context) {
+    getValue(element, settingModifier) {
         let childElements = getChildSettingElements(element);
         let valueObject = {};
 
@@ -22,7 +22,7 @@ export class ObjectDefaultTypeHandler {
             // Get the name from the element
             let name = getNameFromElement(childElement);
             // Get the value (which may be a recursive call)
-            let value = settingModifier.getValue(childElement, context);
+            let value = settingModifier.getValue(childElement);
 
             // Add the name and value to the value object
             valueObject[name] = value;
@@ -31,7 +31,7 @@ export class ObjectDefaultTypeHandler {
         return valueObject;
     }
 
-    setValue(element, settings, settingModifier, context) {
+    setValue(element, settings, settingModifier) {
         // Append the name to the root path
         let childElements = getChildSettingElements(element);
         let childElementNames = childElements.map(getNameFromElement);
@@ -56,7 +56,7 @@ export class ObjectDefaultTypeHandler {
             // If the DOM has a value which is in the settings object
             if (childElementNames.includes(name)) {
                 if (isDefined(settings)) {
-                    settingModifier.setValue(childElement, settings[name], context);
+                    settingModifier.setValue(childElement, settings[name]);
                 }
             }
         });
@@ -69,7 +69,7 @@ export class ObjectDefaultTypeHandler {
 
                 if (!childElementNames.includes(name)) {
                     // Create the element
-                    let childElement = settingModifier.createElement(name, settingValue, context);
+                    let childElement = settingModifier.createElement(name, settingValue);
 
                     // Add to the element
                     element.append(childElement);
@@ -81,7 +81,7 @@ export class ObjectDefaultTypeHandler {
         element.value = settings;
     }
 
-    createElement(name, value, settingModifier, context) {
+    createElement(name, value, settingModifier) {
         if (!isDefined(name)) {
             throw createError('The "name" parameter must be specified');
         }
@@ -96,7 +96,7 @@ export class ObjectDefaultTypeHandler {
         element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
 
         // Set the value
-        this.setValue(element, value, settingModifier, context);
+        this.setValue(element, value, settingModifier);
 
         return element;
     }

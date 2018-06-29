@@ -18,6 +18,8 @@
 // [string|boolean|number|object]arrays
 // rollup: do we need this? can we use tsc instead?
 
+// TODO: Put configurator code into settingModifier
+// TODO: Rename settingModifier
 
 // TODO: Flatname: not on containers - only actual values and array values
 // TODO: getTypeFromValue should have configuration for collection type detection
@@ -29,17 +31,14 @@
 // TODO: Test complex types (objects with object[array] children)
 // TODO: Enable skipped tests
 // manipulator: setValue() - (getHandler().supportsType() || getHandler().supportsElement()) ? getHandler.setValue(...) : getTypeHandler(getType(element)).setValue(...)
-// manipulator: should allow for a context object
-// manipulator: keep track of fully qualified names in context object
-// manipulator: decorate fully qualified names in get/create/set (set for new values)
-// manipulator: add type if not present
+// manipulator: add type if not present?
 // manipulator: use template instead of creator (if specified)
 // typeresolver: fully-qualified-name attribute => declared type attribute => inferred type
 // typeresolver: [supportsType(type)], [supportsElement(element)]
 // templateresolver: template-name attribute => fully-qualified-name attribute => declared type attribute => inferred type
 // typeDecoratorManager: getDecoratorFor(Element [not type]), type-decorator attribute => type registry => inferred type
 
-
+// TODO: Decorator returns same element; cannot create structure. NFS
 
 // TODO: Refactor classes to use proper public members
 
@@ -122,7 +121,6 @@
 import { getOneElement } from './util/getOneElement.js';
 import { TypeDecoratorManager } from './util/TypeDecoratorManager.js';
 import { TypeHandlerManager } from './util/TypeHandlerManager.js';
-import { SettingsManagerUIConfigurator } from './util/SettingsManagerUIConfigurator.js';
 import { SettingModifier } from './util/SettingModifier.js';
 import { Constants } from './Constants.js';
 
@@ -153,9 +151,6 @@ export class SettingsManagerUI {
         setPrivate(this, 'typeHandlerManager', typeHandlerManager);
         setPrivate(this, 'typeDecoratorManager', typeDecoratorManager);
         setPrivate(this, 'settingModifier', settingModifier);
-
-        // Configure this instance
-        SettingsManagerUIConfigurator.configure(this);
     };
 
     addTypeHandler(typeHandler) {
