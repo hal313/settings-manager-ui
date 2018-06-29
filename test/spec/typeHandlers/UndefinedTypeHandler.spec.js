@@ -46,9 +46,6 @@ describe('UndefinedTypeHandler', () => {
 
                 // Check the type
                 expect(element instanceof Element).toBeTruthy();
-                // Check the required attributes
-                expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
-                expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(undefinedTypeHandler.getType());
                 // Check the value
                 expect(element.value).toEqual(undefined);
 

@@ -4,8 +4,6 @@ exports[`UndefinedTypeHandler API createElement should create an undefined value
 
 <div name="fieldName"
      value="undefined"
-     data-setting-name="fieldName"
-     data-setting-type="undefined"
 >
 </div>
 
@@ -15,8 +13,6 @@ exports[`UndefinedTypeHandler API setValue should set the value for a self-creat
 
 <div name="fieldName"
      value="undefined"
-     data-setting-name="fieldName"
-     data-setting-type="undefined"
 >
 </div>
 
@@ -26,8 +22,6 @@ exports[`UndefinedTypeHandler API setValue should set the value for a self-creat
 
 <div name="fieldName"
      value="undefined"
-     data-setting-name="fieldName"
-     data-setting-type="undefined"
 >
 </div>
 
