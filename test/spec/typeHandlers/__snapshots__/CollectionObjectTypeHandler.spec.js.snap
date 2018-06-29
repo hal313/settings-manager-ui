@@ -1,18 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is added 1`] = `
+exports[`CollectionObjectTypeHandler API createElement should create an element which holds array values 1`] = `
 
 <div name="fieldName"
-     data-setting-name="fieldName"
      data-setting-container
-     data-setting-type="collection:object"
-     class
+     data-setting-name="fieldName"
 >
-  <div name="name_0"
-       data-setting-name="name_0"
-       data-setting-type="object:default"
+  <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -23,26 +21,194 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            data-setting-type="number:number"
     >
   </div>
-  <div name="name_1"
-       data-setting-name="name_1"
-       data-setting-type="object:default"
+  <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
        data-setting-index="1"
        data-setting-value-container
   >
     <input type="checkbox"
            name="second"
+           value="true"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
-           value="true"
     >
   </div>
-  <div name="name_2"
-       data-setting-name="name_2"
-       data-setting-type="object:default"
+  <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element 1`] = `
+
+<div name="fieldName"
+     data-setting-container
+     data-setting-name="fieldName"
+     class
+>
+  <div name="fieldName[0]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="fieldName[1]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           value="true"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+    >
+  </div>
+  <div name="fieldName[2]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element 2`] = `
+
+<div name="fieldName"
+     data-setting-container
+     data-setting-name="fieldName"
+     class
+>
+  <div name="fieldName[0]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="fieldName[1]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           value="false"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+    >
+  </div>
+  <div name="fieldName[2]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is added 1`] = `
+
+<div name="fieldName"
+     data-setting-container
+     data-setting-name="fieldName"
+     class
+>
+  <div name="fieldName[0]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="fieldName[1]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           value="true"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+    >
+  </div>
+  <div name="fieldName[2]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -60,16 +226,15 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
 exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is added 2`] = `
 
 <div name="fieldName"
-     data-setting-name="fieldName"
      data-setting-container
-     data-setting-type="collection:object"
+     data-setting-name="fieldName"
      class
 >
-  <div name="name_0"
-       data-setting-name="name_0"
-       data-setting-type="object:default"
+  <div name="fieldName[0]"
        data-setting-container
        class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -80,26 +245,26 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            data-setting-type="number:number"
     >
   </div>
-  <div name="name_1"
-       data-setting-name="name_1"
-       data-setting-type="object:default"
+  <div name="fieldName[1]"
        data-setting-container
        class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
        data-setting-index="1"
        data-setting-value-container
   >
     <input type="checkbox"
            name="second"
+           value="false"
            data-setting-name="second"
            data-setting-type="boolean:checkbox"
-           value="false"
     >
   </div>
-  <div name="name_2"
-       data-setting-name="name_2"
-       data-setting-type="object:default"
+  <div name="fieldName[2]"
        data-setting-container
        class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -110,11 +275,11 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            data-setting-type="string:text"
     >
   </div>
-  <div name="name_3"
-       data-setting-name="name_3"
-       data-setting-type="object:default"
+  <div name="fieldName[3]"
        data-setting-container
        class
+       data-setting-name="fieldName[3]"
+       data-setting-type="object:default"
        data-setting-index="3"
        data-setting-value-container
   >
@@ -123,6 +288,251 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            value="four"
            data-setting-name="fourth"
            data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is changed 1`] = `
+
+<div name="people"
+     data-setting-container
+     data-setting-name="people"
+     class
+>
+  <div name="people[0]"
+       data-setting-container
+       class
+       data-setting-name="people[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 1"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 1"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+  <div name="people[1]"
+       data-setting-container
+       class
+       data-setting-name="people[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 2"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 2"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+  <div name="people[2]"
+       data-setting-container
+       class
+       data-setting-name="people[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 3"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 3"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is changed 2`] = `
+
+<div name="people"
+     data-setting-container
+     data-setting-name="people"
+     class
+>
+  <div name="people[0]"
+       data-setting-container
+       class
+       data-setting-name="people[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 1"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 1"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+  <div name="people[1]"
+       data-setting-container
+       class
+       data-setting-name="people[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 2"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 2"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+  <div name="people[2]"
+       data-setting-container
+       class
+       data-setting-name="people[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="firstName"
+           type="text"
+           value="first name 3"
+           data-setting-name="firstName"
+           data-setting-type="string:text"
+    >
+    <input name="lastName"
+           type="text"
+           value="last name 3"
+           data-setting-name="lastName"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is removed 1`] = `
+
+<div name="fieldName"
+     data-setting-container
+     data-setting-name="fieldName"
+     class
+>
+  <div name="fieldName[0]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="fieldName[1]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           value="true"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
+    >
+  </div>
+  <div name="fieldName[2]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[2]"
+       data-setting-type="object:default"
+       data-setting-index="2"
+       data-setting-value-container
+  >
+    <input name="third"
+           type="text"
+           value="3"
+           data-setting-name="third"
+           data-setting-type="string:text"
+    >
+  </div>
+</div>
+
+`;
+
+exports[`CollectionObjectTypeHandler API setValue should set the value for a self-created element when one element is removed 2`] = `
+
+<div name="fieldName"
+     data-setting-container
+     data-setting-name="fieldName"
+     class
+>
+  <div name="fieldName[0]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[0]"
+       data-setting-type="object:default"
+       data-setting-index="0"
+       data-setting-value-container
+  >
+    <input name="first"
+           type="number"
+           value="1"
+           data-setting-name="first"
+           data-setting-type="number:number"
+    >
+  </div>
+  <div name="fieldName[1]"
+       data-setting-container
+       class
+       data-setting-name="fieldName[1]"
+       data-setting-type="object:default"
+       data-setting-index="1"
+       data-setting-value-container
+  >
+    <input type="checkbox"
+           name="second"
+           value="false"
+           data-setting-name="second"
+           data-setting-type="boolean:checkbox"
     >
   </div>
 </div>

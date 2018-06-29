@@ -98,7 +98,6 @@ describe('CollectionObjectTypeHandler', () => {
                 // Check the required attributes
                 expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
                 expect(element.getAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT)).toBeDefined();
-                expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(collectionObjectTypeHandler.getType());
                 // Check the value
                 expect(element.value).toEqual(value);
 
@@ -204,7 +203,7 @@ describe('CollectionObjectTypeHandler', () => {
                     {third: '3'}
                 ];
                 const newValue = [
-                    {first: 'one'},
+                    {first: 1},
                     {second: false}
                 ]
 
@@ -228,18 +227,18 @@ describe('CollectionObjectTypeHandler', () => {
                 expect(element.outerHTML).toMatchSnapshot();
             });
 
-            test.only('should set the value for a self-created element when one element is added', () => {
-                const name = 'fieldName';
+            // TODO: Test embedded ({firstName: 1, lastName: 1, optional: {middle: 3}})
+            test('should set the value for a self-created element when one element is changed', () => {
+                const name = 'people';
                 const value = [
-                    {first: 1},
-                    {second: true},
-                    {third: '3'}
+                    {firstName: 'first name 1', lastName: 'last name 1'},
+                    {firstName: 'first name 2', lastName: 'last name 2'},
+                    {firstName: 'first name 3', lastName: 'last name 3'},
                 ];
                 const newValue = [
-                    {first: 11},
-                    {second: false},
-                    {third: '33'},
-                    {fourth: 'four'}
+                    {firstName: 'first name 1', lastName: 'last name 1'},
+                    {firstName: 'first name 2', lastName: 'last name 2'},
+                    {firstName: 'first name CHANGED', lastName: 'last name CHANGED'},
                 ]
 
                 // Create the element
@@ -254,6 +253,39 @@ describe('CollectionObjectTypeHandler', () => {
 
                 // Check the new value
                 expect(collectionObjectTypeHandler.getValue(element, settingModifier)).toEqual(newValue);
+                // Check the value
+                expect(element.value).toEqual(newValue);
+
+                // Match the HTML
+                expect(element.outerHTML).toMatchSnapshot();
+            });
+
+            test('should set the value for a self-created element when one element is added', () => {
+                const name = 'fieldName';
+                const value = [
+                    {first: 1},
+                    {second: true},
+                    {third: '3'}
+                ];
+                const newValue = [
+                    {first: 11},
+                    {second: false},
+                    {third: '33'},
+                    {fourth: 'four'}
+                ]
+
+                // Create the element
+                const element = collectionObjectTypeHandler.createElement(name, value, settingModifier, {});
+
+                // Precondition check
+                expect(collectionObjectTypeHandler.getValue(element, settingModifier, {})).toEqual(value);
+                // Match the HTML
+                expect(element.outerHTML).toMatchSnapshot();
+
+                collectionObjectTypeHandler.setValue(element, newValue, settingModifier, {});
+
+                // Check the new value
+                expect(collectionObjectTypeHandler.getValue(element, settingModifier, {})).toEqual(newValue);
 
                 // Check the value
                 expect(element.value).toEqual(newValue);

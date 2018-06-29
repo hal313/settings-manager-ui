@@ -64,16 +64,21 @@ const getArrayItemContainerElements = (rootElement) => {
 /**
  * Creates an slement which is suitable for residing in a DOM and represents the array element value.
  *
+ * @param {String} name the name of the value
  * @param {*} value the value to create an element for
  * @param {Number} index the index of the item
  * @param {SettingModifier} settingModifier the SettingModifer to assist
+ * @param {*} context the context within this objects hierarchy
  * @returns {Element} the created element
  */
-const createArrayItemContainerElement = (value, index, settingModifier) => {
-    const name = `name_${index}`;
-    const element = settingModifier.createElement(name, value, settingModifier);
+const createArrayItemContainerElement = (name, value, index, settingModifier, context) => {
+    // Create the name ('value[index]')
+    const indexedName = `${name}[${index}]`;
+
+    const element = settingModifier.createElement(indexedName, value, context);
     element.setAttribute(ATTRIBUTE_INDEX, index);
     element.setAttribute(ATTRIBUTE_COLLECTION_VALUE_CONTAINER, '');
+
     return element;
 };
 
@@ -85,7 +90,7 @@ export class CollectionObjectTypeHandler {
         return 'collection:object';
     }
 
-    getValue(element, settingModifier) {
+    getValue(element, settingModifier, context) {
         let childElements = getChildSettingElements(element);
         let valueArray = [];
 
@@ -94,25 +99,28 @@ export class CollectionObjectTypeHandler {
             // The value object represented by this child
             const valueObject = {};
 
-            // The element may be
-            const valueElement = getChildSettingElements(childElement)[0];
-            // Get the name from the element
-            const name = getNameFromElement(valueElement);
-            // Get the value (which may be a recursive call)
-            const value = settingModifier.getValue(valueElement);
+            if (childElement.hasAttribute(ATTRIBUTE_COLLECTION_VALUE_CONTAINER)) {
+                getChildSettingElements(childElement).forEach((valueElement) => {
+                    // Get the name from the element
+                    const name = getNameFromElement(valueElement);
+                    // Get the value (which may be a recursive call)
+                    const value = settingModifier.getValue(valueElement, context);
 
-            // Add the name and value to the value object
-            valueObject[name] = value;
+                    // Add the name and value to the value object
+                    valueObject[name] = value;
 
-            // Push the object
-            valueArray.push(valueObject);
+                });
+                // Push the object
+                valueArray.push(valueObject);
+            }
         });
 
         return valueArray;
     }
 
-    setValue(element, settings, settingModifier) {
+    setValue(element, values, settingModifier, context) {
         // Get the container elements?
+        // TODO: Will this break with nested items?
         let arrayItemContainerElements = getArrayItemContainerElements(element);
 
         // Remove values from the DOM which do not exist in the value
@@ -121,7 +129,7 @@ export class CollectionObjectTypeHandler {
 
             // If the index of the element is more than the length if the settings, remove it
             // because that means the new settings array is shorter than the existing DOM array
-            if ((index + 1) > settings.length) {
+            if ((index + 1) > values.length) {
                 arrayItemContainerElement.remove();
             }
         });
@@ -129,28 +137,28 @@ export class CollectionObjectTypeHandler {
 
         // TODO: Merge dom and settings so they stay in order based on index
         // Go through the settings array; if the nth element is in the dom, set the value; otherwise, append it at the end
-        settings.forEach((setting, index) => {
+        values.forEach((value, index) => {
             let arrayItemContainerElements = getArrayItemContainersElementByIndex(element, index);
 
             switch (arrayItemContainerElements.length) {
                 case 0:
                     // Add a new DOM element
-                    element.appendChild(createArrayItemContainerElement(setting, index, settingModifier));
+                    element.appendChild(createArrayItemContainerElement(getNameFromElement(element), value, index, settingModifier, context));
                     break;
                 case 1:
                     // Update an existing DOM element
                     let arrayItemContainerElement = getArrayItemContainerElementByIndex(element, index);
-                    settingModifier.setValue(arrayItemContainerElement, setting);
+                    settingModifier.setValue(arrayItemContainerElement, value, context);
                     break;
                 default:
                     throw createError(`Duplicate elements in setting "${getNameFromElement(element)}"`);
             }
         });
 
-        element.value = settings;
+        element.value = values;
     }
 
-    createElement(name, value, settingModifier) {
+    createElement(name, value, settingModifier, context) {
         if (!isDefinedAndNotEmpty(name)) {
             throw createError('The "name" parameter must be specified');
         }
@@ -166,12 +174,13 @@ export class CollectionObjectTypeHandler {
 
         // Set attributes
         rootElement.setAttribute('name', name);
-        rootElement.setAttribute(Constants.ATTRIBUTE_NAME, name);
         rootElement.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
-        rootElement.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
+
+        // Need to set the name here so that lookups in setValue are successful
+        rootElement.setAttribute(Constants.ATTRIBUTE_NAME, name);
 
         // Set the value
-        this.setValue(rootElement, value, settingModifier);
+        this.setValue(rootElement, value, settingModifier, context);
 
         return rootElement;
     }
