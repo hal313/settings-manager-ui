@@ -3,8 +3,6 @@
 exports[`ObjectDefaultTypeHandler API createElement should create an element with child elements representing the members as input elements 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -22,9 +20,9 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -33,16 +31,14 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
 exports[`ObjectDefaultTypeHandler API createElement should create an element with deeply nested child elements representing the members as input elements 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
   <div name="name"
-       data-setting-name="name"
-       data-setting-type="object:default"
        data-setting-container
        class
+       data-setting-name="name"
+       data-setting-type="object:default"
   >
     <input name="first"
            type="text"
@@ -57,10 +53,10 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
            data-setting-type="string:text"
     >
     <div name="optional"
-         data-setting-name="optional"
-         data-setting-type="object:default"
          data-setting-container
          class
+         data-setting-name="optional"
+         data-setting-type="object:default"
     >
       <input name="middle"
              type="text"
@@ -78,9 +74,9 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -89,8 +85,6 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
 exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -108,9 +102,9 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -119,8 +113,6 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
 exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object 2`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -138,9 +130,9 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
   <input name="eyeColor"
          type="text"
@@ -155,8 +147,6 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
 exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -174,9 +164,9 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -185,8 +175,6 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
 exports[`ObjectDefaultTypeHandler API setValue should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update 2`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -204,15 +192,15 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
   <div name="height"
-       data-setting-name="height"
-       data-setting-type="object:default"
        data-setting-container
        class
+       data-setting-name="height"
+       data-setting-type="object:default"
   >
     <input name="feet"
            type="number"
@@ -234,8 +222,6 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
 exports[`ObjectDefaultTypeHandler API setValue should remove a child element from the DOM when the value no longer exists 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -253,9 +239,9 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -264,8 +250,6 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
 exports[`ObjectDefaultTypeHandler API setValue should remove a child element from the DOM when the value no longer exists 2`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -277,9 +261,9 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -288,8 +272,6 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
 exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-created simple element 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -307,9 +289,9 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -318,8 +300,6 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
 exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-created simple element 2`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -331,9 +311,9 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -342,8 +322,6 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
 exports[`ObjectDefaultTypeHandler API setValue should update a child element value when the value exists in the DOM and in the value object 1`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -361,9 +339,9 @@ exports[`ObjectDefaultTypeHandler API setValue should update a child element val
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 
@@ -372,8 +350,6 @@ exports[`ObjectDefaultTypeHandler API setValue should update a child element val
 exports[`ObjectDefaultTypeHandler API setValue should update a child element value when the value exists in the DOM and in the value object 2`] = `
 
 <div name="person"
-     data-setting-name="person"
-     data-setting-type="object:default"
      data-setting-container
      class
 >
@@ -391,9 +367,9 @@ exports[`ObjectDefaultTypeHandler API setValue should update a child element val
   >
   <input type="checkbox"
          name="registeredVoter"
+         value="true"
          data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
 </div>
 

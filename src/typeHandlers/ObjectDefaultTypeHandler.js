@@ -13,7 +13,7 @@ export class ObjectDefaultTypeHandler {
         return 'object:default';
     }
 
-    getValue(element, settingModifier) {
+    getValue(element, settingModifier, context) {
         let childElements = getChildSettingElements(element);
         let valueObject = {};
 
@@ -22,7 +22,7 @@ export class ObjectDefaultTypeHandler {
             // Get the name from the element
             let name = getNameFromElement(childElement);
             // Get the value (which may be a recursive call)
-            let value = settingModifier.getValue(childElement);
+            let value = settingModifier.getValue(childElement, context);
 
             // Add the name and value to the value object
             valueObject[name] = value;
@@ -31,7 +31,8 @@ export class ObjectDefaultTypeHandler {
         return valueObject;
     }
 
-    setValue(element, settings, settingModifier) {
+    setValue(element, settings, settingModifier, context) {
+        // Append the name to the root path
         let childElements = getChildSettingElements(element);
         let childElementNames = childElements.map(getNameFromElement);
 
@@ -40,8 +41,10 @@ export class ObjectDefaultTypeHandler {
             let name = getNameFromElement(childElement);
 
             // If the DOM has a value which is not in the object,
-            if (!Object.keys(settings).includes(name)) {
-                childElement.remove();
+            if (isDefined(settings)) {
+                if (!Object.keys(settings).includes(name)) {
+                    childElement.remove();
+                }
             }
         });
 
@@ -52,28 +55,33 @@ export class ObjectDefaultTypeHandler {
 
             // If the DOM has a value which is in the settings object
             if (childElementNames.includes(name)) {
-                settingModifier.setValue(childElement, settings[name]);
+                if (isDefined(settings)) {
+                    settingModifier.setValue(childElement, settings[name], context);
+                }
             }
         });
 
 
         // Add new child nodes for values which do not exist in the DOM
-        Object.keys(settings).forEach((name) => {
-            let settingValue = settings[name];
+        if (isDefined(settings)) {
+            Object.keys(settings).forEach((name) => {
+                let settingValue = settings[name];
 
-            if (!childElementNames.includes(name)) {
-                // Create the element
-                let childElement = settingModifier.createElement(name, settingValue);
+                if (!childElementNames.includes(name)) {
+                    // Create the element
+                    let childElement = settingModifier.createElement(name, settingValue, context);
 
-                // Add to the element
-                element.append(childElement);
-            }
-        });
+                    // Add to the element
+                    element.append(childElement);
+                }
+
+            });
+        }
 
         element.value = settings;
     }
 
-    createElement(name, value, settingModifier) {
+    createElement(name, value, settingModifier, context) {
         if (!isDefined(name)) {
             throw createError('The "name" parameter must be specified');
         }
@@ -81,12 +89,14 @@ export class ObjectDefaultTypeHandler {
         // TODO: Use a template, if present, for all? (${name}, ${type}, [${value}])
         // TODO: Have a function (templateName, values, attributes) to generate (use template if possible, otherwise generate)
         let element = document.createElement('div');
+
+        // Set attributes
         element.setAttribute('name', name);
-        element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-        element.setAttribute(Constants.ATTRIBUTE_TYPE, this.getType());
+        // Set custom attributes
         element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
 
-        this.setValue(element, value, settingModifier);
+        // Set the value
+        this.setValue(element, value, settingModifier, context);
 
         return element;
     }

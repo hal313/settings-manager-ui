@@ -99,8 +99,8 @@ describe('ObjectDefaultTypeHandler', () => {
                 // Check the type
                 expect(element instanceof Element).toBeTruthy();
                 // Check the required attributes
-                expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
-                expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(objectDefaultTypeHandler.getType());
+                expect(element.getAttribute('name')).toEqual(name);
+                expect(element.hasAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT)).toBe(true);
 
                 // Match the HTML
                 expect(element.outerHTML).toMatchSnapshot();
@@ -126,8 +126,7 @@ describe('ObjectDefaultTypeHandler', () => {
                 // Check the type
                 expect(element instanceof Element).toBeTruthy();
                 // Check the required attributes
-                expect(element.getAttribute(Constants.ATTRIBUTE_NAME)).toEqual(name);
-                expect(element.getAttribute(Constants.ATTRIBUTE_TYPE)).toEqual(objectDefaultTypeHandler.getType());
+                expect(element.hasAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT)).toBe(true);
                 // Check the value
                 expect(element.value).toBe(value);
 
