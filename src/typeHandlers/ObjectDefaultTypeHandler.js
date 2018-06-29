@@ -4,7 +4,7 @@ import { Constants } from '../Constants.js';
 import { getChildSettingElements } from '../util/getChildSettingElements.js';
 import { getNameFromElement } from '../util/getNameFromElement.js';
 
-// TODO: Template for adding new child nodes?
+// TODO: Template for adding new child nodes (use a template, if present, for all? (${name}, ${type}, [${value}]))
 export class ObjectDefaultTypeHandler {
 
     constructor() {}
@@ -86,9 +86,8 @@ export class ObjectDefaultTypeHandler {
             throw createError('The "name" parameter must be specified');
         }
 
-        // TODO: Use a template, if present, for all? (${name}, ${type}, [${value}])
-        // TODO: Have a function (templateName, values, attributes) to generate (use template if possible, otherwise generate)
-        let element = document.createElement('div');
+        // Create an element
+        const element = document.createElement('div');
 
         // Set attributes
         element.setAttribute('name', name);
