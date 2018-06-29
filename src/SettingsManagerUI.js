@@ -19,7 +19,9 @@
 // rollup: do we need this? can we use tsc instead?
 
 
+// TODO: Flatname: not on containers - only actual values and array values
 // TODO: getTypeFromValue should have configuration for collection type detection
+// TODO: ValueDecorator (can be used to set element.value = value on set()/create())
 // TODO: Consider adding [data-setting-value] to values?
 // TODO: collection:object is not nestable because of the searches; figure out how to leverage the object:default lookups
 // TODO: If the type changes (collection:object), the settingModifer will use the existing type handler instead of the new type handler. how to handle this?
@@ -37,6 +39,9 @@
 // templateresolver: template-name attribute => fully-qualified-name attribute => declared type attribute => inferred type
 // typeDecoratorManager: getDecoratorFor(Element [not type]), type-decorator attribute => type registry => inferred type
 
+
+
+// TODO: Refactor classes to use proper public members
 
 
 // TODO: Does applying decorators make getValue break if the decorated element is embedded? Can we disallow decorators to return other elements? CollectionObjectTypeHandler uses 'const valueElement = getChildSettingElements(childElement)[0];' to work around this; should we check for only 1 element? getOnlyChildSettingElement()?
@@ -119,6 +124,7 @@ import { TypeDecoratorManager } from './util/TypeDecoratorManager.js';
 import { TypeHandlerManager } from './util/TypeHandlerManager.js';
 import { SettingsManagerUIConfigurator } from './util/SettingsManagerUIConfigurator.js';
 import { SettingModifier } from './util/SettingModifier.js';
+import { Constants } from './Constants.js';
 
 
 // OK, so this will suck with a lot of instances because they wont be garbage collected :(
@@ -177,6 +183,12 @@ export class SettingsManagerUI {
     };
 
     setSettings(settings, target) {
+        // Set the type on the root element if it is not set
+        let element = getOneElement(target);
+        if (!element.hasAttribute(Constants.ATTRIBUTE_TYPE)) {
+            let type = getPrivate(this, 'typeHandlerManager').getTypeHandler('object').getType();
+            element.setAttribute(Constants.ATTRIBUTE_TYPE, type);
+        }
         return this.setValueTo(settings, target);
     };
 
