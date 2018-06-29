@@ -198,14 +198,20 @@ module.exports = function() {
                         const selector = `#${id}`;
 
                         beforeEach(() => {
-                            document.body.innerHTML = `<div id="${id}" data-setting-container="" data-setting-type="object"></div>`
+                            // data-setting-container=""
+                            // data-setting-type="object"
+                            // data-setting-name="settings"
+                            // TODO: data-setting-type="object:default" must be set for some reason?!?
+                            document.body.innerHTML = `<div id="${id}"></div>`
                         });
 
                         test('should set a basic object', () => {
                             const settings = {
                                 stringValue: 'hello world!',
                                 numberValue: 101,
-                                booleanValue: true
+                                booleanValue: true,
+                                nullValue: null,
+                                undefinedValue: undefined
                             };
 
                             // Set the settings
@@ -252,12 +258,30 @@ module.exports = function() {
                             expect(document.body.innerHTML).toMatchSnapshot();
                         });
 
+                        test('should set an array', () => {
+                            const settings = {
+                                people: [
+                                    {name: 'John'},
+                                    {name: 'David'},
+                                    {name: 'Jennifer'}
+                                ]
+                            };
+
+                            // Set the settings
+                            settingsManagerUI.setSettings(settings, selector);
+
+                            // Check the HTML
+                            expect(document.body.innerHTML).toMatchSnapshot();
+                        });
+
                     });
 
                     describe('getSettings', () => {
                         // TODO: Special cases, undefined, null, illegal structure, etc.
                         const id = 'root';
                         const selector = `#${id}`;
+
+                        // TODO: Parse from HTML AND ALSO test from set/get
 
                         test('should get settings from a simple object', () => {
                             const expectedSettings = {
@@ -331,6 +355,24 @@ module.exports = function() {
                             expect(settings).toEqual(expectedSettings);
                         });
 
+                        test('should get an array', () => {
+                            const settings = {
+                                people: [
+                                    {name: 'John'},
+                                    {name: 'David'},
+                                    {name: 'Jennifer'}
+                                ]
+                            };
+
+                            // Set the settings
+                            settingsManagerUI.setSettings(settings, selector);
+
+                            let readSettings = settingsManagerUI.getSettings(selector);
+                            expect(readSettings).toEqual(settings);
+
+                            // Check the HTML
+                            expect(document.body.innerHTML).toMatchSnapshot();
+                        });
                     });
 
                     // describe('createElement', () => {

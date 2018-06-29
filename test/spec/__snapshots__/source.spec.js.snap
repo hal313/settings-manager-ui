@@ -1,10 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
+exports[`SettingsManagerUI API getSettings should get an array 1`] = `
 
 <div id="root"
      data-setting-container
      data-setting-type="object"
+     class
+>
+  <div name="people"
+       data-setting-container
+       data-setting-name="people"
+       data-setting-type="collection:object"
+       class
+  >
+    <div name="people[0]"
+         data-setting-container
+         class
+         data-setting-name="people[0]"
+         data-setting-type="object:default"
+         data-setting-index="0"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="John"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
+    <div name="people[1]"
+         data-setting-container
+         class
+         data-setting-name="people[1]"
+         data-setting-type="object:default"
+         data-setting-index="1"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="David"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
+    <div name="people[2]"
+         data-setting-container
+         class
+         data-setting-name="people[2]"
+         data-setting-type="object:default"
+         data-setting-index="2"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="Jennifer"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
+  </div>
+</div>
+
+`;
+
+exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
+
+<div id="root"
+     data-setting-type="object:default"
      class
 >
   <input name="stringValue"
@@ -21,10 +83,23 @@ exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
   >
   <input type="checkbox"
          name="booleanValue"
+         value="true"
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
+  <div name="nullValue"
+       data-setting-container
+       class
+       data-setting-name="nullValue"
+       data-setting-type="object:default"
+  >
+  </div>
+  <div name="undefinedValue"
+       value="undefined"
+       data-setting-name="undefinedValue"
+       data-setting-type="undefined"
+  >
+  </div>
 </div>
 
 `;
@@ -32,8 +107,7 @@ exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
 exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`] = `
 
 <div id="root"
-     data-setting-container
-     data-setting-type="object"
+     data-setting-type="object:default"
      class
 >
   <input name="stringValue"
@@ -50,15 +124,15 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
   >
   <input type="checkbox"
          name="booleanValue"
+         value="true"
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
   <div name="objectValue"
-       data-setting-name="objectValue"
-       data-setting-type="object:default"
        data-setting-container
        class
+       data-setting-name="objectValue"
+       data-setting-type="object:default"
   >
     <input name="nestedStringValue"
            type="text"
@@ -67,10 +141,10 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
            data-setting-type="string:text"
     >
     <div name="nestedObjectValue"
-         data-setting-name="nestedObjectValue"
-         data-setting-type="object:default"
          data-setting-container
          class
+         data-setting-name="nestedObjectValue"
+         data-setting-type="object:default"
     >
       <input name="nestedNestedStringValue"
              type="text"
@@ -87,8 +161,7 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
 exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
 
 <div id="root"
-     data-setting-container
-     data-setting-type="object"
+     data-setting-type="object:default"
      class
 >
   <input name="stringValue"
@@ -105,15 +178,15 @@ exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
   >
   <input type="checkbox"
          name="booleanValue"
+         value="true"
          data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
-         value="true"
   >
   <div name="objectValue"
-       data-setting-name="objectValue"
-       data-setting-type="object:default"
        data-setting-container
        class
+       data-setting-name="objectValue"
+       data-setting-type="object:default"
   >
     <input name="nestedStringValue"
            type="text"
@@ -121,6 +194,67 @@ exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
            data-setting-name="nestedStringValue"
            data-setting-type="string:text"
     >
+  </div>
+</div>
+
+`;
+
+exports[`SettingsManagerUI API setSettings should set an array 1`] = `
+
+<div id="root"
+     data-setting-type="object:default"
+     class
+>
+  <div name="people"
+       data-setting-container
+       data-setting-name="people"
+       data-setting-type="collection:object"
+  >
+    <div name="people[0]"
+         data-setting-container
+         class
+         data-setting-name="people[0]"
+         data-setting-type="object:default"
+         data-setting-index="0"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="John"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
+    <div name="people[1]"
+         data-setting-container
+         class
+         data-setting-name="people[1]"
+         data-setting-type="object:default"
+         data-setting-index="1"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="David"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
+    <div name="people[2]"
+         data-setting-container
+         class
+         data-setting-name="people[2]"
+         data-setting-type="object:default"
+         data-setting-index="2"
+         data-setting-value-container
+    >
+      <input name="name"
+             type="text"
+             value="Jennifer"
+             data-setting-name="name"
+             data-setting-type="string:text"
+      >
+    </div>
   </div>
 </div>
 
