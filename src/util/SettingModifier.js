@@ -11,6 +11,7 @@ import { StringPasswordTypeHandler } from '../typeHandlers/StringPasswordTypeHan
 import { TypeHandlerManager } from './TypeHandlerManager.js';
 import { TypeDecoratorManager } from './TypeDecoratorManager.js';
 
+const ATTRIBUTE_FULLY_QUALIFIED_NAME = `${Constants.ATTRIBUTE_PREFIX}-fully-qualified-name`;
 export class SettingModifier {
 
     constructor() {
@@ -73,8 +74,8 @@ export class SettingModifier {
         this.path.push(name);
         // Create the element
         let element = handler.createElement(name, value, this);
-        // Set the flatname
-        element.setAttribute(Constants.ATTRIBUTE_FLATNAME, this.path.join('.'));
+        // Set the fully qualified name
+        element.setAttribute(ATTRIBUTE_FULLY_QUALIFIED_NAME, this.path.join('.'));
         // Pop the path
         this.path.pop();
 
