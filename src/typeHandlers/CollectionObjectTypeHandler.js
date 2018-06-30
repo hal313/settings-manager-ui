@@ -7,7 +7,6 @@ import { getNameFromElement } from '../util/getNameFromElement.js';
 import { getOneElement } from '../util/getOneElement.js';
 import { getAllElements } from '../util/getAllElements.js';
 import { isDefined } from '../util/isDefined.js';
-import { SettingModifier } from '../util/SettingModifier.js';
 
 const ATTRIBUTE_INDEX = 'data-setting-index';
 const ATTRIBUTE_COLLECTION_VALUE_CONTAINER = 'data-setting-value-container';
@@ -119,7 +118,6 @@ export class CollectionObjectTypeHandler {
 
     setValue(element, values, settingModifier) {
         // Get the container elements?
-        // TODO: Will this break with nested items?
         let arrayItemContainerElements = getArrayItemContainerElements(element);
 
         // Remove values from the DOM which do not exist in the value
