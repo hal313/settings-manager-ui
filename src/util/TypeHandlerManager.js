@@ -1,9 +1,8 @@
-import { isString } from './isString.js';
 import { createError } from './createError.js';
 import { isArray } from './isArray.js';
-import { isNull, isUndefined } from 'util';
+import { isNull } from './isNull.js';
+import { isUndefined } from './isUndefined.js';
 
-// TODO: Write tests (default handlers/overrides)
 export class TypeHandlerManager {
 
     constructor() {
