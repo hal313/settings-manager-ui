@@ -1,8 +1,5 @@
 /* global module:true */
 
-
-
-
 module.exports = function(grunt) {
     'use strict';
 
@@ -11,7 +8,6 @@ module.exports = function(grunt) {
         DIST_DIR = 'dist',
         STAGE_DIR = BUILD_DIR + '/' + DIST_DIR,
         rollup = require('rollup').rollup,
-        // TODO: Use rollup-plugin-uglify?
         resolve = require('rollup-plugin-node-resolve'),
         commonjs = require('rollup-plugin-commonjs'),
         babel = require('rollup-plugin-babel');
@@ -58,77 +54,6 @@ module.exports = function(grunt) {
     };
 
     grunt.initConfig({
-        // open: {
-        //     source: {
-        //         path: 'test/source.html'
-        //     },
-        //     dist: {
-        //         path: 'test/dist.html'
-        //     },
-        //     distmin: {
-        //         path: 'test/dist-min.html'
-        //     }
-        // },
-        // watch: {
-        //     options: {
-        //         livereload: true
-        //     },
-        //     files: ['src/**/*.*', 'spec/**/*.*', 'test/**/*.*', 'Gruntfile.js']
-        // },
-        // uglify: {
-        //     options: {
-        //         sourceMap: true
-        //     },
-        //     dist: {
-        //         files: {
-        //         'dist/SettingsManagerUI.min.js': ['dist/SettingsManagerUI.js']
-        //         }
-        //     }
-        // },
-        // jshint: {
-        //     options: {
-        //         jshintrc: '.jshintrc'
-        //     },
-        //     source: ['src/SettingsManagerUI.js'],
-        //     // Only lint the unmin file
-        //     dist: ['dist/SettingsManagerUI.js']
-        // },
-        // copy: {
-        //     options: {
-        //         process: _resolveFileContent
-        //     },
-        //     dist: {
-        //         files: [
-        //             {
-        //                 expand: true,
-        //                 cwd: 'src/',
-        //                 src: ['**/*.js'],
-        //                 dest: 'dist/',
-        //                 filter: 'isFile'
-        //             }
-        //         ]
-        //     }
-        // },
-        // mocha: {
-        //     options: {
-        //         // Uncomment to see console logging
-        //         // log: true,
-        //         run: true,
-        //         reporter: 'Spec'
-        //     },
-        //     all: {
-        //         src: ['test/**/*.*']
-        //     },
-        //     source: {
-        //         src: ['test/source.html']
-        //     },
-        //     dist: {
-        //         src: ['test/dist.html']
-        //     },
-        //     distmin: {
-        //         src: ['test/dist-min.html']
-        //     }
-        // }
         watch: {
             build: {
                 files: ['src/**/*.js', 'test/**/*.js'],
@@ -172,45 +97,11 @@ module.exports = function(grunt) {
 
 
     // Load NPM tasks
-    // grunt.loadNpmTasks('grunt-bump');
-    // grunt.loadNpmTasks('grunt-mocha');
-    // grunt.loadNpmTasks('grunt-open');
+
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-
-    // Register tasks
-    // grunt.registerTask('build', ['jshint:source']);
-    // grunt.registerTask('build-dist', ['build', 'copy:dist', 'uglify:dist', 'jshint:dist']);
-    // grunt.registerTask('dist', ['bump:patch', 'build-dist', 'mocha:all']);
-    // grunt.registerTask('release-patch', ['dist'  /*TODO: check for non-added files, add package files, verify no other changes, commit, tag, push*/]);
-    // grunt.registerTask('release-minor', ['dist', /*TODO: check for non-added files, add package files, verify no other changes, commit, tag */ 'bump:minor' /*TODO: add package files, commit, push*/ ]);
-    // grunt.registerTask('release-major', ['dist', /*TODO: check for non-added files, add package files, verify no other changes, commit, tag */ 'bump:major' /*TODO: add package files, commit, push*/ ]);
-    // //
-    // // Test tasks
-    // //
-    // // Test the source code
-    // grunt.registerTask('test-source', ['open:source', 'watch']);
-    // grunt.registerTask('test', ['test-source']); // Alias for test-source
-    // // Test the code in dist
-    // grunt.registerTask('test-dist', ['build-dist', 'open:dist', 'watch']);
-    // // Test the minified dist file
-    // grunt.registerTask('test-dist-min', ['build-dist', 'open:distmin', 'watch']);
-    // // Test all the files at once!
-    // grunt.registerTask('test-all', ['build-dist', 'open:source', 'open:dist', 'open:distmin', 'watch']);
-    // //
-    // // Headless test tasks
-    // //
-    // // Test the source code
-    // grunt.registerTask('test-headless-source', ['mocha:source']);
-    // grunt.registerTask('test-headless', ['test-headless-source']);
-    // // Test the code in dist
-    // grunt.registerTask('test-headless-dist', ['build-dist', 'mocha:dist']);
-    // // Test the minified dist file
-    // grunt.registerTask('test-headless-dist-min', ['build-dist', 'mocha:distmin']);
-    // // Test all the code (source and dist)
-    // grunt.registerTask('test-headless-all', ['build-dist', 'mocha:all']);
 
     grunt.registerTask('build', [/*'jshint',*/ 'copy', 'transpile', 'uglify']);
     grunt.registerTask('build:watch', ['build', 'watch:build']);
@@ -220,19 +111,11 @@ module.exports = function(grunt) {
         rollup({
             entry: 'src/SettingsManagerUI.js',
 
-            external: ['template-manager'],
             output: {
                 file: 'distr/SettingsManagerUI-R.js',
                 format: 'cjs',
                 sourcemap: true,
-                globals: {
-                    'template-manager': 'TemplateManager'
-                }
             },
-            // globals: {
-            //     'template-manager': 'TemplateManager'
-            // },
-            // blarg: true,
             input: STAGE_DIR + '/' + MODULE_NAME + '.js',
             plugins: [
                 babel({
