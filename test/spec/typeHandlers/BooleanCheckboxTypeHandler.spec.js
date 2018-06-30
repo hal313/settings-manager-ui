@@ -2,8 +2,6 @@ import { BooleanCheckboxTypeHandler } from '../../../src/typeHandlers/BooleanChe
 import { Constants } from '../../../src/Constants';
 import { asBoolean } from '../../../src/util/asBoolean';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('BooleanCheckboxTypeHandler', () => {
 
     describe('Lifecycle', () => {
