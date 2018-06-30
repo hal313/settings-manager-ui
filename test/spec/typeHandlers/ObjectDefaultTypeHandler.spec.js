@@ -2,8 +2,6 @@ import { ObjectDefaultTypeHandler } from '../../../src/typeHandlers/ObjectDefaul
 import { SettingModifier } from '../../../src/util/SettingModifier';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('ObjectDefaultTypeHandler', () => {
 
     describe('Lifecycle', () => {

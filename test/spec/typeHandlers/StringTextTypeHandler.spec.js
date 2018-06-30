@@ -1,8 +1,6 @@
 import { StringTextTypeHandler } from '../../../src/typeHandlers/StringTextTypeHandler';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('StringTextTypeHandler', () => {
 
     describe('Lifecycle', () => {

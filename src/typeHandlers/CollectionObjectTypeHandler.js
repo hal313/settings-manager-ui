@@ -132,7 +132,6 @@ export class CollectionObjectTypeHandler {
         });
 
 
-        // TODO: Merge dom and settings so they stay in order based on index
         // Go through the settings array; if the nth element is in the dom, set the value; otherwise, append it at the end
         values.forEach((value, index) => {
             let arrayItemContainerElements = getArrayItemContainersElementByIndex(element, index);

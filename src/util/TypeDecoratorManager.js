@@ -1,6 +1,5 @@
 import { asArray } from './asArray.js';
 
-// TODO: Write tests
 export class TypeDecoratorManager {
 
     constructor() {

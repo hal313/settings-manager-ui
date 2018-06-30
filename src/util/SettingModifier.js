@@ -11,7 +11,6 @@ import { StringPasswordTypeHandler } from '../typeHandlers/StringPasswordTypeHan
 import { TypeHandlerManager } from './TypeHandlerManager.js';
 import { TypeDecoratorManager } from './TypeDecoratorManager.js';
 
-// TODO: Tests
 export class SettingModifier {
 
     constructor() {
@@ -46,7 +45,6 @@ export class SettingModifier {
         this.typeHandlerManager.setDefaultHandler('object', objectDefaultTypeHandler.getType());
         this.typeHandlerManager.setDefaultHandler('collection', collectionObjectTypeHandler.getType());
 
-        // TODO: Extract this as a class?
         this.typeDecoratorManager.addTypeDecorators('.*', (element, type, name, value) => {
             element.setAttribute(Constants.ATTRIBUTE_NAME, name);
             element.setAttribute(Constants.ATTRIBUTE_TYPE, type);

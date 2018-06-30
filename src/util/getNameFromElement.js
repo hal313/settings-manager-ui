@@ -1,4 +1,3 @@
-// TODO: Test
 import { Constants } from '../Constants.js';
 
 let getNameFromElement = (element) => {

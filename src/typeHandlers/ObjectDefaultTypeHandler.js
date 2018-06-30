@@ -4,7 +4,6 @@ import { Constants } from '../Constants.js';
 import { getChildSettingElements } from '../util/getChildSettingElements.js';
 import { getNameFromElement } from '../util/getNameFromElement.js';
 
-// TODO: Template for adding new child nodes (use a template, if present, for all? (${name}, ${type}, [${value}]))
 export class ObjectDefaultTypeHandler {
 
     constructor() {}

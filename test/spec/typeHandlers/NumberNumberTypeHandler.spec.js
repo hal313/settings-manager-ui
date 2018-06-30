@@ -1,8 +1,6 @@
 import { NumberNumberTypeHandler } from '../../../src/typeHandlers/NumberNumberTypeHandler';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('NumberNumberTypeHandler', () => {
 
     describe('Lifecycle', () => {

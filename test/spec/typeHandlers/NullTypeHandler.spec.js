@@ -1,8 +1,6 @@
 import { NullTypeHandler } from '../../../src/typeHandlers/NullTypeHandler';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('NullTypeHandler', () => {
 
     describe('Lifecycle', () => {

@@ -34,8 +34,6 @@ describe('asElement', () => {
             expect(isElement(element)).toBe(true);
         });
 
-        // TODO: Invalid HTML
-
     });
 
 });

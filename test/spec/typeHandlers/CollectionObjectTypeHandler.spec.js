@@ -2,8 +2,6 @@ import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/Collectio
 import { SettingModifier } from '../../../src/util/SettingModifier';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('CollectionObjectTypeHandler', () => {
 
     describe('Lifecycle', () => {
@@ -186,7 +184,6 @@ describe('CollectionObjectTypeHandler', () => {
                 expect(element.outerHTML).toMatchSnapshot();
             });
 
-            // TODO: Test embedded ({firstName: 1, lastName: 1, optional: {middle: 3}})
             test('should set the value for a self-created element when one element is changed', () => {
                 const name = 'people';
                 const value = [

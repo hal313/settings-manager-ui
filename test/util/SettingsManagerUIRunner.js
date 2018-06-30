@@ -1,13 +1,3 @@
-// TODO: Replace "should" with something else
-// TODO: Test 'data-setting-container-member-validate="empty(value):ignore"'
-// TODO: Test 'data-setting-container-member-validate="empty(object):ignore"'
-// TODO: Test numeric/string/boolean/undefined on object/objectarray
-// TODO: Test validators
-// TODO: Test from handlers
-// TODO: Test from native HTML
-// TODO: Remove old code
-// TODO: As class?
-
 module.exports = function() {
     'use strict';
 
@@ -280,11 +270,8 @@ module.exports = function() {
                     });
 
                     describe('getSettings', () => {
-                        // TODO: Special cases, undefined, null, illegal structure, etc.
                         const id = 'root';
                         const selector = `#${id}`;
-
-                        // TODO: Parse from HTML AND ALSO test from set/get
 
                         test('should get settings from a simple object', () => {
                             const expectedSettings = {
@@ -453,8 +440,6 @@ module.exports = function() {
                     //         expect(settings).toEqual(expect.any(Object));
                     //     });
 
-                    //     // TODO: Check null, empty, etc.
-
                     //     describe('Data Types', function() {
 
                     //         var objectArray = [
@@ -537,7 +522,6 @@ module.exports = function() {
                     //             expect(settings['object-single']).toEqual(objectSingle);
                     //         });
 
-                    //         // TODO: This test fails on PhantomJS only - not sure why, but it appears to be linked to jQuery modifying the DOM
                     //         test('should create the correct number of \'element\' DOM elements for object arrays', function() {
                     //             var SettingsManagerUI = settingsManagerUI;
                     //             var $root = $('[data-setting-name=\'object-array-write\']');

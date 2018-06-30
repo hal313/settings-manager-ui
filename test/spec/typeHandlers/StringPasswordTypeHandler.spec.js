@@ -1,8 +1,6 @@
 import { StringPasswordTypeHandler } from '../../../src/typeHandlers/StringPasswordTypeHandler';
 import { Constants } from '../../../src/Constants';
 
-// TODO: Test types (or cast to boolean)
-// TODO: Handle bad cases (null element, etc)
 describe('StringPasswordTypeHandler', () => {
 
     describe('Lifecycle', () => {
