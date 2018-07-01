@@ -1,7 +1,5 @@
 import { Constants } from '../Constants.js';
 
-// TODO: Test
-
 let getChildSettingElements = (rootElement) => {
     /*
     Wordology: "decendant" refers to the value elements which are value-based sub-elements, but they are not
