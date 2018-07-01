@@ -188,7 +188,7 @@ module.exports = function() {
                         const selector = `#${id}`;
 
                         beforeEach(() => {
-                            document.body.innerHTML = `<div id="${id}"></div>`
+                            document.body.innerHTML = `<div id="${id}"></div>`;
                         });
 
                         test('should set a basic object', () => {
@@ -273,6 +273,10 @@ module.exports = function() {
                         const id = 'root';
                         const selector = `#${id}`;
 
+                        beforeEach(() => {
+                            document.body.innerHTML = `<div id="${id}"></div>`;
+                        });
+
                         test('should get settings from a simple object', () => {
                             const expectedSettings = {
                                 stringValue: 'hello world!',
@@ -353,6 +357,8 @@ module.exports = function() {
                                     {name: 'Jennifer'}
                                 ]
                             };
+
+                            document.body.innerHTML = `<div id="${id}" data-setting-container="" data-setting-type="object"></div>`;
 
                             // Set the settings
                             settingsManagerUI.setSettings(settings, selector);
