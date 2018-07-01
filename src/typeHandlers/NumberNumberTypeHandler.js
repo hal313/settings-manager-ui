@@ -1,5 +1,7 @@
 import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
+import { isElement } from '../util/isElement.js';
+import { isNumber } from '../util/isNumber.js';
 
 export class NumberNumberTypeHandler {
 
@@ -14,6 +16,10 @@ export class NumberNumberTypeHandler {
     }
 
     setValue(element, value) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
+
         element.value = +value;
     }
 

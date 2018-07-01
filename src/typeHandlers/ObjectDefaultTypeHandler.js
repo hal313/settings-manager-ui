@@ -3,6 +3,7 @@ import { createError } from '../util/createError.js';
 import { Constants } from '../Constants.js';
 import { getChildSettingElements } from '../util/getChildSettingElements.js';
 import { getNameFromElement } from '../util/getNameFromElement.js';
+import { isElement } from '../util/isElement.js';
 
 export class ObjectDefaultTypeHandler {
 
@@ -31,6 +32,10 @@ export class ObjectDefaultTypeHandler {
     }
 
     setValue(element, settings, settingModifier) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
+
         // Append the name to the root path
         let childElements = getChildSettingElements(element);
         let childElementNames = childElements.map(getNameFromElement);

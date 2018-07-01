@@ -1,5 +1,7 @@
 import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
+import { isBoolean } from '../util/isBoolean.js';
+import { isElement } from '../util/isElement.js';
 
 export class BooleanCheckboxTypeHandler {
 
@@ -14,6 +16,13 @@ export class BooleanCheckboxTypeHandler {
     }
 
     setValue(element, value) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
+        if (!isBoolean(value)) {
+            throw createError('The "value" parameter must be a boolean value');
+        }
+
         element.value = !!value;
         element.checked = !!value;
     }
@@ -21,6 +30,9 @@ export class BooleanCheckboxTypeHandler {
     createElement(name, value) {
         if (!isDefinedAndNotEmpty(name)) {
             throw createError('The "name" parameter must be specified');
+        }
+        if (!isBoolean(value)) {
+            throw createError('The "value" parameter must be a boolean value');
         }
 
         let element = document.createElement('input');

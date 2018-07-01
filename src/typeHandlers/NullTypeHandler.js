@@ -1,5 +1,7 @@
 import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
+import { isNull } from '../util/isNull.js';
+import { isElement } from '../util/isElement.js';
 
 export class NullTypeHandler {
 
@@ -13,7 +15,10 @@ export class NullTypeHandler {
         return null;
     }
 
-    setValue(element/*, value*/) {
+    setValue(element/* , value */) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
         element.value = null;
     }
 

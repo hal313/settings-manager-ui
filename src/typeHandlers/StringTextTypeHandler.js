@@ -1,5 +1,6 @@
 import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
+import { isElement } from '../util/isElement.js';
 
 export class StringTextTypeHandler {
 
@@ -14,6 +15,10 @@ export class StringTextTypeHandler {
     }
 
     setValue(element, value) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
+
         element.value = value;
         // Is it not necessary to set the attribute, like so:
         //   element.setAttribute('value', value);

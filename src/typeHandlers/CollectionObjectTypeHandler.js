@@ -7,6 +7,7 @@ import { getNameFromElement } from '../util/getNameFromElement.js';
 import { getOneElement } from '../util/getOneElement.js';
 import { getAllElements } from '../util/getAllElements.js';
 import { isDefined } from '../util/isDefined.js';
+import { isElement } from '../util/isElement.js';
 
 const ATTRIBUTE_INDEX = 'data-setting-index';
 const ATTRIBUTE_COLLECTION_VALUE_CONTAINER = 'data-setting-value-container';
@@ -117,6 +118,10 @@ export class CollectionObjectTypeHandler {
     }
 
     setValue(element, values, settingModifier) {
+        if (!isElement(element)) {
+            throw createError('The "element" parameter must be an Element');
+        }
+
         // Get the container elements?
         let arrayItemContainerElements = getArrayItemContainerElements(element);
 
