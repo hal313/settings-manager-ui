@@ -34,12 +34,8 @@ export class SettingsManagerUI {
         this.settingModifier.addTypeHandler(typeHandler);
     };
 
-    addTypeDecorator(type, decoratorFn) {
-        this.settingModifier.addTypeDecorators(type, decoratorFn);
-    };
-
-    addTypeDecorators(type, decoratorFns) {
-        this.settingModifier(type, decoratorFns);
+    addElementDecorator(type, elementDecorator) {
+        this.settingModifier.addElementDecorator(type, elementDecorator);
     };
 
     setDefaultHandler(type, typeHandler) {

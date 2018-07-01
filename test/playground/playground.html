@@ -50,7 +50,7 @@
 (function(settingsManagerUI, getSettingsName) {
 
     // Decorate string and number fields
-    settingsManagerUI.addTypeDecorator('^(string|number).*', (element) => {
+    settingsManagerUI.addElementDecorator('^(string|number).*', (element) => {
         // Render something that looks like:
         //
         // &lt;div class="form-group"&gt;
@@ -90,7 +90,7 @@
 
 
     // Decorate boolean fields
-    settingsManagerUI.addTypeDecorator('^boolean.*', (element) => {
+    settingsManagerUI.addElementDecorator('^boolean.*', (element) => {
         // Render something that looks like:
         //
         // &lt;div class="checkbox"&gt;

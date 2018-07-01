@@ -9,14 +9,16 @@ import { NullTypeHandler } from '../typeHandlers/NullTypeHandler.js';
 import { CollectionObjectTypeHandler } from '../typeHandlers/CollectionObjectTypeHandler.js';
 import { StringPasswordTypeHandler } from '../typeHandlers/StringPasswordTypeHandler.js';
 import { TypeHandlerManager } from './TypeHandlerManager.js';
-import { TypeDecoratorManager } from './TypeDecoratorManager.js';
+import { ElementDecoratorManager } from './ElementDecoratorManager';
+import { NameElementDecorator } from '../elementDecorators/NameElementDecorator.js';
+import { TypeElementDecorator } from '../elementDecorators/TypeElementDecorator.js';
 
 const ATTRIBUTE_FULLY_QUALIFIED_NAME = `${Constants.ATTRIBUTE_PREFIX}-fully-qualified-name`;
 export class SettingModifier {
 
     constructor() {
         this.typeHandlerManager = new TypeHandlerManager();
-        this.typeDecoratorManager = new TypeDecoratorManager();
+        this.elementDecoratorManager = new ElementDecoratorManager();
 
 
         const stringTextTypeHandler = new StringTextTypeHandler();
@@ -46,12 +48,12 @@ export class SettingModifier {
         this.typeHandlerManager.setDefaultHandler('object', objectDefaultTypeHandler.getType());
         this.typeHandlerManager.setDefaultHandler('collection', collectionObjectTypeHandler.getType());
 
-        this.typeDecoratorManager.addTypeDecorators('.*', (element, type, name, value) => {
-            element.setAttribute(Constants.ATTRIBUTE_NAME, name);
-            element.setAttribute(Constants.ATTRIBUTE_TYPE, type);
-        });
 
-        this.path=[];
+        // Add element decorators
+        this.elementDecoratorManager.addElementDecorator('.*', new TypeElementDecorator());
+        this.elementDecoratorManager.addElementDecorator('.*', new NameElementDecorator());
+
+        this.path = [];
     }
 
     getValue(element) {
@@ -80,7 +82,7 @@ export class SettingModifier {
         this.path.pop();
 
         // Apply decorators
-        element = this.typeDecoratorManager.applyTypeDecorators(handler.getType(), element, name, value);
+        element = this.elementDecoratorManager.applyElementDecorators(handler.getType(), element, name, value);
 
         return element;
     };
@@ -92,12 +94,8 @@ export class SettingModifier {
         this.typeHandlerManager.addTypeHandler(typeHandler);
     };
 
-    addTypeDecorator(type, decoratorFn) {
-        this.typeDecoratorManager.addTypeDecorators(type, decoratorFn);
-    };
-
-    addTypeDecorators(type, decoratorFns) {
-        this.addTypeDecorator(type, decoratorFns);
+    addElementDecorator(type, elementDecorator) {
+        this.elementDecoratorManager.addElementDecorators(type, elementDecorator);
     };
 
     setDefaultHandler(type, typeHandler) {

@@ -287,7 +287,7 @@ describe('ObjectDefaultTypeHandler', () => {
                 expect(element.outerHTML).toMatchSnapshot();
             });
 
-            test('should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update', () => {
+            test.only('should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update', () => {
                 const name = 'person';
                 const value = {
                     name: 'person name',
