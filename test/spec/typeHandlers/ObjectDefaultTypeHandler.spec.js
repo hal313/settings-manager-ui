@@ -18,14 +18,14 @@ describe('ObjectDefaultTypeHandler', () => {
 
         beforeEach(() => {
             settingModifier = new SettingModifier();
-            objectDefaultTypeHandler = settingModifier.typeHandlerManager.getTypeHandler('object:default');
+            objectDefaultTypeHandler = settingModifier.typeHandlerManager.getTypeHandler(ObjectDefaultTypeHandler.TYPE);
         });
 
 
         describe('getType', () => {
 
             test('the type is "object:default"', () => {
-                expect(objectDefaultTypeHandler.getType()).toEqual('object:default');
+                expect(objectDefaultTypeHandler.getType()).toEqual(ObjectDefaultTypeHandler.TYPE);
             });
 
         });

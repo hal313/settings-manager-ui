@@ -1,13 +1,12 @@
 import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class NullTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'null';
+        return NullTypeHandler.TYPE;
     }
 
     getValue(/*element*/) {
@@ -33,3 +32,4 @@ export class NullTypeHandler {
     }
 
 };
+NullTypeHandler.TYPE = 'null';

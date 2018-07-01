@@ -1,13 +1,12 @@
 import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class NumberNumberTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'number:number';
+        return NumberNumberTypeHandler.TYPE;
     }
 
     getValue(element) {
@@ -34,3 +33,4 @@ export class NumberNumberTypeHandler {
     }
 
 };
+NumberNumberTypeHandler.TYPE = 'number:number';

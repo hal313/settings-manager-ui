@@ -1,13 +1,12 @@
 import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class BooleanCheckboxTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'boolean:checkbox';
+        return BooleanCheckboxTypeHandler.TYPE;
     }
 
     getValue(element) {
@@ -34,3 +33,4 @@ export class BooleanCheckboxTypeHandler {
     }
 
 };
+BooleanCheckboxTypeHandler.TYPE = 'boolean:checkbox';

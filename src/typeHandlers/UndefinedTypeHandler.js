@@ -1,13 +1,12 @@
 import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class UndefinedTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'undefined';
+        return UndefinedTypeHandler.TYPE;
     }
 
     getValue(/*element*/) {
@@ -33,3 +32,4 @@ export class UndefinedTypeHandler {
     }
 
 };
+UndefinedTypeHandler.TYPE = 'undefined';

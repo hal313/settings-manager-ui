@@ -1,13 +1,12 @@
 import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class StringPasswordTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'string:password';
+        return StringPasswordTypeHandler.TYPE;
     }
 
     getValue(element) {
@@ -33,3 +32,4 @@ export class StringPasswordTypeHandler {
     }
 
 };
+StringPasswordTypeHandler.TYPE = 'string:password';

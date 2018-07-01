@@ -1,13 +1,12 @@
 import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
-import { Constants } from '../Constants.js';
 
 export class StringTextTypeHandler {
 
     constructor() {}
 
     getType() {
-        return 'string:text';
+        return StringTextTypeHandler.TYPE;
     }
 
     getValue(element) {
@@ -39,3 +38,4 @@ export class StringTextTypeHandler {
     }
 
 };
+StringTextTypeHandler.TYPE = 'string:text';

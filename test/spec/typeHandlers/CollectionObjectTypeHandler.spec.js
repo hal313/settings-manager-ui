@@ -18,7 +18,15 @@ describe('CollectionObjectTypeHandler', () => {
 
         beforeEach(() => {
             settingModifier = new SettingModifier();
-            collectionObjectTypeHandler = settingModifier.typeHandlerManager.getTypeHandler('collection:object');
+            collectionObjectTypeHandler = settingModifier.typeHandlerManager.getTypeHandler(CollectionObjectTypeHandler.TYPE);
+        });
+
+        describe('getType', () => {
+
+            test('the type is "object:default"', () => {
+                expect(collectionObjectTypeHandler.getType()).toEqual(CollectionObjectTypeHandler.TYPE);
+            });
+
         });
 
         describe('createElement', () => {

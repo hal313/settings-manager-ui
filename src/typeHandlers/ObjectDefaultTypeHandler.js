@@ -9,7 +9,7 @@ export class ObjectDefaultTypeHandler {
     constructor() {}
 
     getType() {
-        return 'object:default';
+        return ObjectDefaultTypeHandler.TYPE;
     }
 
     getValue(element, settingModifier) {
@@ -100,3 +100,4 @@ export class ObjectDefaultTypeHandler {
     }
 
 };
+ObjectDefaultTypeHandler.TYPE = 'object:default';

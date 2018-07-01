@@ -85,7 +85,7 @@ export class CollectionObjectTypeHandler {
     constructor() {}
 
     getType() {
-        return 'collection:object';
+        return CollectionObjectTypeHandler.TYPE;
     }
 
     getValue(element, settingModifier) {
@@ -182,3 +182,4 @@ export class CollectionObjectTypeHandler {
     }
 
 };
+CollectionObjectTypeHandler.TYPE = 'collection:object';
