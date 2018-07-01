@@ -1,5 +1,4 @@
-import { NullTypeHandler } from '../../../src/typeHandlers/NullTypeHandler';
-import { Constants } from '../../../src/Constants';
+import { NullTypeHandler } from '../../../src/typeHandlers/NullTypeHandler.js';
 
 describe('NullTypeHandler', () => {
 

@@ -1,4 +1,4 @@
-import { isObjectArray } from '../../../src/util/isObjectArray';
+import { isObjectArray } from '../../../src/util/isObjectArray.js';
 
 describe('isObjectArray', () => {
 

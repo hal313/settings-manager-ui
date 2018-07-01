@@ -1,4 +1,4 @@
-import { isArray } from '../../../src/util/isArray';
+import { isArray } from '../../../src/util/isArray.js';
 
 describe('isArray', () => {
 

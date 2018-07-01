@@ -1,6 +1,6 @@
-import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/CollectionObjectTypeHandler';
-import { SettingModifier } from '../../../src/util/SettingModifier';
-import { Constants } from '../../../src/Constants';
+import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/CollectionObjectTypeHandler.js';
+import { SettingModifier } from '../../../src/util/SettingModifier.js';
+import { Constants } from '../../../src/Constants.js';
 
 describe('CollectionObjectTypeHandler', () => {
 

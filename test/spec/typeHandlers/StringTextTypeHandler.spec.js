@@ -1,5 +1,4 @@
-import { StringTextTypeHandler } from '../../../src/typeHandlers/StringTextTypeHandler';
-import { Constants } from '../../../src/Constants';
+import { StringTextTypeHandler } from '../../../src/typeHandlers/StringTextTypeHandler.js';
 
 describe('StringTextTypeHandler', () => {
 

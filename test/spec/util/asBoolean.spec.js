@@ -1,4 +1,4 @@
-import { asBoolean } from '../../../src/util/asBoolean';
+import { asBoolean } from '../../../src/util/asBoolean.js';
 
 describe('asBoolean', () => {
 

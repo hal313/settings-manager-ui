@@ -1,4 +1,4 @@
-import { isFunction } from '../../../src/util/isFunction';
+import { isFunction } from '../../../src/util/isFunction.js';
 
 describe('isFunction', () => {
 

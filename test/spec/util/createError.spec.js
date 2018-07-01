@@ -1,4 +1,4 @@
-import { createError } from '../../../src/util/createError';
+import { createError } from '../../../src/util/createError.js';
 
 describe('createError', () => {
 

@@ -1,5 +1,4 @@
-import { NumberNumberTypeHandler } from '../../../src/typeHandlers/NumberNumberTypeHandler';
-import { Constants } from '../../../src/Constants';
+import { NumberNumberTypeHandler } from '../../../src/typeHandlers/NumberNumberTypeHandler.js';
 
 describe('NumberNumberTypeHandler', () => {
 

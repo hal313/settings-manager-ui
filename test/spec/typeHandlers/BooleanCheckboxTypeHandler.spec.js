@@ -1,5 +1,4 @@
 import { BooleanCheckboxTypeHandler } from '../../../src/typeHandlers/BooleanCheckboxTypeHandler';
-import { Constants } from '../../../src/Constants';
 import { asBoolean } from '../../../src/util/asBoolean';
 
 describe('BooleanCheckboxTypeHandler', () => {

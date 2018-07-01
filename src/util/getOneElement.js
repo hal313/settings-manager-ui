@@ -1,7 +1,7 @@
 import { createError } from './createError.js';
 import { getAllElements } from './getAllElements.js';
 import { isElement } from './isElement.js';
-import { isString } from './isString';
+import { isString } from './isString.js';
 import { isDefined } from './isDefined.js';
 
 /**

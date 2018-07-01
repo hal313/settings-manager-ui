@@ -9,7 +9,7 @@ import { NullTypeHandler } from '../typeHandlers/NullTypeHandler.js';
 import { CollectionObjectTypeHandler } from '../typeHandlers/CollectionObjectTypeHandler.js';
 import { StringPasswordTypeHandler } from '../typeHandlers/StringPasswordTypeHandler.js';
 import { TypeHandlerManager } from './TypeHandlerManager.js';
-import { ElementDecoratorManager } from './ElementDecoratorManager';
+import { ElementDecoratorManager } from './ElementDecoratorManager.js';
 import { NameElementDecorator } from '../elementDecorators/NameElementDecorator.js';
 import { TypeElementDecorator } from '../elementDecorators/TypeElementDecorator.js';
 

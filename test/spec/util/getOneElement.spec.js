@@ -1,5 +1,5 @@
-import { getOneElement } from '../../../src/util/getOneElement';
-import { asElement } from '../../../src/util/asElement';
+import { getOneElement } from '../../../src/util/getOneElement.js';
+import { asElement } from '../../../src/util/asElement.js';
 
 describe('getOneElement', () => {
 

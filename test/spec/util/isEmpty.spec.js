@@ -1,4 +1,4 @@
-import { isEmpty } from '../../../src/util/isEmpty';
+import { isEmpty } from '../../../src/util/isEmpty.js';
 
 describe('isEmpty', () => {
 

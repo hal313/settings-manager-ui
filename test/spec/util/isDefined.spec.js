@@ -1,4 +1,4 @@
-import { isDefined } from '../../../src/util/isDefined';
+import { isDefined } from '../../../src/util/isDefined.js';
 
 describe('isDefined', () => {
 

@@ -1,4 +1,4 @@
-import { isNull } from '../../../src/util/isNull';
+import { isNull } from '../../../src/util/isNull.js';
 
 describe('isNull', () => {
 

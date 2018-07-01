@@ -1,6 +1,6 @@
-import { ObjectDefaultTypeHandler } from '../../../src/typeHandlers/ObjectDefaultTypeHandler';
-import { SettingModifier } from '../../../src/util/SettingModifier';
-import { Constants } from '../../../src/Constants';
+import { ObjectDefaultTypeHandler } from '../../../src/typeHandlers/ObjectDefaultTypeHandler.js';
+import { SettingModifier } from '../../../src/util/SettingModifier.js';
+import { Constants } from '../../../src/Constants.js';
 
 describe('ObjectDefaultTypeHandler', () => {
 
@@ -287,7 +287,7 @@ describe('ObjectDefaultTypeHandler', () => {
                 expect(element.outerHTML).toMatchSnapshot();
             });
 
-            test.only('should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update', () => {
+            test('should add a child element value when the setting does not exist in the DOM and the setting is in the value object during an update', () => {
                 const name = 'person';
                 const value = {
                     name: 'person name',

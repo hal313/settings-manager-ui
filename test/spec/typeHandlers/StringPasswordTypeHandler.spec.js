@@ -1,5 +1,4 @@
-import { StringPasswordTypeHandler } from '../../../src/typeHandlers/StringPasswordTypeHandler';
-import { Constants } from '../../../src/Constants';
+import { StringPasswordTypeHandler } from '../../../src/typeHandlers/StringPasswordTypeHandler.js';
 
 describe('StringPasswordTypeHandler', () => {
 

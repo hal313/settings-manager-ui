@@ -1,4 +1,4 @@
-import { asArray } from '../../../src/util/asArray';
+import { asArray } from '../../../src/util/asArray.js';
 
 describe('asArray', () => {
 

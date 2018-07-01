@@ -1,6 +1,6 @@
 import { getDeclaredTypeFromElement } from '../../../src/util/getDeclaredTypeFromElement';
 import { asElement } from '../../../src/util/asElement';
-import { Constants } from '../../../src/Constants';
+import { Constants } from '../../../src/Constants.js';
 
 describe('getDeclaredTypeFromElement', () => {
 

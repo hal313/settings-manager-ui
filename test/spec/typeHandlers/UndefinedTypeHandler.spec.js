@@ -1,5 +1,4 @@
-import { UndefinedTypeHandler } from '../../../src/typeHandlers/UndefinedTypeHandler';
-import { Constants } from '../../../src/Constants';
+import { UndefinedTypeHandler } from '../../../src/typeHandlers/UndefinedTypeHandler.js';
 
 describe('UndefinedTypeHandler', () => {
 
