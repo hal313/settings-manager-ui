@@ -16,7 +16,7 @@ describe('hasDeclaredTypeFromElement', () => {
 
         [true, false, -1, 0, 1, NaN, '', 'some string', null, undefined, {}, () => {}, []].forEach((value) => {
             test(`returns false for "${value}"`, () => {
-                expect(() => hasDeclaredTypeFromElement(value)).toThrowError()
+                expect(() => hasDeclaredTypeFromElement(value)).toThrowError();
             });
         });
 
