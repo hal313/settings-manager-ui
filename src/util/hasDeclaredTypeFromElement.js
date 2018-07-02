@@ -1,8 +1,6 @@
 import { createError } from './createError.js';
 import { isElement } from './isElement.js';
 import { Constants } from '../Constants.js';
-import { isString } from './isString.js';
-import { isEmpty } from './isEmpty.js';
 import { isDefinedAndNotEmpty } from './isDefinedAndNotEmpty.js';
 
 /**
