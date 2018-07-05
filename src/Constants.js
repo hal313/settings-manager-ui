@@ -1,8 +1,10 @@
+const ATTRIBUTE_PREFIX = 'data-setting';
+
 const Constants = {
-    ATTRIBUTE_PREFIX: 'data-setting',
-    ATTRIBUTE_NAME: 'data-setting-name',
-    ATTRIBUTE_TYPE: 'data-setting-type',
-    ATTRIBUTE_CONTAINER_ELEMENT: 'data-setting-container'
+    ATTRIBUTE_PREFIX: ATTRIBUTE_PREFIX,
+    ATTRIBUTE_NAME: `${ATTRIBUTE_PREFIX}-name`,
+    ATTRIBUTE_TYPE: `${ATTRIBUTE_PREFIX}-type`,
+    ATTRIBUTE_CONTAINER_ELEMENT: `${ATTRIBUTE_PREFIX}-container`
 };
 
 export {Constants};
