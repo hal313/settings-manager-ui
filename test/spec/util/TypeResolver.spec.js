@@ -1,6 +1,5 @@
 import { TypeResolver } from '../../../src/util/TypeResolver';
 import { asElement } from '../../../src/util/asElement';
-import { Constants } from '../../../src/Constants.js';
 import { UndefinedTypeHandler } from '../../../src/typeHandlers/UndefinedTypeHandler';
 import { CollectionObjectTypeHandler } from '../../../src/typeHandlers/CollectionObjectTypeHandler';
 import { NullTypeHandler } from '../../../src/typeHandlers/NullTypeHandler';
