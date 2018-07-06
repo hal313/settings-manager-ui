@@ -36,7 +36,7 @@ describe('asElement', () => {
 
         test('should fix strings when an invalid string is passed in', () => {
             let element = asElement('<hotdog></not-hotdog>');
-            expect(element.tagName.toLowerCase).toBe('hotdog');
+            expect(element.tagName.toLowerCase()).toBe('hotdog');
         });
 
     });
