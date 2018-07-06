@@ -18,8 +18,8 @@ exports[`SettingsManagerUI API getSettings should get an array 1`] = `
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[0]"
-         data-setting-name="people[0]"
          data-setting-type="object:default"
+         data-setting-name="people[0]"
          data-setting-index="0"
          data-setting-value-container
     >
@@ -27,16 +27,16 @@ exports[`SettingsManagerUI API getSettings should get an array 1`] = `
              type="text"
              value="John"
              data-setting-fully-qualified-name="people.people[0].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
     <div name="people[1]"
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[1]"
-         data-setting-name="people[1]"
          data-setting-type="object:default"
+         data-setting-name="people[1]"
          data-setting-index="1"
          data-setting-value-container
     >
@@ -44,16 +44,16 @@ exports[`SettingsManagerUI API getSettings should get an array 1`] = `
              type="text"
              value="David"
              data-setting-fully-qualified-name="people.people[1].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
     <div name="people[2]"
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[2]"
-         data-setting-name="people[2]"
          data-setting-type="object:default"
+         data-setting-name="people[2]"
          data-setting-index="2"
          data-setting-value-container
     >
@@ -61,8 +61,8 @@ exports[`SettingsManagerUI API getSettings should get an array 1`] = `
              type="text"
              value="Jennifer"
              data-setting-fully-qualified-name="people.people[2].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
   </div>
@@ -74,41 +74,42 @@ exports[`SettingsManagerUI API setSettings should set a basic object 1`] = `
 
 <div id="root"
      data-setting-type="object:default"
+     data-setting-container
      class
 >
   <input name="stringValue"
          type="text"
          value="hello world!"
          data-setting-fully-qualified-name="stringValue"
-         data-setting-name="stringValue"
          data-setting-type="string:text"
+         data-setting-name="stringValue"
   >
   <input name="numberValue"
          type="number"
          value="101"
          data-setting-fully-qualified-name="numberValue"
-         data-setting-name="numberValue"
          data-setting-type="number:number"
+         data-setting-name="numberValue"
   >
   <input type="checkbox"
          name="booleanValue"
          value="true"
          data-setting-fully-qualified-name="booleanValue"
-         data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         data-setting-name="booleanValue"
   >
   <div name="nullValue"
        value="null"
        data-setting-fully-qualified-name="nullValue"
-       data-setting-name="nullValue"
        data-setting-type="null"
+       data-setting-name="nullValue"
   >
   </div>
   <div name="undefinedValue"
        value="undefined"
        data-setting-fully-qualified-name="undefinedValue"
-       data-setting-name="undefinedValue"
        data-setting-type="undefined"
+       data-setting-name="undefinedValue"
   >
   </div>
 </div>
@@ -119,86 +120,87 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
 
 <div id="root"
      data-setting-type="object:default"
+     data-setting-container
      class
 >
   <input name="stringValue"
          type="text"
          value="hello world!"
          data-setting-fully-qualified-name="stringValue"
-         data-setting-name="stringValue"
          data-setting-type="string:text"
+         data-setting-name="stringValue"
   >
   <input name="numberValue"
          type="number"
          value="101"
          data-setting-fully-qualified-name="numberValue"
-         data-setting-name="numberValue"
          data-setting-type="number:number"
+         data-setting-name="numberValue"
   >
   <input type="checkbox"
          name="booleanValue"
          value="true"
          data-setting-fully-qualified-name="booleanValue"
-         data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         data-setting-name="booleanValue"
   >
   <div name="objectValue"
        data-setting-container
        class
        data-setting-fully-qualified-name="objectValue"
-       data-setting-name="objectValue"
        data-setting-type="object:default"
+       data-setting-name="objectValue"
   >
     <input name="nestedStringValue"
            type="text"
            value="another string value"
            data-setting-fully-qualified-name="objectValue.nestedStringValue"
-           data-setting-name="nestedStringValue"
            data-setting-type="string:text"
+           data-setting-name="nestedStringValue"
     >
     <div name="nestedObjectValue"
          data-setting-container
          class
          data-setting-fully-qualified-name="objectValue.nestedObjectValue"
-         data-setting-name="nestedObjectValue"
          data-setting-type="object:default"
+         data-setting-name="nestedObjectValue"
     >
       <input name="nestedNestedStringValue"
              type="text"
              value="yet another string value"
              data-setting-fully-qualified-name="objectValue.nestedObjectValue.nestedNestedStringValue"
-             data-setting-name="nestedNestedStringValue"
              data-setting-type="string:text"
+             data-setting-name="nestedNestedStringValue"
       >
       <div name="nestedNestedObjectValue"
            data-setting-container
            class
            data-setting-fully-qualified-name="objectValue.nestedObjectValue.nestedNestedObjectValue"
-           data-setting-name="nestedNestedObjectValue"
            data-setting-type="object:default"
+           data-setting-name="nestedNestedObjectValue"
       >
         <input name="nestedNestedStringValue"
                type="text"
                value="still another string value"
                data-setting-fully-qualified-name="objectValue.nestedObjectValue.nestedNestedObjectValue.nestedNestedStringValue"
-               data-setting-name="nestedNestedStringValue"
                data-setting-type="string:text"
+               data-setting-name="nestedNestedStringValue"
         >
       </div>
       <input type="checkbox"
              name="name"
              value="false"
              data-setting-fully-qualified-name="objectValue.nestedObjectValue.name"
-             data-setting-name="name"
              data-setting-type="boolean:checkbox"
+             data-setting-name="name"
       >
     </div>
     <div name="onelevelname"
          data-setting-container
          class
          data-setting-fully-qualified-name="objectValue.onelevelname"
-         data-setting-name="onelevelname"
          data-setting-type="object:default"
+         data-setting-name="onelevelname"
     >
     </div>
   </div>
@@ -206,8 +208,8 @@ exports[`SettingsManagerUI API setSettings should set a deeply nested object 1`]
          type="text"
          value="toplevel"
          data-setting-fully-qualified-name="toplevel"
-         data-setting-name="toplevel"
          data-setting-type="string:text"
+         data-setting-name="toplevel"
   >
 </div>
 
@@ -217,50 +219,51 @@ exports[`SettingsManagerUI API setSettings should set a nested object 1`] = `
 
 <div id="root"
      data-setting-type="object:default"
+     data-setting-container
      class
 >
   <input name="stringValue"
          type="text"
          value="top level string value"
          data-setting-fully-qualified-name="stringValue"
-         data-setting-name="stringValue"
          data-setting-type="string:text"
+         data-setting-name="stringValue"
   >
   <input name="numberValue"
          type="number"
          value="101"
          data-setting-fully-qualified-name="numberValue"
-         data-setting-name="numberValue"
          data-setting-type="number:number"
+         data-setting-name="numberValue"
   >
   <input type="checkbox"
          name="booleanValue"
          value="true"
          data-setting-fully-qualified-name="booleanValue"
-         data-setting-name="booleanValue"
          data-setting-type="boolean:checkbox"
+         data-setting-name="booleanValue"
   >
   <div name="objectValue"
        data-setting-container
        class
        data-setting-fully-qualified-name="objectValue"
-       data-setting-name="objectValue"
        data-setting-type="object:default"
+       data-setting-name="objectValue"
   >
     <input name="nestedStringValue"
            type="text"
            value="nested string value"
            data-setting-fully-qualified-name="objectValue.nestedStringValue"
-           data-setting-name="nestedStringValue"
            data-setting-type="string:text"
+           data-setting-name="nestedStringValue"
     >
   </div>
   <input name="anotherStringValue"
          type="text"
          value="another top level string value"
          data-setting-fully-qualified-name="anotherStringValue"
-         data-setting-name="anotherStringValue"
          data-setting-type="string:text"
+         data-setting-name="anotherStringValue"
   >
 </div>
 
@@ -270,6 +273,7 @@ exports[`SettingsManagerUI API setSettings should set an array 1`] = `
 
 <div id="root"
      data-setting-type="object:default"
+     data-setting-container
      class
 >
   <div name="people"
@@ -282,8 +286,8 @@ exports[`SettingsManagerUI API setSettings should set an array 1`] = `
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[0]"
-         data-setting-name="people[0]"
          data-setting-type="object:default"
+         data-setting-name="people[0]"
          data-setting-index="0"
          data-setting-value-container
     >
@@ -291,16 +295,16 @@ exports[`SettingsManagerUI API setSettings should set an array 1`] = `
              type="text"
              value="John"
              data-setting-fully-qualified-name="people.people[0].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
     <div name="people[1]"
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[1]"
-         data-setting-name="people[1]"
          data-setting-type="object:default"
+         data-setting-name="people[1]"
          data-setting-index="1"
          data-setting-value-container
     >
@@ -308,16 +312,16 @@ exports[`SettingsManagerUI API setSettings should set an array 1`] = `
              type="text"
              value="David"
              data-setting-fully-qualified-name="people.people[1].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
     <div name="people[2]"
          data-setting-container
          class
          data-setting-fully-qualified-name="people.people[2]"
-         data-setting-name="people[2]"
          data-setting-type="object:default"
+         data-setting-name="people[2]"
          data-setting-index="2"
          data-setting-value-container
     >
@@ -325,8 +329,8 @@ exports[`SettingsManagerUI API setSettings should set an array 1`] = `
              type="text"
              value="Jennifer"
              data-setting-fully-qualified-name="people.people[2].name"
-             data-setting-name="name"
              data-setting-type="string:text"
+             data-setting-name="name"
       >
     </div>
   </div>

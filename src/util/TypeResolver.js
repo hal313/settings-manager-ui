@@ -6,6 +6,8 @@ import { createError } from './createError.js';
 import { CollectionObjectTypeHandler } from '../typeHandlers/CollectionObjectTypeHandler.js';
 import { NullTypeHandler } from '../typeHandlers/NullTypeHandler.js';
 import { UndefinedTypeHandler } from '../typeHandlers/UndefinedTypeHandler.js';
+import { Constants } from '../Constants.js';
+import { isDefinedAndNotEmpty } from './isDefinedAndNotEmpty.js';
 
 // This is the mapping; modify this in order to support more types
 // The LEFT is the declared type on an element, and the RIGHT side represents the type to be handled by a TypeResolver
@@ -39,7 +41,10 @@ export class TypeResolver {
     }
 
     /**
-     * Attempts to derrive the type from the element. If element.type is configured
+     * Attempts to derrive the type from the element. This is the order the element is checked:
+     *  - if the element has an attribute for the type (ATTRIBUTE_TYPE)
+     *  - if the element.type member has been set
+     *  - infer from element.value
      *
      * @param {Element} element the element to get the type from
      * @returns {String} the type assigned to the element the type attribute or the type of the value
@@ -50,11 +55,20 @@ export class TypeResolver {
             throw createError('"element" must be an Element');
         }
 
-        let mapping = TYPE_MAP[(element.type + '').toLowerCase()];
+        // Get from the declared type (attribute)
+        let declaredType = element.getAttribute(Constants.ATTRIBUTE_TYPE);
+        if (isDefinedAndNotEmpty(declaredType)) {
+            return declaredType;
+        }
 
+        // See if the element.type member is set
+        let mapping = TYPE_MAP[(element.type + '').toLowerCase()];
+        //
         if (!!mapping) {
             return mapping;
         }
+
+        // Infer the value
         return this.getTypeFromValue(element.value);
     }
 

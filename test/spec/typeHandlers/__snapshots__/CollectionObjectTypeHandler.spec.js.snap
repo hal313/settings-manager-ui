@@ -10,8 +10,8 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -19,16 +19,16 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -36,16 +36,16 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
            name="second"
            value="true"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -53,8 +53,8 @@ exports[`CollectionObjectTypeHandler API createElement should create an element 
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
 </div>
@@ -72,8 +72,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -81,16 +81,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -98,16 +98,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="true"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -115,8 +115,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
 </div>
@@ -134,8 +134,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -143,16 +143,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -160,16 +160,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="false"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -177,8 +177,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
 </div>
@@ -196,8 +196,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -205,16 +205,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -222,16 +222,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="true"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -239,8 +239,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
 </div>
@@ -258,8 +258,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -267,16 +267,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -284,16 +284,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="false"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -301,16 +301,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
   <div name="fieldName[3]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[3]"
-       data-setting-name="fieldName[3]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[3]"
        data-setting-index="3"
        data-setting-value-container
   >
@@ -318,8 +318,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="four"
            data-setting-fully-qualified-name="fieldName[3].fourth"
-           data-setting-name="fourth"
            data-setting-type="string:text"
+           data-setting-name="fourth"
     >
   </div>
 </div>
@@ -337,8 +337,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="people[0]"
-       data-setting-name="people[0]"
        data-setting-type="object:default"
+       data-setting-name="people[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -346,23 +346,23 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 1"
            data-setting-fully-qualified-name="people[0].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 1"
            data-setting-fully-qualified-name="people[0].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
   <div name="people[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="people[1]"
-       data-setting-name="people[1]"
        data-setting-type="object:default"
+       data-setting-name="people[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -370,23 +370,23 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 2"
            data-setting-fully-qualified-name="people[1].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 2"
            data-setting-fully-qualified-name="people[1].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
   <div name="people[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="people[2]"
-       data-setting-name="people[2]"
        data-setting-type="object:default"
+       data-setting-name="people[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -394,15 +394,15 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 3"
            data-setting-fully-qualified-name="people[2].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 3"
            data-setting-fully-qualified-name="people[2].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
 </div>
@@ -420,8 +420,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="people[0]"
-       data-setting-name="people[0]"
        data-setting-type="object:default"
+       data-setting-name="people[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -429,23 +429,23 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 1"
            data-setting-fully-qualified-name="people[0].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 1"
            data-setting-fully-qualified-name="people[0].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
   <div name="people[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="people[1]"
-       data-setting-name="people[1]"
        data-setting-type="object:default"
+       data-setting-name="people[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -453,23 +453,23 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 2"
            data-setting-fully-qualified-name="people[1].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 2"
            data-setting-fully-qualified-name="people[1].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
   <div name="people[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="people[2]"
-       data-setting-name="people[2]"
        data-setting-type="object:default"
+       data-setting-name="people[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -477,15 +477,15 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="first name 3"
            data-setting-fully-qualified-name="people[2].firstName"
-           data-setting-name="firstName"
            data-setting-type="string:text"
+           data-setting-name="firstName"
     >
     <input name="lastName"
            type="text"
            value="last name 3"
            data-setting-fully-qualified-name="people[2].lastName"
-           data-setting-name="lastName"
            data-setting-type="string:text"
+           data-setting-name="lastName"
     >
   </div>
 </div>
@@ -503,8 +503,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -512,16 +512,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -529,16 +529,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="true"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
   <div name="fieldName[2]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[2]"
-       data-setting-name="fieldName[2]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[2]"
        data-setting-index="2"
        data-setting-value-container
   >
@@ -546,8 +546,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="text"
            value="3"
            data-setting-fully-qualified-name="fieldName[2].third"
-           data-setting-name="third"
            data-setting-type="string:text"
+           data-setting-name="third"
     >
   </div>
 </div>
@@ -565,8 +565,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[0]"
-       data-setting-name="fieldName[0]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[0]"
        data-setting-index="0"
        data-setting-value-container
   >
@@ -574,16 +574,16 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            type="number"
            value="1"
            data-setting-fully-qualified-name="fieldName[0].first"
-           data-setting-name="first"
            data-setting-type="number:number"
+           data-setting-name="first"
     >
   </div>
   <div name="fieldName[1]"
        data-setting-container
        class
        data-setting-fully-qualified-name="fieldName[1]"
-       data-setting-name="fieldName[1]"
        data-setting-type="object:default"
+       data-setting-name="fieldName[1]"
        data-setting-index="1"
        data-setting-value-container
   >
@@ -591,8 +591,8 @@ exports[`CollectionObjectTypeHandler API setValue should set the value for a sel
            name="second"
            value="false"
            data-setting-fully-qualified-name="fieldName[1].second"
-           data-setting-name="second"
            data-setting-type="boolean:checkbox"
+           data-setting-name="second"
     >
   </div>
 </div>

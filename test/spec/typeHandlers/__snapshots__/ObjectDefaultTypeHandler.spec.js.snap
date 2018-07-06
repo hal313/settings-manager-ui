@@ -10,22 +10,22 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -41,36 +41,36 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
        data-setting-container
        class
        data-setting-fully-qualified-name="name"
-       data-setting-name="name"
        data-setting-type="object:default"
+       data-setting-name="name"
   >
     <input name="first"
            type="text"
            value="firstname"
            data-setting-fully-qualified-name="name.first"
-           data-setting-name="first"
            data-setting-type="string:text"
+           data-setting-name="first"
     >
     <input name="last"
            type="text"
            value="lastname"
            data-setting-fully-qualified-name="name.last"
-           data-setting-name="last"
            data-setting-type="string:text"
+           data-setting-name="last"
     >
     <div name="optional"
          data-setting-container
          class
          data-setting-fully-qualified-name="name.optional"
-         data-setting-name="optional"
          data-setting-type="object:default"
+         data-setting-name="optional"
     >
       <input name="middle"
              type="text"
              value="middlename"
              data-setting-fully-qualified-name="name.optional.middle"
-             data-setting-name="middle"
              data-setting-type="string:text"
+             data-setting-name="middle"
       >
     </div>
   </div>
@@ -78,15 +78,15 @@ exports[`ObjectDefaultTypeHandler API createElement should create an element wit
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -102,22 +102,22 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -133,29 +133,29 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
   <input name="eyeColor"
          type="text"
          value="brown"
          data-setting-fully-qualified-name="eyeColor"
-         data-setting-name="eyeColor"
          data-setting-type="string:text"
+         data-setting-name="eyeColor"
   >
 </div>
 
@@ -171,22 +171,22 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -202,43 +202,43 @@ exports[`ObjectDefaultTypeHandler API setValue should add a child element value 
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
   <div name="height"
        data-setting-container
        class
        data-setting-fully-qualified-name="height"
-       data-setting-name="height"
        data-setting-type="object:default"
+       data-setting-name="height"
   >
     <input name="feet"
            type="number"
            value="5"
            data-setting-fully-qualified-name="height.feet"
-           data-setting-name="feet"
            data-setting-type="number:number"
+           data-setting-name="feet"
     >
     <input name="inches"
            type="number"
            value="10"
            data-setting-fully-qualified-name="height.inches"
-           data-setting-name="inches"
            data-setting-type="number:number"
+           data-setting-name="inches"
     >
   </div>
 </div>
@@ -255,22 +255,22 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -286,15 +286,15 @@ exports[`ObjectDefaultTypeHandler API setValue should remove a child element fro
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -310,22 +310,22 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -341,15 +341,15 @@ exports[`ObjectDefaultTypeHandler API setValue should set the value for a self-c
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -365,22 +365,22 @@ exports[`ObjectDefaultTypeHandler API setValue should update a child element val
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
@@ -396,22 +396,22 @@ exports[`ObjectDefaultTypeHandler API setValue should update a child element val
          type="text"
          value="person name"
          data-setting-fully-qualified-name="name"
-         data-setting-name="name"
          data-setting-type="string:text"
+         data-setting-name="name"
   >
   <input name="age"
          type="number"
          value="21"
          data-setting-fully-qualified-name="age"
-         data-setting-name="age"
          data-setting-type="number:number"
+         data-setting-name="age"
   >
   <input type="checkbox"
          name="registeredVoter"
          value="true"
          data-setting-fully-qualified-name="registeredVoter"
-         data-setting-name="registeredVoter"
          data-setting-type="boolean:checkbox"
+         data-setting-name="registeredVoter"
   >
 </div>
 
