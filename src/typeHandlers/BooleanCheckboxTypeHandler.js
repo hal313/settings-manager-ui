@@ -2,10 +2,13 @@ import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
 import { isBoolean } from '../util/isBoolean.js';
 import { isElement } from '../util/isElement.js';
+import { TypeHandler } from './TypeHandler.js';
 
-export class BooleanCheckboxTypeHandler {
+export class BooleanCheckboxTypeHandler extends TypeHandler {
 
-    constructor() {}
+    constructor() {
+        super();
+    }
 
     getType() {
         return BooleanCheckboxTypeHandler.TYPE;

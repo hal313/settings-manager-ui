@@ -8,6 +8,7 @@ import { getOneElement } from '../util/getOneElement.js';
 import { getAllElements } from '../util/getAllElements.js';
 import { isDefined } from '../util/isDefined.js';
 import { isElement } from '../util/isElement.js';
+import { TypeHandler } from './TypeHandler.js';
 
 const ATTRIBUTE_INDEX = 'data-setting-index';
 const ATTRIBUTE_COLLECTION_VALUE_CONTAINER = 'data-setting-value-container';
@@ -81,9 +82,11 @@ const createArrayItemContainerElement = (name, value, index, settingModifier) =>
     return element;
 };
 
-export class CollectionObjectTypeHandler {
+export class CollectionObjectTypeHandler extends TypeHandler {
 
-    constructor() {}
+    constructor() {
+        super();
+    }
 
     getType() {
         return CollectionObjectTypeHandler.TYPE;

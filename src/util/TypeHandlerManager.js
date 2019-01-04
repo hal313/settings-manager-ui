@@ -1,14 +1,21 @@
 import { createError } from './createError.js';
-import { isArray } from './isArray.js';
-import { isNull } from './isNull.js';
-import { isUndefined } from './isUndefined.js';
+import { TypeResolver } from './TypeResolver.js';
+import { TypeHandler } from '../typeHandlers/TypeHandler.js';
+import { isDefinedAndNotEmpty } from './isDefinedAndNotEmpty.js';
+import { isDefined } from './isDefined.js';
+import { isEmpty } from './isEmpty.js';
+import { isString } from './isString.js';
+import { isNullOrUndefined } from 'util';
 
+const TYPE_RESOLVER = new TypeResolver();
 export class TypeHandlerManager {
 
     constructor() {
-        this.typeMap = {};
-        this.defaultsMap = {};
+        // this.typeMap = {};
+        // this.defaultsMap = {};
         this.overridesMap = {};
+        this.handlers = {};
+        this.nameMap = {};
     }
 
     /**
@@ -18,27 +25,51 @@ export class TypeHandlerManager {
      * setValue(Element, *): void           - Sets the value of the Element
      * createElement(name, value): Element  - Creates an Element instance which represents the name and value
      *
-     * @param {Object} type the name of the type
-     * @param {Function} [getFn] a function which takes an Element and returns the value for that element
-     * @param {Function} [setFn] a function which takes an Element and a value in order to set the value in the element
-     * @param {Function} [createFn] a function which takes a name and an optional value and returns an Element or String with the initial value
+     * @param {TypeHandler} typeHandler the type handler
+     * @param {String} [name] optional name to use
      */
-    addTypeHandler(type) {
-        this.typeMap[type.getType()] = type;
+    addTypeHandler(typeHandler, name) {
+        if (!(typeHandler instanceof TypeHandler)) {
+            throw createError('"typeHandler" must be an instance of TypeHandler');
+        }
+
+        let type = typeHandler.getType();
+        if (!!this.handlers[type]) {
+            throw createError(`Handler of type ${type} already exists.`);
+        }
+
+        // Add the handler
+        this.handlers[type] = typeHandler;
+        // Add the name, if present
+        if (isDefined(name)) {
+            if (!isString(name)) {
+                throw createError(`${name} must be a string`);
+            }
+            if (isEmpty(name)) {
+                throw createError(`${name} must not be empty`);
+            }
+
+            let existing = this.nameMap[name];
+            if (!isNullOrUndefined(existing)) {
+                throw createError(`${name} already exists as a named handler`);
+            }
+
+            this.nameMap[name] = type;
+        }
     }
 
-    /**
-     * Registeres a handler for default types. When a type is requested and not found, the defaults are consulted. This allows
-     * clients to indicate generic type handlers. For instance, if there is no handler for "string", but the "string:text"
-     * handler was registered for "string" via a call to `setDefaultHandler('string', 'string:text');` then the "string:text"
-     * resolver will be used when a resolver of type "string" is required.
-     *
-     * @param {String} type the type to handle
-     * @param {String} handlingType the type which should handle <i>type</i>
-     */
-    setDefaultHandler(type, handlingType) {
-        this.defaultsMap[type] = handlingType;
-    }
+    // /**
+    //  * Registeres a handler for default types. When a type is requested and not found, the defaults are consulted. This allows
+    //  * clients to indicate generic type handlers. For instance, if there is no handler for "string", but the "string:text"
+    //  * handler was registered for "string" via a call to `setDefaultHandler('string', 'string:text');` then the "string:text"
+    //  * resolver will be used when a resolver of type "string" is required.
+    //  *
+    //  * @param {String} type the type to handle
+    //  * @param {String} handlingType the type which should handle <i>type</i>
+    //  */
+    // setDefaultHandler(type, handlingType) {
+    //     this.defaultsMap[type] = handlingType;
+    // }
 
     /**
      * Gets the handler for the type. The defaults map is consulted when the type is unknown.
@@ -47,23 +78,47 @@ export class TypeHandlerManager {
      * @return {Object} the handler for the type
      * @throws when no handler is found for the type
      */
-    getTypeHandler(type) {
-        // Try the type map first
-        if (!!this.typeMap[type]) {
-            return this.typeMap[type];
+    getTypeHandlerByType(type) {
+        // Check the overrides map first
+        let resolvedType = type;
+
+        while (!!this.overridesMap[resolvedType]) {
+            resolvedType = this.overridesMap[resolvedType];
         }
 
-        // Next, try the defaults map
-        if (!!this.defaultsMap[type]) {
-            return this.typeMap[this.defaultsMap[type]];
+        let match = this.handlers[resolvedType];
+
+        if (!!match) {
+            return match;
         }
 
         // Throw an error
-        throw createError(`Unknown type "${type}"`);
+        throw createError(`Unknown type "${type}"${type !== resolvedType?' (mapped to ' + resolvedType + ')':''}`);
     }
 
-    setTypeOverride(name, type) {
-        this.overridesMap[name] = type;
+    getTypeHandlerByName(name) {
+        if (!isString(name)) {
+            throw createError('"name" must be a string');
+        }
+        if (isEmpty(name)) {
+            throw createError('"name" must not be empty');
+        }
+
+        let type = this.nameMap[name];
+
+        if (!isDefinedAndNotEmpty(type)) {
+            throw createError(`Could not find type handler named ${type}`);
+        }
+
+        return this.getTypeHandlerByType(type);
+    }
+
+    hasTypeHandlerByName(name) {
+        return isDefinedAndNotEmpty(this.nameMap[name]);
+    }
+
+    setTypeOverride(alias, type) {
+        this.overridesMap[alias] = type;
     }
 
     /**
@@ -78,24 +133,9 @@ export class TypeHandlerManager {
      */
     inferTypeHandler(name, value) {
         if (!!this.overridesMap[name]) {
-            this.getTypeHandler(this.overridesMap[name]);
+            this.getTypeHandlerByType(this.overridesMap[name]);
         }
-        return this.getTypeHandler(this.getTypeFromValue(value));
+        return this.getTypeHandlerByType(TYPE_RESOLVER.getTypeFromValue(value));
     }
 
-    getTypeFromValue(value) {
-        // Because this module's internal types mirror that of JavaScript (with the exception of objectarray),
-        // it is necessary only have to check for object array and return the JavaScript type otherwise
-        if (isArray(value)) {
-            return 'collection:object';
-        };
-        if (isNull(value)) {
-            return 'null';
-        }
-        if (isUndefined(value)) {
-            return 'undefined';
-        }
-        return typeof value;
-    }
-
-};
+}

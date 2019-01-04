@@ -18,7 +18,7 @@ describe('ObjectDefaultTypeHandler', () => {
 
         beforeEach(() => {
             settingModifier = new SettingModifier();
-            objectDefaultTypeHandler = settingModifier.typeHandlerManager.getTypeHandler(ObjectDefaultTypeHandler.TYPE);
+            objectDefaultTypeHandler = settingModifier.typeHandlerManager.getTypeHandlerByType(ObjectDefaultTypeHandler.TYPE);
         });
 
 

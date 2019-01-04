@@ -1,4 +1,4 @@
-import { getDeclaredTypeFromElement } from './getDeclaredTypeFromElement.js';
+import { getTypeFromElement } from './getTypeFromElement.js';
 import { Constants } from '../Constants.js';
 import { StringTextTypeHandler } from '../typeHandlers/StringTextTypeHandler.js';
 import { BooleanCheckboxTypeHandler } from '../typeHandlers/BooleanCheckboxTypeHandler.js';
@@ -57,16 +57,16 @@ export class SettingModifier {
     }
 
     getValue(element) {
-        let type = getDeclaredTypeFromElement(element);
-        let handler = this.typeHandlerManager.getTypeHandler(type);
+        let type = getTypeFromElement(element);
+        let handler = this.typeHandlerManager.getTypeHandlerByType(type);
         return handler.getValue(element, this);
-    };
+    }
 
     setValue(element, value) {
-        let type = getDeclaredTypeFromElement(element);
-        let handler = this.typeHandlerManager.getTypeHandler(type);
+        let type = getTypeFromElement(element);
+        let handler = this.typeHandlerManager.getTypeHandlerByType(type);
         return handler.setValue(element, value, this);
-    };
+    }
 
     createElement(name, value) {
         // Get the handler
@@ -92,19 +92,20 @@ export class SettingModifier {
 
     addTypeHandler(typeHandler) {
         this.typeHandlerManager.addTypeHandler(typeHandler);
-    };
+    }
 
     addElementDecorator(type, elementDecorator) {
         this.elementDecoratorManager.addElementDecorators(type, elementDecorator);
-    };
+    }
 
     setDefaultHandler(type, typeHandler) {
         this.typeHandlerManager.setDefaultHandler(type, typeHandler);
     }
 
+    // TODO: Do we need this?
     decorateAsRoot(element) {
         if (!element.hasAttribute(Constants.ATTRIBUTE_TYPE)) {
-            element.setAttribute(Constants.ATTRIBUTE_TYPE, this.typeHandlerManager.getTypeHandler('object').getType());
+            element.setAttribute(Constants.ATTRIBUTE_TYPE, this.typeHandlerManager.getTypeHandlerByType('object').getType());
         }
     }
 

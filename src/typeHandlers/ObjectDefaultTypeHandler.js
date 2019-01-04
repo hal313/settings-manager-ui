@@ -4,16 +4,36 @@ import { Constants } from '../Constants.js';
 import { getChildSettingElements } from '../util/getChildSettingElements.js';
 import { getNameFromElement } from '../util/getNameFromElement.js';
 import { isElement } from '../util/isElement.js';
+import { SettingModifier } from '../util/SettingModifier.js';
+import { TypeHandler } from './TypeHandler.js';
 
-export class ObjectDefaultTypeHandler {
 
-    constructor() {}
+/**
+ * Marks an element as being a container
+ *
+ * @param {Element} element the element to mark as a container
+ */
+let markElementAsContainer = (element) => {
+    element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
+}
+export class ObjectDefaultTypeHandler extends TypeHandler {
+
+    constructor() {
+        super();
+    }
 
     getType() {
         return ObjectDefaultTypeHandler.TYPE;
     }
 
+    /**
+     *
+     * @param {Element} element the element to get the value from
+     * @param {SettingModifier} settingModifier setting modifier instance
+     */
     getValue(element, settingModifier) {
+        markElementAsContainer(element);
+
         let childElements = getChildSettingElements(element);
         let valueObject = {};
 
@@ -35,6 +55,8 @@ export class ObjectDefaultTypeHandler {
         if (!isElement(element)) {
             throw createError('The "element" parameter must be an Element');
         }
+
+        markElementAsContainer(element);
 
         // Append the name to the root path
         let childElements = getChildSettingElements(element);
@@ -95,8 +117,9 @@ export class ObjectDefaultTypeHandler {
 
         // Set attributes
         element.setAttribute('name', name);
+
         // Set custom attributes
-        element.setAttribute(Constants.ATTRIBUTE_CONTAINER_ELEMENT, '');
+        markElementAsContainer(element);
 
         // Set the value
         this.setValue(element, value, settingModifier);
@@ -104,5 +127,5 @@ export class ObjectDefaultTypeHandler {
         return element;
     }
 
-};
+}
 ObjectDefaultTypeHandler.TYPE = 'object:default';

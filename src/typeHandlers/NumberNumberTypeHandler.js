@@ -2,10 +2,14 @@ import {isDefinedAndNotEmpty} from '../util/isDefinedAndNotEmpty.js';
 import {createError} from '../util/createError.js';
 import { isElement } from '../util/isElement.js';
 import { isNumber } from '../util/isNumber.js';
+import { TypeHandler } from './TypeHandler.js';
 
-export class NumberNumberTypeHandler {
+export class NumberNumberTypeHandler extends TypeHandler
+{
 
-    constructor() {}
+    constructor() {
+        super();
+    }
 
     getType() {
         return NumberNumberTypeHandler.TYPE;

@@ -18,7 +18,7 @@ describe('CollectionObjectTypeHandler', () => {
 
         beforeEach(() => {
             settingModifier = new SettingModifier();
-            collectionObjectTypeHandler = settingModifier.typeHandlerManager.getTypeHandler(CollectionObjectTypeHandler.TYPE);
+            collectionObjectTypeHandler = settingModifier.typeHandlerManager.getTypeHandlerByType(CollectionObjectTypeHandler.TYPE);
         });
 
         describe('getType', () => {

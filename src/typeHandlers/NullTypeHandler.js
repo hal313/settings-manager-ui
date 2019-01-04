@@ -2,10 +2,13 @@ import { isDefinedAndNotEmpty } from '../util/isDefinedAndNotEmpty.js';
 import { createError } from '../util/createError.js';
 import { isNull } from '../util/isNull.js';
 import { isElement } from '../util/isElement.js';
+import { TypeHandler } from './TypeHandler.js';
 
-export class NullTypeHandler {
+export class NullTypeHandler extends TypeHandler {
 
-    constructor() {}
+    constructor() {
+        super();
+    }
 
     getType() {
         return NullTypeHandler.TYPE;
