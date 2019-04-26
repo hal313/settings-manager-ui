@@ -95,7 +95,8 @@ module.exports = function(grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                reporterOutput: '',
             },
             source: ['src/UISettingsManager.js'],
             // Only lint the unmin file

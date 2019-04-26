@@ -2,9 +2,9 @@
 /*global console:false */
 /*global TemplateManager:false */
 
-// Build User: jghidiu
-// Version: 2.0.3
-// Build Date: Tue Dec 30 2014 02:29:03 GMT-0500 (Eastern Standard Time)
+// Build User: 
+// Version: 2.0.4
+// Build Date: Fri Apr 26 2019 00:58:20 GMT-0400 (EDT)
 
 // TODO: Make a jquery plugin
 // TODO: Allow for non-flat options {debug: {enabled: true, only-on-change: true}}
@@ -159,7 +159,9 @@
                 // Build the resolver map
                 $.each(item, function(index, property) {
                     resolverMap.push({
+                        // Use both "regex" and "pattern" to comply with different versions of TemplateManager
                         regex: index,
+                        pattern: index,
                         replacement: property
                     });
                 });
@@ -373,7 +375,7 @@
     };
 
     // Place the version as a member in the function
-    UISettingsManager.version = '2.0.3';
+    UISettingsManager.version = '2.0.4';
 
     return UISettingsManager;
 
