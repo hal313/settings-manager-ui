@@ -159,7 +159,9 @@
                 // Build the resolver map
                 $.each(item, function(index, property) {
                     resolverMap.push({
+                        // Use both "regex" and "pattern" to comply with different versions of TemplateManager
                         regex: index,
+                        pattern: index,
                         replacement: property
                     });
                 });
