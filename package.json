@@ -1,6 +1,6 @@
 {
     "name": "settings-manager-ui",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "description": "A JavaScript library to manage persisting UI settings",
     "homepage": "https://github.com/hal313/settings-manager-ui",
     "bugs": {
