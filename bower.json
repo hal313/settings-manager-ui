@@ -1,7 +1,7 @@
 {
-  "name": "ui-settings-manager",
-  "version": "2.0.4",
-  "homepage": "https://github.com/hal313/ui-settings-manager",
+  "name": "settings-manager-ui",
+  "version": "2.0.5",
+  "homepage": "https://github.com/hal313/settings-manager-ui",
   "authors": [
     "john-github@rmdashrf.org"
   ],
